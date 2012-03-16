@@ -43,7 +43,7 @@ namespace TETSTETETE.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Det indtastede brugernavn eller den indtastede adgangskode er ikke korrekt.");
                 }
             }
 
@@ -134,7 +134,7 @@ namespace TETSTETETE.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "Adgangskoden er ikke korrekt eller den nye adgangskode er invalid.");
                 }
             }
 
@@ -158,16 +158,10 @@ namespace TETSTETETE.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
-
-                case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Brugernavnet findes allerede. Indtast venligst et nyt brugernavn.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
-
-                case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return "Den indtastede adgangskode er ikke valid. Indtast venligst en ny adgangskode.";
 
                 case MembershipCreateStatus.InvalidAnswer:
                     return "The password retrieval answer provided is invalid. Please check the value and try again.";
@@ -176,16 +170,16 @@ namespace TETSTETETE.Controllers
                     return "The password retrieval question provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return "Det indtastede brugernavn er ikke validt. Indtast venligst et nyt brugernavn.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Der er sket en fejl. Genindtast venligst dine informationer og prøv igen.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Der er sket en fejl under dannelsen af din bruger. Genindtast venligst dine informationer og prøv igen.";
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "En ukendt fejl er forekommet. Genindtast venligst dine informationer og prøv igen.";
             }
         }
         #endregion

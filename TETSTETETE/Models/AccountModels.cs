@@ -30,11 +30,9 @@ namespace TETSTETETE.Models
 
     public class LogOnModel
     {
-        [Required]
         [Display(Name = "Brugernavn")]
         public string UserName { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Adgangskode")]
         public string Password { get; set; }
@@ -45,11 +43,9 @@ namespace TETSTETETE.Models
 
     public class RegisterModel
     {
-        [Required]
         [Display(Name = "Brugernavn")]
         public string UserName { get; set; }
 
-        [Required]
         [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Adgangskode")]
