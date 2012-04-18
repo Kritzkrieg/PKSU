@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TETSTETETE", "TETSTETETE\TETSTETETE.csproj", "{7AE7C4DC-F85F-4715-A9B9-4AAB58AB7294}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning", "TETSTETETE\ELearning.csproj", "{7AE7C4DC-F85F-4715-A9B9-4AAB58AB7294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

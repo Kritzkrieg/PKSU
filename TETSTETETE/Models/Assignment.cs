@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace TETSTETETE.Models
+namespace ELearning.Models
 {
     public class Assignment
     {

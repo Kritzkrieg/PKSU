@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TETSTETETE.Models;
+using ELearning.Models;
 
-namespace TETSTETETE.Controllers
+namespace ELearning.Controllers
 { 
     public class AssignmentsController : Controller
     {

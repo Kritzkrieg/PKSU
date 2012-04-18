@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using MySql.Data.MySqlClient;
 
-namespace TETSTETETE.Models
+namespace ELearning.Models
 {
 
     public class ChangePasswordModel
