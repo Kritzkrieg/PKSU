@@ -79,7 +79,9 @@ namespace TETSTETETE.Controllers
             {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, null, null, null, true, null, out createStatus);
+                MembershipUser user;
+                user = Membership.CreateUser(model.UserName, model.Password, null, null, null, true, null, out createStatus);
+                Roles.AddUserToRole(user.UserName, "Student"); 
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {

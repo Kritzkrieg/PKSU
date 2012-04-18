@@ -17,7 +17,7 @@ namespace TETSTETETE.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 2)]
         [DataType(DataType.Password)]
         [Display(Name = "Ny adgangskode")]
         public string NewPassword { get; set; }
@@ -46,7 +46,7 @@ namespace TETSTETETE.Models
         [Display(Name = "Brugernavn")]
         public string UserName { get; set; }
 
-        [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 2)]
         [DataType(DataType.Password)]
         [Display(Name = "Adgangskode")]
         public string Password { get; set; }

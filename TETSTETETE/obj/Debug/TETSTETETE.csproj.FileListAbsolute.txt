@@ -12,3 +12,10 @@ C:\Users\Kim\PKSU\TETSTETETE\bin\EntityFramework.xml
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\TETSTETETE.dll
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\TETSTETETE.pdb
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\TETSTETETE.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\TETSTETETE.pdb
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\EntityFramework.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\EntityFramework.xml
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\TETSTETETE.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\TETSTETETE.pdb
