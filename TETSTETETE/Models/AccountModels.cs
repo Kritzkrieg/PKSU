@@ -56,4 +56,6 @@ namespace ELearning.Models
         [Compare("Password", ErrorMessage = "Adgangskoden stemmer ikke overens med den gentagne adgangskode.")]
         public string ConfirmPassword { get; set; }
     }
+
+
 }
