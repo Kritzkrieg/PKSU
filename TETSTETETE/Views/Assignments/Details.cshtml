@@ -1,0 +1,20 @@
+﻿@model TETSTETETE.Models.Assignment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Assignment</legend>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
