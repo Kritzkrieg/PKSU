@@ -1,6 +1,6 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <text>Welcome <strong>@User.Identity.Name</strong>!
+    <text>Du er logged ind som: <strong>@User.Identity.Name</strong>
     [ @Html.ActionLink("Log af", "LogOff", "Account") ]</text>
 }
 else
