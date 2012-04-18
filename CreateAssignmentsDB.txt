@@ -1,5 +1,5 @@
-CREATE TABLE `assignments` (
+CREATE TABLE `test` . `assignments` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Text` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8$$
+)
