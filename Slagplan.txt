@@ -4,6 +4,7 @@ STUFF TO FIX
 For student:
 
 	-Tryk på opgaver -> Vælg emne -> vis opgaveside
+	FUCk EMNE INDTIL VIDERE
 
 	-Opgavesiden skal have en template opgave 
 		-Navn: Assignments
@@ -14,19 +15,54 @@ For student:
 
 	-Forside:
 		-Fjern placeholder tekst
-		-Indsæt dummy highscore boks		
-
-
+		-Brugerforside med listing af brugerattributter hentet fra databasen
+		-Indsættes en highscore boks
+			-Addes point attribut til student model		
 
 For admin:
-
-
 
 	-Admnistrer opgaver: Nuværende opgaveside
 		-Navn: AdminAssignments
 
 	-Se brugere: Liste over registrerede brugere 
 		-Navn: UserList
-		-Link ved hver brugere til brugerside
+		-Link ved hver bruger til brugers forside
 		
+
+
+Attributter til student:
+	
+	-Points (Antal assignments completed)
+	-Hvilke emner har man lavet opgaver i
+	-Vis dag hvor man har lavet flest opgaver
+
+Attributter til assignment:
+
+	-Fire svarmuligheder (String) (Tilføj til sidst i strengen S eller F)
+	-Når assignment vises: Substring sidste tegn væk
+	-Når assignment tjekkes: Substring til sidste tegn, boolean S eller F
+	
+
+Student-Assignment database scheme
+	StudentAssignment(PK(ID), StudentID, AssignmentID, TimeofSubmission)
+
+
+TIL TÆNKEHØJT FORSØG
+
+	-Log ind
+	-Løs en opgave
+	-Se liste over brugere
+	-Gå ind på en brugers side
+	-Tilføj en opgave
+	-Rediger en opgave
+
+
+
+
+
+
+
+
+
+
 

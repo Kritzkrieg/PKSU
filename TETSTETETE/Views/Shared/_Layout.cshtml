@@ -18,7 +18,7 @@
                 <ul id="menu">
                     <li>@Html.ActionLink("Forside", "Index", "Home")</li>
                     <li>@Html.ActionLink("Opgaver", "Index", "Assignments")</li>
-                    @if(Roles.GetRolesForUser().Contains("Admin")) {
+                        @if(Roles.GetRolesForUser().Contains("Admin")) {
                         <li>@Html.ActionLink("Rediger Opgaver", "Index", "AdminAssignments")</li>
                         <li>@Html.ActionLink("Se brugere", "Index", "UserList")</li>
                         }
