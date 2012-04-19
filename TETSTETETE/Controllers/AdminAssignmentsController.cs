@@ -9,7 +9,7 @@ using ELearning.Models;
 
 namespace ELearning.Controllers
 { 
-    public class AssignmentsController : Controller
+    public class AdminAssignmentsController : Controller
     {
         private MySqlConnection db = new MySqlConnection();
 
