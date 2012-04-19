@@ -213,22 +213,29 @@ input[type="submit"] {
 
 /* TABLE
 ----------------------------------------------------------*/
-
-table {
+table.standard
+{
     border: solid 1px #e8eef4;
     border-collapse: collapse;
 }
 
-table td {
+table.standard td 
+{
     padding: 5px;
     border: solid 1px #e8eef4;
 }
 
-table th {
+table.standard th 
+{
     padding: 6px 5px;
     text-align: left;
     background-color: #e8eef4;
     border: solid 1px #e8eef4;
+}
+
+table.bottomBorder td, table.bottomBorder th
+{
+    border-bottom:1px solid black;
 }
 
 /* MISC  
