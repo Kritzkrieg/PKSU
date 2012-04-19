@@ -1,0 +1,27 @@
+﻿@model System.Web.Security.MembershipUserCollection
+
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>UserList</h2>
+<table class="standard">
+ <tr>
+        <th>
+            Brugernavn
+        </th>
+        <th></th>
+    </tr>
+@foreach (MembershipUser user in Model)
+{   
+      <tr>
+        <td>
+            @user.UserName
+        </td>
+        <td>
+           @Html.ActionLink("Brugerside", "UserProfile", new { UserName = user.UserName }) | @Html.ActionLink("Nulstil adgangskode", "UserProfile", new { UserName = user.UserName })     
+        </td>
+    </tr>
+
+}
+</table>

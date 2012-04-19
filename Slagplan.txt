@@ -1,6 +1,47 @@
 
 STUFF TO FIX
 
+
+Dummy forside med dummy stats
+
+Dummy opgaveside med dummy opgave
+
+Dummy userlist med dummy brugersider
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 For student:
 
 	-Tryk på opgaver -> Vælg emne -> vis opgaveside
