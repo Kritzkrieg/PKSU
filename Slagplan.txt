@@ -1,0 +1,32 @@
+
+STUFF TO FIX
+
+For student:
+
+	-Tryk på opgaver -> Vælg emne -> vis opgaveside
+
+	-Opgavesiden skal have en template opgave 
+		-Navn: Assignments
+		-Opgavetekst
+		-Valgmuligheder
+		-Feedback på valg
+
+
+	-Forside:
+		-Fjern placeholder tekst
+		-Indsæt dummy highscore boks		
+
+
+
+For admin:
+
+
+
+	-Admnistrer opgaver: Nuværende opgaveside
+		-Navn: AdminAssignments
+
+	-Se brugere: Liste over registrerede brugere 
+		-Navn: UserList
+		-Link ved hver brugere til brugerside
+		
+
