@@ -10,12 +10,21 @@ namespace ELearning.Controllers
     {
         //
         // GET: /Assignment/
+        [HttpPost]
+        public ActionResult Index(ELearning.Models.StaticAssignment mdl)
+        {
+            return RedirectToAction("Result", "Assignment", mdl);
+        }
 
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult Result(ELearning.Models.StaticAssignment mdl)
+        {
+            return View(mdl);
+        }
 
     }
 }

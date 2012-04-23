@@ -1,0 +1,20 @@
+﻿@model ELearning.Models.StaticAssignment
+@{
+    ViewBag.Title = "result";
+}
+
+<h2>result</h2>
+@{
+    if(Model.FinalAnswer.Equals(4))
+    {
+        <h1>test</h1>
+    }
+    if(Model.Answer.Equals(2))
+    {
+        <h1>Korrekt svar!</h1>
+    }
+    else
+    {
+        <h1>Forkert svar!</h1>
+    }
+}
