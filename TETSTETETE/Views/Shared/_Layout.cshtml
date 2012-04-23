@@ -21,7 +21,7 @@
                         @if(Roles.GetRolesForUser().Contains("Admin"))
                         {
                             <li>@Html.ActionLink("Rediger Opgaver", "Index", "AdminAssignments")</li>
-                            <li>@Html.ActionLink("Se brugere", "Index", "UserList")</li>
+                            <li>@Html.ActionLink("Se brugere", "Index", "AdminUserList")</li>
                         }
                 </ul>
             </div>
