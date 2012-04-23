@@ -81,7 +81,7 @@ namespace ELearning.Controllers
                 MembershipCreateStatus createStatus;
                 MembershipUser user;
                 user = Membership.CreateUser(model.UserName, model.Password, null, null, null, true, null, out createStatus);
- 
+                
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
