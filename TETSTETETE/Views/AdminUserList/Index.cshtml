@@ -16,9 +16,8 @@
 @foreach (MembershipUser user in Model)
 {
 
-    if (user.UserName != "admin")
-    {
-           
+    if (!Roles.GetUsersInRole("Admin").Contains(user.UserName))
+    {          
      
       <tr>
         <td>
@@ -26,22 +25,17 @@
         </td>
         <td>
            @Html.ActionLink("Brugerside", "UserProfile",  new { UserName = user.UserName }) | @Html.ActionLink("Rediger adgangskode", "ChangePassword", new { UserName = user.UserName })     
-        </td>
-        
-            
-                @if (user.IsOnline)
-                {
-                   <td>Online</td>
-                }
+        </td>    
+            @if (user.IsOnline)
+            {
+                <td>Online</td>
+            }
 
-                @if (!user.IsOnline)
-                {
-                    <td>Offline</td>
-                }            
-            
-            
-       
-    </tr>
-}
+            @if (!user.IsOnline)
+            {
+                <td>Offline</td>
+            }                   
+        </tr>
+    }
 }
 </table>
