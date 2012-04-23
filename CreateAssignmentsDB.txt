@@ -2,4 +2,6 @@ CREATE TABLE `test` . `assignments` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Text` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-)
+);
+
+ALTER TABLE `test`.`assignments` ADD COLUMN `Option1` VARCHAR(200) NULL  AFTER `Text` , ADD COLUMN `Option2` VARCHAR(200) NULL  AFTER `Option1` , ADD COLUMN `Option3` VARCHAR(200) NULL  AFTER `Option2` , ADD COLUMN `Option4` VARCHAR(200) NULL  AFTER `Option3` , ADD COLUMN `TrueOption` VARCHAR(200) NULL  AFTER `Option4` ;

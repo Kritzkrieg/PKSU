@@ -1,1 +1,2 @@
 CREATE  TABLE `test`.`StudentAssignment` (  `PKID` INT NOT NULL AUTO_INCREMENT ,  `userID` INT NULL ,  `ID` INT NULL ,  `DateTime` DATETIME NULL ,  `OptionTaken` INT NULL ,  PRIMARY KEY (`PKID`) );
+ALTER TABLE `test`.`studentassignment` CHANGE COLUMN `PKID` `PKID` INT(11) NOT NULL AUTO_INCREMENT  AFTER `OptionTaken` ;

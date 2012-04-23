@@ -72,10 +72,6 @@ Attributter til assignment:
 	-Når assignment tjekkes: Substring til sidste tegn, boolean S eller F
 	
 
-Student-Assignment database scheme
-	StudentAssignment(PK(ID), StudentID, AssignmentID, TimeofSubmission)
-
-
 TIL TÆNKEHØJT FORSØG
 
 	-Log ind
