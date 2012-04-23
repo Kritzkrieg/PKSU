@@ -28,12 +28,12 @@
         </td>    
             @if (user.IsOnline)
             {
-                <td>Online</td>
+                <td><span style="color:green">Online</span></td>
             }
 
             @if (!user.IsOnline)
             {
-                <td>Offline</td>
+                <td><span style="color:red">Offline</span></td>
             }                   
         </tr>
     }
