@@ -73,7 +73,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminAssignmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserListController.cs" />
+    <Compile Include="Controllers\AdminUserListController.cs" />
+    <Compile Include="Controllers\UserPagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,10 +178,16 @@
     <Content Include="Views\AdminAssignments\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\UserList\Index.cshtml" />
+    <Content Include="Views\AdminUserList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\UserList\UserProfile.cshtml" />
+    <Content Include="Views\AdminUserList\ChangePassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminUserList\ChangePasswordSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserPages\UserProfile.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

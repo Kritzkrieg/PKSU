@@ -12,10 +12,8 @@ namespace ELearning.Models
     public class ChangePasswordModel
     {
         [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Nuværende adgangskode")]
-        public string OldPassword { get; set; }
-
+        public string UserName { get; set; }
+        
         [Required]
         [StringLength(100, ErrorMessage = "{0} skal være minimum {2} tegn.", MinimumLength = 2)]
         [DataType(DataType.Password)]
