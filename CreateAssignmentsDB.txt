@@ -7,4 +7,4 @@ drop table `test`.`assignments`;CREATE TABLE `assignments` (
   `Option4` varchar(200) DEFAULT NULL,
   `TrueOption` varchar(200) DEFAULT NULL,
   `Answer` int(11) unsigned zerofill DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`))
