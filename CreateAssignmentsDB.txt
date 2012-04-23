@@ -1,7 +1,10 @@
-CREATE TABLE `test` . `assignments` (
+drop table `test`.`assignments`;CREATE TABLE `assignments` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Text` varchar(200) DEFAULT NULL,
+  `Option1` varchar(200) DEFAULT NULL,
+  `Option2` varchar(200) DEFAULT NULL,
+  `Option3` varchar(200) DEFAULT NULL,
+  `Option4` varchar(200) DEFAULT NULL,
+  `TrueOption` varchar(200) DEFAULT NULL,
+  `Answer` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`ID`)
-);
-
-ALTER TABLE `test`.`assignments` ADD COLUMN `Option1` VARCHAR(200) NULL  AFTER `Text` , ADD COLUMN `Option2` VARCHAR(200) NULL  AFTER `Option1` , ADD COLUMN `Option3` VARCHAR(200) NULL  AFTER `Option2` , ADD COLUMN `Option4` VARCHAR(200) NULL  AFTER `Option3` , ADD COLUMN `TrueOption` VARCHAR(200) NULL  AFTER `Option4` ; 
