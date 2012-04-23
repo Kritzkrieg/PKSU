@@ -44,8 +44,6 @@ Dummy userlist med dummy brugersider
 
 For student:
 
-	-Tryk på opgaver -> Vælg emne -> vis opgaveside
-	FUCk EMNE INDTIL VIDERE
 
 	-Opgavesiden skal have en template opgave 
 		-Navn: Assignments
@@ -59,17 +57,7 @@ For student:
 		-Brugerforside med listing af brugerattributter hentet fra databasen
 		-Indsættes en highscore boks
 			-Addes point attribut til student model		
-
-For admin:
-
-	-Admnistrer opgaver: Nuværende opgaveside
-		-Navn: AdminAssignments
-
-	-Se brugere: Liste over registrerede brugere 
-		-Navn: UserList
-		-Link ved hver bruger til brugers forside
-		
-
+	
 
 Attributter til student:
 	

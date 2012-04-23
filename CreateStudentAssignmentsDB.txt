@@ -1,0 +1,1 @@
+CREATE  TABLE `test`.`StudentAssignment` (  `PKID` INT NOT NULL AUTO_INCREMENT ,  `userID` INT NULL ,  `ID` INT NULL ,  `DateTime` DATETIME NULL ,  `OptionTaken` INT NULL ,  PRIMARY KEY (`PKID`) );
