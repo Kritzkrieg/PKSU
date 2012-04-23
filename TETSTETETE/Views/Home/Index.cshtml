@@ -1,6 +1,93 @@
 ﻿@model ELearning.Models.LogOnModel
 
-
+@if (Request.IsAuthenticated)
+{
+    <br />
+    
+    <div id="box">
+        <div id="lb"><div id="rb">
+        <div id="bb"><div id="blc"><div id="brc">
+        <div id="tb"><div id="tlc"><div id="trc">
+            <div id="content">
+                <table class="invis">
+                    <tr>
+                        <td width=250><h2>@User.Identity.Name</h2></td>
+                        <td width=250>Point: 1337</td>
+                        <td width=250>Bedste fag: Matematik</td>
+                    </tr>
+                    <tr>
+                        <td width=250>test</td>
+                        <td width=250>test</td>
+                        <td width=250>test</td>
+                    </tr>
+                </table>
+            </div>
+        </div></div></div></div>
+        </div></div></div></div>
+    </div>
+    
+    <br /><br /><br />
+    
+    <div style="position: relative; float: right; width: 200px; height: 200px">
+        <fieldset>
+            <legend>Highscore</legend>
+            <table class="bottomBorder">
+                <tr>
+                    <td width=100>1 Bob</td>
+                    <td width=100 align=right>9001</td>
+                </tr>
+                <tr>
+                    <td width=100>2 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>3 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>4 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>5 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>6 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>7 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>8 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>9 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+                <tr>
+                    <td width=100>10 Ib</td>
+                    <td  width=100 align=right>1337</td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    
+    
+    
+    
+}
 
 
 
