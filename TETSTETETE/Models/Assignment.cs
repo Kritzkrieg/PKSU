@@ -15,6 +15,7 @@ namespace ELearning.Models
         public string Option3 { get; set; }
         public string Option4 { get; set; }
         public string TrueOption { get; set; }
+        public int Answer { get; set; }
     }
 
     public class MySqlConnection : DbContext

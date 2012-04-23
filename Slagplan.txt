@@ -53,24 +53,12 @@ For student:
 
 
 	-Forside:
-		-Fjern placeholder tekst
 		-Brugerforside med listing af brugerattributter hentet fra databasen
-		-Indsættes en highscore boks
-			-Addes point attribut til student model		
+		-Indsættes en highscore boks	
 	
 
-Attributter til student:
-	
-	-Points (Antal assignments completed)
-	-Hvilke emner har man lavet opgaver i
-	-Vis dag hvor man har lavet flest opgaver
 
-Attributter til assignment:
 
-	-Fire svarmuligheder (String) (Tilføj til sidst i strengen S eller F)
-	-Når assignment vises: Substring sidste tegn væk
-	-Når assignment tjekkes: Substring til sidste tegn, boolean S eller F
-	
 
 TIL TÆNKEHØJT FORSØG
 

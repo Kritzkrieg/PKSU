@@ -12,7 +12,13 @@
     <div class="display-label">Text</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Text)
-    </div>
+        @Html.DisplayFor(model => model.Option1)
+        @Html.DisplayFor(model => model.Option2)
+        @Html.DisplayFor(model => model.Option3)
+        @Html.DisplayFor(model => model.Option4)
+        @Html.DisplayFor(model => model.TrueOption)
+        @Html.DisplayFor(model => model.Answer)
+</div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
