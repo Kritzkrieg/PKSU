@@ -16,6 +16,6 @@ namespace ELearning.Models
 
         public class StudentAssignmentConnection : DbContext
         {
-            public DbSet<StudentAssignment> StudentAssignments { get; set; }
+            public DbSet<StudentAssignment> StudentAssignment { get; set; }
         }
     }

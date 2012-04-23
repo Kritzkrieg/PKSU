@@ -18,7 +18,7 @@ namespace ELearning.Controllers
 
         public ViewResult Index()
         {
-            return View(db.StudentAssignments.ToList());
+            return View(db.StudentAssignment.ToList());
         }
 
         public ActionResult SolveAssignment(int userID, int ID, int OptionTaken)
@@ -29,7 +29,7 @@ namespace ELearning.Controllers
             studentassignment.ID = ID;
             studentassignment.userID = userID;
             studentassignment.optionTaken = OptionTaken;
-            db.StudentAssignments.Add(studentassignment);
+            db.StudentAssignment.Add(studentassignment);
             db.SaveChanges();
             return RedirectToAction("AssignmentSolved", "Assignment");
         }
