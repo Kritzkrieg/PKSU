@@ -70,6 +70,4 @@ namespace ELearning.Models
     {
         public DbSet<Assignment> Assignments { get; set; }
     }
-
-
 }

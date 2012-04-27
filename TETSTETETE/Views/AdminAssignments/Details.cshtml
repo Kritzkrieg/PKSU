@@ -4,23 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detaljer</h2>
 
 <fieldset>
-    <legend>Assignment</legend>
+    <legend>Opgave</legend>
 
-    <div class="display-label">Text</div>
+    <div class="display-label">Tekst</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Text)
+
+        @Html.DisplayFor(model => model.tOption1)
+        @Html.DisplayFor(model => model.tOption2)
+        @Html.DisplayFor(model => model.tOption3)
+        @Html.DisplayFor(model => model.tOption4)
+        @Html.DisplayFor(model => model.tTrueOption)
+        @Html.DisplayFor(model => model.TheoryAnswer)
+
         @Html.DisplayFor(model => model.Option1)
         @Html.DisplayFor(model => model.Option2)
         @Html.DisplayFor(model => model.Option3)
         @Html.DisplayFor(model => model.Option4)
         @Html.DisplayFor(model => model.TrueOption)
         @Html.DisplayFor(model => model.Answer)
-</div>
+        
+        @Html.DisplayFor(model => model.fOption1)
+        @Html.DisplayFor(model => model.fOption2)
+        @Html.DisplayFor(model => model.fOption3)
+        @Html.DisplayFor(model => model.fOption4)
+        @Html.DisplayFor(model => model.fTrueOption)
+        @Html.DisplayFor(model => model.FinalAnswer)
+    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Rediger", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Tilbage", "Index")
 </p>
