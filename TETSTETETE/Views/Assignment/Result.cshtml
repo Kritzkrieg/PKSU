@@ -5,7 +5,8 @@
 
 
 <h2>Result</h2>
-      
+
+<h4>Udregn stykket: 1+2*2/(7-4)</h4>      
  
  <div id="box">
         <div id="lb"><div id="rb">
@@ -20,91 +21,144 @@
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                <td>Når man skal udregne 2+2, hvad er så vigtigt at huske?</td>
-     
-                                     @{   if (Model.Answer.Equals(2))
+                                @{   if (Model.TheoryAnswer.Equals(1))
                                           {
                                               <td align="right">
-                                                <div>At man skal regne dansk moms med 
+                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: + * / -</span> 
                                                 </div>
                                      
-                                                <div><span style="color:#00FF00">At sige til sin lærer man ikke forstår det </span>
+                                                <div>udregnes i rækkefølgen: * / + -
                                                 </div>
                                     
-                                                <div>At man har fingre nok til at tælle det 
+                                                <div>udregnes i rækkefølgen: - * / + 
                                                 </div> 
                                     
-                                                <div>Ved ikke 
+                                                <div>udregnes i rækkefølgen: / * - +  
+                                               </div></td>
+                                          }
+
+                                     else if (Model.TheoryAnswer.Equals(2))
+                                          {
+                                              <td align="right">
+                                                <div>udregnes i rækkefølgen: + * / - 
+                                                </div>
+                                     
+                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: * / + -</span>
+                                                </div>
+                                    
+                                                <div>udregnes i rækkefølgen: - * / + 
+                                                </div> 
+                                    
+                                                <div>udregnes i rækkefølgen: / * - +  
+                                               </div></td>
+                                          }
+
+                                     else if (Model.TheoryAnswer.Equals(3))
+                                          {
+                                              <td align="right">
+                                                <div>udregnes i rækkefølgen: + * / - 
+                                                </div>
+                                     
+                                                <div>udregnes i rækkefølgen: * / + -
+                                                </div>
+                                    
+                                                <div><span style="color:#00FF00">udregnes i rækkefølgen: - * / +  </span>
+                                                </div> 
+                                    
+                                                <div>udregnes i rækkefølgen: / * - +  
+                                              </div></td>
+                                          }
+
+                                     else if (Model.TheoryAnswer.Equals(4))
+                                          {
+                                              <td align="right">
+                                                <div>udregnes i rækkefølgen: + * / - 
+                                                </div>
+                                     
+                                                <div>udregnes i rækkefølgen: * / + -
+                                                </div>
+                                    
+                                                <div>udregnes i rækkefølgen: - * / +  
+                                                </div> 
+                                    
+                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: / * - +  </span>
+                                              </div></td>
+                                          }
+                                          }
+     
+                                     @{   if (Model.Answer.Equals(1))
+                                          {
+                                              <td align="right">
+                                                <div><span style="color:#00FF00">4/3+1</span>  
+                                                </div>
+                                     
+                                                <div>-24/7+1
+                                                </div>
+                                    
+                                                <div>6/7-4 
+                                                </div> 
+                                    
+                                                <div>11/7-4 
                                                </div></td>
                                           }
                                           
-                                          else if (Model.Answer.Equals(1))
+                                          else if (Model.Answer.Equals(2))
                                           {
                                               <td align="right">
-                                                <div><span style="color:#FF0000">At man skal regne dansk moms med </span>
+                                                <div>4/3+1
                                                 </div>
                                      
-                                                <div>At sige til sin lærer man ikke forstår det
+                                                <div><span style="color:#FF0000">-24/7+1</span>
                                                 </div>
                                     
-                                                <div>At man har fingre nok til at tælle det 
+                                                <div>6/7-4 
                                                 </div> 
                                     
-                                                <div>Ved ikke 
+                                                <div>11/7-4 
                                                </div></td>
                                           }
                                           
                                           else if (Model.Answer.Equals(3))
                                           {
                                               <td align="right">
-                                                <div>At man skal regne dansk moms med 
+                                                <div>4/3+1 
                                                 </div>
                                      
-                                                <div>At sige til sin lærer man ikke forstår det 
+                                                <div>-24/7+1 
                                                 </div>
                                     
-                                                <div><span style="color:#FF0000">At man har fingre nok til at tælle det </span>
+                                                <div><span style="color:#FF0000">6/7-4 </span>
                                                 </div> 
                                     
-                                                <div>Ved ikke 
+                                                <div>11/7-4 
                                               </div></td>
                                           }
 
                                           else if (Model.Answer.Equals(4))
                                           {
                                               <td align="right">
-                                                <div>At man skal regne dansk moms med 
+                                                <div>4/3+1  
                                                 </div>
                                      
-                                                <div>At sige til sin lærer man ikke forstår det
+                                                <div>-24/7+1
                                                 </div>
                                     
-                                                <div>At man har fingre nok til at tælle det 
+                                                <div>6/7-4
                                                 </div> 
                                     
-                                                <div><span style="color:#FF0000">Ved ikke </span>
+                                                <div><span style="color:#FF0000">11/7-4 </span>
                                               </div></td>
                                           }
                                           }
                                 
                                 
                                     @{
-                                          if (Model.FinalAnswer.Equals(4))
+                                          if (Model.FinalAnswer.Equals(1))
                                           {
                                             <td align="right">
-                                              <div>0</div>
-                                              <div>2</div>
-                                              <div>3</div>
-                                              <div><span style="color:#00FF00">4</span></div>
-                                            </td>
-                                          }
-                                          
-                                          else if (Model.FinalAnswer.Equals(1))
-                                          {
-                                            <td align="right">
-                                              <div><span style="color:#FF0000">0</span></div>
-                                              <div>2</div>
-                                              <div>3</div>
+                                              <div><span style="color:#FF0000">-22/7</span></div>
+                                              <div>7/3</div>
+                                              <div>-17/7</div>
                                               <div>4</div>
                                             </td>
                                           }
@@ -112,20 +166,30 @@
                                           else if (Model.FinalAnswer.Equals(2))
                                           {
                                             <td align="right">
-                                             <div>0</div>
-                                             <div><span style="color:#FF0000">2</span></div>
-                                             <div>3</div>
-                                             <div>4</div>
+                                              <div>-22/7</div>
+                                              <div><span style="color:#00FF00">7/3</span></div>
+                                              <div>-17/7</div>
+                                              <div>4</div>
                                             </td>
                                           }
                                           
                                           else if (Model.FinalAnswer.Equals(3))
                                           {
                                             <td align="right">
-                                              <div>0</div>
-                                              <div>2</div>
-                                              <div><span style="color:#FF0000">3</span></div>
-                                              <div>4</div>
+                                             <div>-22/7</div>
+                                             <div>7/3</div>
+                                             <div><span style="color:#FF0000">-17/7</span></div>
+                                             <div>4</div>
+                                            </td>
+                                          }
+                                          
+                                          else if (Model.FinalAnswer.Equals(4))
+                                          {
+                                            <td align="right">
+                                              <div>-22/7</div>
+                                              <div>7/3</div>
+                                              <div>-17/7</div>
+                                              <div><span style="color:#FF0000">4</span></div>
                                             </td>
                                           }
                                     }                               
