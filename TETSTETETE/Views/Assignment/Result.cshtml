@@ -3,18 +3,138 @@
     ViewBag.Title = "result";
 }
 
-<h2>result</h2>
-@{
-    if(Model.FinalAnswer.Equals(4))
-    {
-        <h1></h1>
-    }
-    if(Model.Answer.Equals(2))
-    {
-        <h1>Korrekt svar!</h1>
-    }
-    else
-    {
-        <h1>Forkert svar!</h1>
-    }
-}
+
+<h2>Result</h2>
+      
+ 
+ <div id="box">
+        <div id="lb"><div id="rb">
+        <div id="bb"><div id="blc"><div id="brc">
+        <div id="tb"><div id="tlc"><div id="trc">
+            <div id="content">   
+                    <center>
+                        <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
+                            <tr>
+                                <th width="250">Opgavetekst</th>
+                                <th width="300">Mellemregning</th>
+                                <th width="150">Resultat</th>
+                            </tr>
+                            <tr>
+                                <td>Når man skal udregne 2+2, hvad er så vigtigt at huske?</td>
+     
+                                     @{   if (Model.Answer.Equals(2))
+                                          {
+                                              <td align="right">
+                                                <div>At man skal regne dansk moms med 
+                                                </div>
+                                     
+                                                <div><span style="color:#00FF00">At sige til sin lærer man ikke forstår det </span>
+                                                </div>
+                                    
+                                                <div>At man har fingre nok til at tælle det 
+                                                </div> 
+                                    
+                                                <div>Ved ikke 
+                                               </div></td>
+                                          }
+                                          
+                                          else if (Model.Answer.Equals(1))
+                                          {
+                                              <td align="right">
+                                                <div><span style="color:#FF0000">At man skal regne dansk moms med </span>
+                                                </div>
+                                     
+                                                <div>At sige til sin lærer man ikke forstår det
+                                                </div>
+                                    
+                                                <div>At man har fingre nok til at tælle det 
+                                                </div> 
+                                    
+                                                <div>Ved ikke 
+                                               </div></td>
+                                          }
+                                          
+                                          else if (Model.Answer.Equals(3))
+                                          {
+                                              <td align="right">
+                                                <div>At man skal regne dansk moms med 
+                                                </div>
+                                     
+                                                <div>At sige til sin lærer man ikke forstår det 
+                                                </div>
+                                    
+                                                <div><span style="color:#FF0000">At man har fingre nok til at tælle det </span>
+                                                </div> 
+                                    
+                                                <div>Ved ikke 
+                                              </div></td>
+                                          }
+
+                                          else if (Model.Answer.Equals(4))
+                                          {
+                                              <td align="right">
+                                                <div>At man skal regne dansk moms med 
+                                                </div>
+                                     
+                                                <div>At sige til sin lærer man ikke forstår det
+                                                </div>
+                                    
+                                                <div>At man har fingre nok til at tælle det 
+                                                </div> 
+                                    
+                                                <div><span style="color:#FF0000">Ved ikke </span>
+                                              </div></td>
+                                          }
+                                          }
+                                
+                                
+                                    @{
+                                          if (Model.FinalAnswer.Equals(4))
+                                          {
+                                            <td align="right">
+                                              <div>0</div>
+                                              <div>2</div>
+                                              <div>3</div>
+                                              <div><span style="color:#00FF00">4</span></div>
+                                            </td>
+                                          }
+                                          
+                                          else if (Model.FinalAnswer.Equals(1))
+                                          {
+                                            <td align="right">
+                                              <div><span style="color:#FF0000">0</span></div>
+                                              <div>2</div>
+                                              <div>3</div>
+                                              <div>4</div>
+                                            </td>
+                                          }
+                                          
+                                          else if (Model.FinalAnswer.Equals(2))
+                                          {
+                                            <td align="right">
+                                             <div>0</div>
+                                             <div><span style="color:#FF0000">2</span></div>
+                                             <div>3</div>
+                                             <div>4</div>
+                                            </td>
+                                          }
+                                          
+                                          else if (Model.FinalAnswer.Equals(3))
+                                          {
+                                            <td align="right">
+                                              <div>0</div>
+                                              <div>2</div>
+                                              <div><span style="color:#FF0000">3</span></div>
+                                              <div>4</div>
+                                            </td>
+                                          }
+                                    }                               
+                            </tr>
+                        </table>
+                    </center>
+            </div>
+        </div></div></div></div>
+        </div></div></div></div>
+    </div>
+       
+       

@@ -251,7 +251,7 @@ table.invis, table.invis td, table.invis th
     padding: 0;
     text-align: left;
     width: 75em;
-    background-color: #eeeeee;
+    background-color: #eeeeee !important;
 }
 
 #content
