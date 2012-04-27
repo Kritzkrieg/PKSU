@@ -4,20 +4,20 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Slet</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Er du sikker på du vil slette denne opgave?</h3>
 <fieldset>
-    <legend>Assignment</legend>
+    <legend>Opgave</legend>
 
-    <div class="display-label">Text</div>
+    <div class="display-label">Tekst</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Text)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Slet" /> |
+        @Html.ActionLink("Tilbage", "Index")
     </p>
 }
