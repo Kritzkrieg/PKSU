@@ -18,5 +18,11 @@ namespace ELearning.Models
             get;
             set;
         }
+
+        public int TheoryAnswer
+        {
+            get;
+            set;
+        }
     }
 }

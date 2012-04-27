@@ -3,7 +3,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Assignments</h2>
+<div id="bluehead"><h2>Opgaver</h2></div>
+<h4>Udregn stykket: 1+2*2/(7-4)</h4>
 
  <div id="box">
         <div id="lb"><div id="rb">
@@ -15,30 +16,46 @@
                     <center>
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
-                                <th width="250">Opgavetekst</th>
+                                <th width="300">Opgavetekst</th>
                                 <th width="300">Mellemregning</th>
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                <td>Når man skal udregne 2+2, hvad er så vigtigt at huske?</td>
                                 <td align="right">
-                                    <div class="editor-field">At man skal regne dansk moms med 
+                                    <div class="editor-field">udregnes i rækkefølgen: + * / - 
+                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 1)</div>
+                                     
+                                    <div class="editor-field">udregnes i rækkefølgen: * / + - 
+                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 2)</div>
+                                    
+                                    <div class="editor-field">udregnes i rækkefølgen: - * / + 
+                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 3)</div> 
+                                    
+                                    <div class="editor-field">udregnes i rækkefølgen: / * - + 
+                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 4)</div>
+                                </td>
+                                <td align="right">
+                                    <div class="editor-field">4/3+1 
                                     @Html.RadioButtonFor(model => model.Answer, 1)</div>
                                      
-                                    <div class="editor-field">At sige til sin lærer man ikke forstår det 
+                                    <div class="editor-field">-24/7+1
                                     @Html.RadioButtonFor(model => model.Answer, 2)</div>
                                     
-                                    <div class="editor-field">At man har fingre nok til at tælle det 
+                                    <div class="editor-field">6/7-4 
                                     @Html.RadioButtonFor(model => model.Answer, 3)</div> 
                                     
-                                    <div class="editor-field">Ved ikke 
+                                    <div class="editor-field">11/7-4  
                                     @Html.RadioButtonFor(model => model.Answer, 4)</div>
                                 </td>
                                 <td align="right">
-                                    <div class="editor-field">0 @Html.RadioButtonFor(model => model.FinalAnswer, 1)</div>
-                                    <div class="editor-field">2 @Html.RadioButtonFor(model => model.FinalAnswer, 2)</div>
-                                    <div class="editor-field">3 @Html.RadioButtonFor(model => model.FinalAnswer, 3)</div>
-                                    <div class="editor-field">4 @Html.RadioButtonFor(model => model.FinalAnswer, 4)</div>
+                                    <div class="editor-field">-22/7 
+                                    @Html.RadioButtonFor(model => model.FinalAnswer, 1)</div>
+                                    <div class="editor-field">7/3 
+                                    @Html.RadioButtonFor(model => model.FinalAnswer, 2)</div>
+                                    <div class="editor-field">-17/7 
+                                    @Html.RadioButtonFor(model => model.FinalAnswer, 3)</div>
+                                    <div class="editor-field">4 
+                                    @Html.RadioButtonFor(model => model.FinalAnswer, 4)</div>
                                 </td>
                             </tr>
                         </table>
