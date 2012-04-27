@@ -27,7 +27,7 @@ namespace ELearning.Controllers
             studentassignment = new StudentAssignment();
             studentassignment.DateTime = 2;
             studentassignment.ID = ID;
-            studentassignment.optionTaken = OptionTaken;
+            studentassignment.OptionTaken = OptionTaken;
             db.StudentAssignments.Add(studentassignment);
             db.SaveChanges();
             return RedirectToAction("AssignmentSolved", "Assignment");

@@ -28,7 +28,10 @@ namespace ELearning.Controllers
             StudentAssignmentUser sau;
             sau = new StudentAssignmentUser();
             sau.user = user;
-
+            List<StudentAssignment> sat;
+            sat = new List<StudentAssignment>();
+            sat = db.StudentAssignments.Where(p => p.UserName == "Henning").ToList();
+            sau.studentassignment = sat;
             if (!User.Equals(user)) 
             {
                 if (!User.IsInRole("admin"))
