@@ -20,7 +20,7 @@ namespace ELearning.Controllers
         {
             return View();
         }
-
+       
         public ActionResult UserProfile(string UserName = "0")
         {    
             MembershipUser user = Membership.GetUser(UserName);
