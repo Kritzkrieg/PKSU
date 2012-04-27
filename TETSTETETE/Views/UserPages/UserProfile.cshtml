@@ -1,8 +1,9 @@
-﻿@model MembershipUser
+﻿@model ELearning.Models.StudentAssignmentUser
 
 @{
     ViewBag.Title = "UserProfile";
 }
+
 
 <br />
     
@@ -13,14 +14,19 @@
             <div id="content">
                 <table class="invis">
                     <tr>
-                        <td width=250><h2>@Model.UserName</h2></td>
+                        <td width=250><h2>@Model.user.UserName</h2></td>
                         <td width=250><b>Point:</b> 1337</td>
                         <td width=250><b>Bedst til emnet:</b> Trigonometri</td>
                     </tr>
                     <tr> 
                         <td width=250><b>Bedste dag:</b> Mandag d. 23/4</td>
-                        <td width=250><b>Flest opgaver lavet:</b> Geometri (73)</td>
-                        <td width=250><b>Flest opgaver løst:</b> Trigonometri (56)</td>
+                       
+                          
+                            
+                            
+                        
+                        <td width=250><b>Antal opgaver løst:</b> @Model.studentassignment.Count()</td>
+                        <td width=250><b>Løst korrekt?</b> Trigonometri (56)</td>
                     </tr>
                 </table>
             </div>
