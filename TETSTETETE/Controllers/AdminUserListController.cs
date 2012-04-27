@@ -13,7 +13,7 @@ namespace ELearning.Controllers
         //
         // GET: /UserList/
 
-        private MySqlConnection db = new MySqlConnection();
+        private AssignmentConnection db = new AssignmentConnection();
         
         
         public ActionResult Index()

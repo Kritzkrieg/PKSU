@@ -11,7 +11,7 @@ namespace ELearning.Controllers
 { 
     public class AdminAssignmentsController : Controller
     {
-        private MySqlConnection db = new MySqlConnection();
+        private AssignmentConnection db = new AssignmentConnection();
 
         //
         // GET: /Assignments/

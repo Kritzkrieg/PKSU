@@ -18,7 +18,7 @@ namespace ELearning.Models
         public int Answer { get; set; }
     }
 
-    public class MySqlConnection : DbContext
+    public class AssignmentConnection : DbContext
     {
         public DbSet<Assignment> Assignments { get; set; }
     }
