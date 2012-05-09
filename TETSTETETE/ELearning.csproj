@@ -76,6 +76,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminUserListController.cs" />
     <Compile Include="Controllers\StudentAssignmentController.cs" />
+    <Compile Include="Controllers\StudentStatsController.cs" />
     <Compile Include="Controllers\UserPagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -83,6 +84,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\StaticAssignment.cs" />
+    <Compile Include="Models\StudentStats.cs" />
     <Compile Include="Models\StudentAssignment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,7 +217,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52194</DevelopmentServerPort>
+          <DevelopmentServerPort>53032</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -16,18 +16,27 @@ namespace ELearning.Controllers
         //
         // GET: /Assignments/
 
-        public ViewResult Index()
+
+        public ActionResult Index()
         {
-            return View(db.Assignments.ToList());
+            if (User.IsInRole("admin"))
+            {
+                return View(db.Assignments.ToList());
+            }
+            return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
         }
 
         //
         // GET: /Assignments/Details/5
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int id)
         {
-            Assignment assignment = db.Assignments.Find(id);
-            return View(assignment);
+            if (User.IsInRole("admin"))
+            {
+                Assignment assignment = db.Assignments.Find(id);
+                return View(assignment);
+            }
+            return null;
         }
 
         //
@@ -35,6 +44,10 @@ namespace ELearning.Controllers
 
         public ActionResult Create()
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             return View();
         } 
 
@@ -44,6 +57,10 @@ namespace ELearning.Controllers
         [HttpPost]
         public ActionResult Create(Assignment assignment)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             if (ModelState.IsValid)
             {
                 db.Assignments.Add(assignment);
@@ -59,6 +76,10 @@ namespace ELearning.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             Assignment assignment = db.Assignments.Find(id);
             if (assignment == null)
             {
@@ -72,6 +93,10 @@ namespace ELearning.Controllers
         [HttpPost]
         public ActionResult Edit(Assignment assignment)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(assignment).State = EntityState.Modified;
@@ -88,6 +113,10 @@ namespace ELearning.Controllers
  
         public ActionResult Delete(int id)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             Assignment assignment = db.Assignments.Find(id);
             return View(assignment);
         }
@@ -97,7 +126,7 @@ namespace ELearning.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
             Assignment assignment = db.Assignments.Find(id);
             db.Assignments.Remove(assignment);
             db.SaveChanges();
