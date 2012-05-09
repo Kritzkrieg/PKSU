@@ -32,6 +32,11 @@ namespace ELearning.Controllers
             sat = new List<StudentAssignment>();
             sat = db.StudentAssignments.Where(p => p.UserName == "Henning").ToList();
             sau.studentassignment = sat;
+            if (!User.IsInRole("admin") && !User.IsInRole("student"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (!User.Identity.Name.Equals(UserName)) 
             {
                 if (!User.IsInRole("admin"))

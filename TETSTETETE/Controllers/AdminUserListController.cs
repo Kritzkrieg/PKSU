@@ -18,6 +18,10 @@ namespace ELearning.Controllers
         
         public ActionResult Index()
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             var users = Membership.GetAllUsers();
             return View(users);
         }
@@ -28,6 +32,10 @@ namespace ELearning.Controllers
         [Authorize]
         public ActionResult ChangePassword(string UserName)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             ViewBag.UserName = UserName;
             return View();
         }
@@ -39,6 +47,10 @@ namespace ELearning.Controllers
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             if (ModelState.IsValid)
             {
 
@@ -83,11 +95,19 @@ namespace ELearning.Controllers
 
         public ActionResult ChangePasswordSuccess()
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             return View();
         }
 
         public ActionResult UserProfile(string UserName = "0")
         {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
             return RedirectToAction("UserProfile", "UserPages", new { UserName = UserName });
         }
 
