@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MySql;
+using MySql.Data;
+using System.Data.Entity;
+using ELearning.Models;
 
 namespace ELearning
 {
@@ -32,6 +36,7 @@ namespace ELearning
 
         protected void Application_Start()
         {
+            //Database.SetInitializer<StudentAssignmentConnection>(new DropCreateDatabaseIfModelChanges<StudentAssignmentConnection>());
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

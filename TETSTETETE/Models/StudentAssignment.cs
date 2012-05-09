@@ -15,7 +15,7 @@ namespace ELearning.Models
     {
         public string UserName { get; set; }
         public int ID { get; set; }
-        public DateTime DateTime { get; set; }
+        public String DateTime { get; set; }
         public int OptionTaken1 { get; set; }
         public int OptionTaken2 { get; set; }
         public int OptionTaken3 { get; set; }
@@ -39,7 +39,7 @@ namespace ELearning.Models
                         var StudentsAssignments = new StudentAssignment();
                         StudentsAssignments.UserName = name;
                         StudentsAssignments.ID = r.GetInt32(0);
-                        StudentsAssignments.DateTime = r.GetDateTime(1);
+                        StudentsAssignments.DateTime = r.GetString(1);
                         StudentsAssignments.OptionTaken1 = r.GetInt32(2);
                         StudentsAssignments.OptionTaken2 = r.GetInt32(3);
                         StudentsAssignments.OptionTaken3 = r.GetInt32(4);
@@ -63,10 +63,6 @@ namespace ELearning.Models
 
         public class StudentAssignmentConnection : DbContext
         {
-            protected override void OnModelCreating(DbModelBuilder modelbuilder)
-            {
-                modelbuilder.Conventions.Remove<System.Data.Entity.Infrastructure.IncludeMetadataConvention>();
-            }
             public DbSet<StudentAssignment> StudentAssignments { get; set; }
         }
     }

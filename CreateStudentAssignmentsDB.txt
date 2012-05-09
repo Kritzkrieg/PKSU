@@ -1,7 +1,7 @@
 CREATE TABLE `studentassignment` (
   `UserName` varchar(100) DEFAULT NULL,
   `ID` int(11) DEFAULT NULL,
-  `DateTime` int(11) DEFAULT NULL,
+  `DateTime` varchar(45) DEFAULT NULL,
   `OptionTaken1` int(11) DEFAULT NULL,
   `OptionTaken2` int(11) DEFAULT NULL,
   `OptionTaken3` int(11) DEFAULT NULL,
@@ -10,4 +10,3 @@ CREATE TABLE `studentassignment` (
   `Solved3` tinyint(1) NOT NULL,
   `PKID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`PKID`)
-)
