@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MySql.Web;
+using MySql.Data.MySqlClient;
+using MySql;
+
 
 namespace ELearning.Models
 {
@@ -28,18 +32,16 @@ namespace ELearning.Models
 
         public void SolveAssignment()
         {
-            StudentAssignment studentassignment;
-            studentassignment = new StudentAssignment();
-            studentassignment.DateTime = DateTime.Now;
-            studentassignment.ID = 23;
-            studentassignment.OptionTaken1 = TheoryAnswer;
-            studentassignment.OptionTaken2 = Answer;
-            studentassignment.OptionTaken3 = FinalAnswer;
-            studentassignment.Solved1 = false;
-            studentassignment.Solved2 = false;
-            studentassignment.Solved3 = true;
-            db.StudentAssignments.Add(studentassignment);
-            db.SaveChanges();
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES ('LOL', 2, 'ROFL', 1, 1, 1, true, true, true, null)", con);
+                //cmd.Parameters.AddWithValue("id", null); //Null because we want database to generate primary key
+                //cmd.Parameters.AddWithValue("name", name.ToString());
+                //cmd.Parameters.AddWithValue("year", year.ToString());
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

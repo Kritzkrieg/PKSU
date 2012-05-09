@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ELearning.Models;
+using MySql.Web;
+using MySql.Data.MySqlClient;
+using MySql;
 
 namespace ELearning.Controllers
 {
@@ -16,6 +19,8 @@ namespace ELearning.Controllers
         [HttpPost]
         public ActionResult Index(ELearning.Models.StaticAssignment mdl)
         {
+
+            mdl.SolveAssignment();
             return RedirectToAction("Result", "Assignment", mdl);
         }
 
@@ -26,7 +31,6 @@ namespace ELearning.Controllers
 
         public ActionResult Result(ELearning.Models.StaticAssignment mdl)
         {
-            mdl.SolveAssignment();
             return View(mdl);
         }
 
