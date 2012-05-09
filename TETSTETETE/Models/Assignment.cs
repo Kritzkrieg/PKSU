@@ -9,6 +9,8 @@ namespace ELearning.Models
 {
     public class Assignment
     {
+        private StudentAssignmentConnection db = new StudentAssignmentConnection();
+
         public int ID { get; set; }
 
         [Display(Name = "Opgaveformulering")]
@@ -64,6 +66,23 @@ namespace ELearning.Models
 
         public string fTrueOption { get; set; }
         public int FinalAnswer { get; set; }
+
+
+        public void SolveAssignment(int userID, int ID, int Option1, int Option2, int Option3, bool Solved1, bool Solved2, bool Solved3)
+        {
+            StudentAssignment studentassignment;
+            studentassignment = new StudentAssignment();
+            studentassignment.DateTime = DateTime.Now;
+            studentassignment.ID = ID;
+            studentassignment.OptionTaken1 = Option1;
+            studentassignment.OptionTaken2 = Option2;
+            studentassignment.OptionTaken3 = Option3;
+            studentassignment.Solved1 = Solved1;
+            studentassignment.Solved2 = Solved2;
+            studentassignment.Solved3 = Solved3;
+            db.StudentAssignments.Add(studentassignment);
+            db.SaveChanges();
+        }
     }
 
     public class AssignmentConnection : DbContext

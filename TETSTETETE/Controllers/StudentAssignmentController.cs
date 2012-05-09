@@ -21,17 +21,7 @@ namespace ELearning.Controllers
             return View(db.StudentAssignments.ToList());
         }
 
-        public ActionResult SolveAssignment(int userID, int ID, int OptionTaken)
-        {
-            StudentAssignment studentassignment;
-            studentassignment = new StudentAssignment();
-            studentassignment.DateTime = 2;
-            studentassignment.ID = ID;
-            studentassignment.OptionTaken = OptionTaken;
-            db.StudentAssignments.Add(studentassignment);
-            db.SaveChanges();
-            return RedirectToAction("AssignmentSolved", "Assignment");
-        }
+        
     }
 }
         

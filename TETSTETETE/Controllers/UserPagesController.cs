@@ -22,23 +22,12 @@ namespace ELearning.Controllers
         }
        
         public ActionResult UserProfile(string UserName = "0")
-        {    
+        {
             MembershipUser user = Membership.GetUser(UserName);
-            
-            StudentAssignmentUser sau;
-            sau = new StudentAssignmentUser();
+            List<StudentAssignment> StudentsAssignments = StudentAssignment.GetStudentsAssignments(UserName);
+            StudentAssignmentUser sau = new StudentAssignmentUser();
+            sau.studentassignment = StudentsAssignments;
             sau.user = user;
-            List<StudentAssignment> sat;
-            sat = new List<StudentAssignment>();
-            sat = db.StudentAssignments.Where(p => p.UserName == "Henning").ToList();
-            sau.studentassignment = sat;
-            if (!User.Identity.Name.Equals(UserName)) 
-            {
-                if (!User.IsInRole("admin"))
-                {
-                    return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
-                }
-            }
             return View(sau);
         }
 

@@ -26,7 +26,7 @@
                             
                         
                         <td width=250><b>Antal opgaver løst:</b> @Model.studentassignment.Count()</td>
-                        <td width=250><b>Løst korrekt?</b> Trigonometri (56)</td>
+                        <td width=250><b>Antal korrekt løste opgaver:</b> </td>
                     </tr>
                 </table>
             </div>
@@ -84,7 +84,23 @@
         </fieldset>
     </div>
     
-    <h2>Her er mere info:</h2>
+    <h2>Dine senest løste opgaver</h2>
+
+   <table class="standard">
+    <tr>
+        <th>
+            Dato
+        </th>
+    </tr>
+    @foreach (var item in Model.studentassignment)
+    {
+        <tr>
+            <td>
+                @item.DateTime
+            </td>
+       </tr>
+    }
+    </table>
     <br /><br /><br />
     <br /><br /><br />
     <br /><br /><br />

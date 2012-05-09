@@ -1,2 +1,13 @@
-CREATE  TABLE `test`.`StudentAssignment` (  `PKID` INT NOT NULL AUTO_INCREMENT ,  `userID` INT NULL ,  `ID` INT NULL ,  `DateTime` DATETIME NULL ,  `OptionTaken` INT NULL ,  PRIMARY KEY (`PKID`) );
-ALTER TABLE `test`.`studentassignment` CHANGE COLUMN `PKID` `PKID` INT(11) NOT NULL AUTO_INCREMENT  AFTER `OptionTaken` ;
+CREATE TABLE `studentassignment` (
+  `UserName` varchar(100) DEFAULT NULL,
+  `ID` int(11) DEFAULT NULL,
+  `DateTime` int(11) DEFAULT NULL,
+  `OptionTaken1` int(11) DEFAULT NULL,
+  `OptionTaken2` int(11) DEFAULT NULL,
+  `OptionTaken3` int(11) DEFAULT NULL,
+  `Solved1` tinyint(1) NOT NULL,
+  `Solved2` tinyint(1) NOT NULL,
+  `Solved3` tinyint(1) NOT NULL,
+  `PKID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`PKID`)
+)
