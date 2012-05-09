@@ -71,19 +71,25 @@ namespace ELearning.Models
         public int FinalAnswer { get; set; }
 
 
-        public void SolveAssignment(int userID, int ID, int Option1, int Option2, int Option3, bool Solved1, bool Solved2, bool Solved3)
+        public void SolveAssignment()
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES ('LOL', 2, 'ROFL', 1, 1, 1, true, true, true, null)", con);
-                //cmd.Parameters.AddWithValue("id", null); //Null because we want database to generate primary key
-                //cmd.Parameters.AddWithValue("name", name.ToString());
-                //cmd.Parameters.AddWithValue("year", year.ToString());
-
+                var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
+                cmd.Parameters.AddWithValue("@UserName", "Henning");
+                cmd.Parameters.AddWithValue("@ID", 2);
+                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@OptionTaken1", 2);
+                cmd.Parameters.AddWithValue("@OptionTaken2", 3);
+                cmd.Parameters.AddWithValue("@OptionTaken3", 2);
+                cmd.Parameters.AddWithValue("@Solved1", true);
+                cmd.Parameters.AddWithValue("@Solved2", false);
+                cmd.Parameters.AddWithValue("@Solved3", true);
                 cmd.ExecuteNonQuery();
             }
         }
+
     }
 
     public class AssignmentConnection : DbContext

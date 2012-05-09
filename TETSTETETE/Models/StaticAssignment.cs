@@ -5,6 +5,8 @@ using System.Web;
 using MySql.Web;
 using MySql.Data.MySqlClient;
 using MySql;
+using System.Web.Mvc;
+using System.Web.Security;
 
 
 namespace ELearning.Models
@@ -38,10 +40,10 @@ namespace ELearning.Models
                 var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
                 cmd.Parameters.AddWithValue("@UserName", "Henning");
                 cmd.Parameters.AddWithValue("@ID", 2);
-                cmd.Parameters.AddWithValue("@DateTime", "lol");
-                cmd.Parameters.AddWithValue("@OptionTaken1", 2);
-                cmd.Parameters.AddWithValue("@OptionTaken2", 3);
-                cmd.Parameters.AddWithValue("@OptionTaken3", 2);
+                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@OptionTaken1", TheoryAnswer);
+                cmd.Parameters.AddWithValue("@OptionTaken2", Answer);
+                cmd.Parameters.AddWithValue("@OptionTaken3", FinalAnswer);
                 cmd.Parameters.AddWithValue("@Solved1", true);
                 cmd.Parameters.AddWithValue("@Solved2", false);
                 cmd.Parameters.AddWithValue("@Solved3", true);
