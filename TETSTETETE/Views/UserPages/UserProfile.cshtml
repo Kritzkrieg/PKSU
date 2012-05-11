@@ -1,7 +1,35 @@
-﻿@model ELearning.Models.StudentAssignmentUser
+﻿@using ELearning.Models
+@model ELearning.Models.StudentAssignmentUser
 
 @{
-    ViewBag.Title = "UserProfile";
+    ViewBag.Title = "Brugerside for " + Model.user.UserName;
+}
+
+@{
+    //Extract information from supplied array
+    ViewBag.SolvedAssignmentParts = 0;
+    ViewBag.SolvedAssignments = 0;
+    foreach (StudentAssignment studentassignment in Model.studentassignment) {
+        
+        //Count number of solved assignment parts
+        if (studentassignment.Solved1) {
+            ViewBag.SolvedAssignmentParts++;
+        }
+        if (studentassignment.Solved2) {
+            ViewBag.SolvedAssignmentParts++;
+        }
+        if (studentassignment.Solved3) {
+            ViewBag.SolvedAssignmentParts++;
+        }
+        
+        //Count number of solved assignments
+        if (studentassignment.Solved1 && studentassignment.Solved2 && studentassignment.Solved3) {
+            ViewBag.SolvedAssignments++;   
+        }
+        
+        //Find day with most attempted assignments
+        
+     }
 }
 
 
@@ -16,17 +44,17 @@
                     <tr>
                         <td width=250><h2>@Model.user.UserName</h2></td>
                         <td width=250><b>Point:</b> 1337</td>
-                        <td width=250><b>Bedst til emnet:</b> Trigonometri</td>
-                    </tr>
+                        <td width=250><b>Antal forsøgte opgaver:</b> @Model.studentassignment.Count</td>
+                    </tr
                     <tr> 
-                        <td width=250><b>Bedste dag:</b> Mandag d. 23/4</td>
+                        <td width=250><b>Dag med flest forsøgte opgaver:</b> </td>
                        
                           
-                            
+                         
                             
                         
-                        <td width=250><b>Antal opgaver løst:</b> @Model.studentassignment.Count()</td>
-                        <td width=250><b>Antal korrekt løste opgaver:</b> </td>
+                        <td width=250><b>Antal løste delopgaver:</b> @ViewBag.SolvedAssignmentParts</td>
+                        <td width=250><b>Antal fuldt løste opgaver:</b> @ViewBag.SolvedAssignments </td>
                     </tr>
                 </table>
             </div>
