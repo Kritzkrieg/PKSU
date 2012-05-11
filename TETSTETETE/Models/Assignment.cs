@@ -72,6 +72,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
+                //var bob = new MySqlCommand("select * from assignments WHERE id != (SELECT id FROM studentassignment) order by rand() limit 1");
                 var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
                 cmd.Parameters.AddWithValue("@UserName", "Henning");
                 cmd.Parameters.AddWithValue("@ID", 2);
