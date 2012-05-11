@@ -42,7 +42,7 @@
                             <div class="editor-field">
                                 @Html.EditorFor(model => model.tOption1)
                                 @Html.ValidationMessageFor(model => model.tOption1)
-                                @Html.RadioButtonFor(model => model.TheoryAnswer, 1, new { Checked = "checked" })
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 1)
                             </div>
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.tOption2)
@@ -68,6 +68,9 @@
                                 @Html.ValidationMessageFor(model => model.tOption4)
                                 @Html.RadioButtonFor(model => model.TheoryAnswer, 4)
                             </div>
+                            <div class="editor-field" style="display:none;">
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 5, new { Checked = "checked" })
+                            </div>
                         </div>
                     </fieldset>
                 </td>
@@ -83,7 +86,7 @@
                             <div class="editor-field">
                                 @Html.EditorFor(model => model.Option1)
                                 @Html.ValidationMessageFor(model => model.Option1)
-                                @Html.RadioButtonFor(model => model.Answer, 1, new { Checked = "checked" })
+                                @Html.RadioButtonFor(model => model.Answer, 1)
                             </div>
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.Option2)
@@ -108,6 +111,10 @@
                                 @Html.EditorFor(model => model.Option4)
                                 @Html.ValidationMessageFor(model => model.Option4)
                                 @Html.RadioButtonFor(model => model.Answer, 4)
+                            </div>
+
+                            <div class="editor-field" style="display:none;">
+                                @Html.RadioButtonFor(model => model.Answer, 5, new { Checked = "checked" })
                             </div>
                         </div>
                      </fieldset>

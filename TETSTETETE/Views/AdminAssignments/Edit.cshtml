@@ -8,6 +8,12 @@
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+    function showHideText(box, id) {
+        var elm = document.getElementById(id)
+        elm.style.display = box.checked ? "inline" : "none"
+    }
+</script>
 
 @using (Html.BeginForm())
 {
@@ -25,106 +31,123 @@
         <table class="invis" cellspacing="30px">
             <tr>
                 <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Option1)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Option1)
-                        @Html.ValidationMessageFor(model => model.Option1)
-                        @Html.RadioButtonFor(model => model.Answer, 1)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Option2)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Option2)
-                        @Html.ValidationMessageFor(model => model.Option2)
-                        @Html.RadioButtonFor(model => model.Answer, 2)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Option3)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Option3)
-                        @Html.ValidationMessageFor(model => model.Option3)
-                        @Html.RadioButtonFor(model => model.Answer, 3)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Option4)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Option4)
-                        @Html.ValidationMessageFor(model => model.Option4)
-                        @Html.RadioButtonFor(model => model.Answer, 4)
-                    </div>
+                    <fieldset>
+                    <legend>Teoriopgave</legend>
+                        <input type="checkbox" name="switchBox" onclick="showHideText(this,'tValg')" />
+                        <div id="tValg" style="display:none;">
+                    
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.tOption1)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.tOption1)
+                                @Html.ValidationMessageFor(model => model.tOption1)
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 1)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.tOption2)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.tOption2)
+                                @Html.ValidationMessageFor(model => model.tOption2)
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 2)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.tOption3)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.tOption3)
+                                @Html.ValidationMessageFor(model => model.tOption3)
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 3)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.tOption4)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.tOption4)
+                                @Html.ValidationMessageFor(model => model.tOption4)
+                                @Html.RadioButtonFor(model => model.TheoryAnswer, 4)
+                            </div>
+                        </div>
+                    </fieldset>
                 </td>
                 <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.fOption1)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.fOption1)
-                        @Html.ValidationMessageFor(model => model.fOption1)
-                        @Html.RadioButtonFor(model => model.FinalAnswer, 1)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.fOption2)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.fOption2)
-                        @Html.ValidationMessageFor(model => model.fOption2)
-                        @Html.RadioButtonFor(model => model.FinalAnswer, 2)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.fOption3)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.fOption3)
-                        @Html.ValidationMessageFor(model => model.fOption3)
-                        @Html.RadioButtonFor(model => model.FinalAnswer, 3)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.fOption4)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.fOption4)
-                        @Html.ValidationMessageFor(model => model.fOption4)
-                        @Html.RadioButtonFor(model => model.FinalAnswer, 4)
-                    </div>
+                    <fieldset>
+                    <legend>Mellemregningsopgave</legend>
+                        <input type="checkbox" name="switchBox" onclick="showHideText(this,'mValg')" />
+                        <div id="mValg" style="display:none;">
+                    
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Option1)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Option1)
+                                @Html.ValidationMessageFor(model => model.Option1)
+                                @Html.RadioButtonFor(model => model.Answer, 1)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Option2)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Option2)
+                                @Html.ValidationMessageFor(model => model.Option2)
+                                @Html.RadioButtonFor(model => model.Answer, 2)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Option3)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Option3)
+                                @Html.ValidationMessageFor(model => model.Option3)
+                                @Html.RadioButtonFor(model => model.Answer, 3)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Option4)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Option4)
+                                @Html.ValidationMessageFor(model => model.Option4)
+                                @Html.RadioButtonFor(model => model.Answer, 4)
+                            </div>
+                        </div>
+                     </fieldset>
                 </td>
                 <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.tOption1)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.tOption1)
-                        @Html.ValidationMessageFor(model => model.tOption1)
-                        @Html.RadioButtonFor(model => model.TheoryAnswer, 1)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.tOption2)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.tOption2)
-                        @Html.ValidationMessageFor(model => model.tOption2)
-                        @Html.RadioButtonFor(model => model.TheoryAnswer, 2)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.tOption3)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.tOption3)
-                        @Html.ValidationMessageFor(model => model.tOption3)
-                        @Html.RadioButtonFor(model => model.TheoryAnswer, 3)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.tOption4)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.tOption4)
-                        @Html.ValidationMessageFor(model => model.tOption4)
-                        @Html.RadioButtonFor(model => model.TheoryAnswer, 4)
-                    </div>
+                    <fieldset>
+                        <legend>Facitopgave</legend>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.fOption1)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.fOption1)
+                            @Html.ValidationMessageFor(model => model.fOption1)
+                            @Html.RadioButtonFor(model => model.FinalAnswer, 1)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.fOption2)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.fOption2)
+                            @Html.ValidationMessageFor(model => model.fOption2)
+                            @Html.RadioButtonFor(model => model.FinalAnswer, 2)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.fOption3)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.fOption3)
+                            @Html.ValidationMessageFor(model => model.fOption3)
+                            @Html.RadioButtonFor(model => model.FinalAnswer, 3)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.fOption4)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.fOption4)
+                            @Html.ValidationMessageFor(model => model.fOption4)
+                            @Html.RadioButtonFor(model => model.FinalAnswer, 4)
+                        </div>
+                    </fieldset>
                 </td>
             </tr>
         </table>
