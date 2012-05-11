@@ -33,6 +33,7 @@ namespace ELearning.Models
         [Display(Name = "Teori 4")]
         public string tOption4 { get; set; }
 
+        public string tTrueOption { get; set; }
         public int TheoryAnswer { get; set; }
 
         /*----------Mellemregning----------*/
@@ -49,6 +50,7 @@ namespace ELearning.Models
         [Display(Name = "Mellemregning 4")]
         public string Option4 { get; set; }
 
+        public string TrueOption { get; set; }
         public int Answer { get; set; }
 
         /*----------Facit----------*/
@@ -65,6 +67,7 @@ namespace ELearning.Models
         [Display(Name = "Svar 4")]
         public string fOption4 { get; set; }
 
+        public string fTrueOption { get; set; }
         public int FinalAnswer { get; set; }
 
 
@@ -93,4 +96,8 @@ namespace ELearning.Models
     {
         public DbSet<Assignment> Assignments { get; set; }
     }
+    public class MyInitializer
+            : DropCreateDatabaseIfModelChanges<AssignmentConnection>
+{
+}
 }
