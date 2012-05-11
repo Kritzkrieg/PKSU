@@ -33,7 +33,7 @@ namespace ELearning.Models
         [Display(Name = "Teori 4")]
         public string tOption4 { get; set; }
 
-        public int TheoryAnswer { get; set; }
+        public int truetOption { get; set; }
 
         /*----------Mellemregning----------*/
 
@@ -49,7 +49,7 @@ namespace ELearning.Models
         [Display(Name = "Mellemregning 4")]
         public string Option4 { get; set; }
 
-        public int Answer { get; set; }
+        public int TrueOption { get; set; }
 
         /*----------Facit----------*/
 
@@ -65,8 +65,7 @@ namespace ELearning.Models
         [Display(Name = "Svar 4")]
         public string fOption4 { get; set; }
 
-        public int FinalAnswer { get; set; }
-
+        public int truefOption { get; set; }
 
         public void SolveAssignment()
         {
@@ -92,5 +91,13 @@ namespace ELearning.Models
     public class AssignmentConnection : DbContext
     {
         public DbSet<Assignment> Assignments { get; set; }
+    }
+
+    public class GivenAssignment
+    {
+        public Assignment gAssignment { get; set; }
+        public int TheoryAnswer { get; set; }
+        public int Answer { get; set; }
+        public int FinalAnswer { get; set; }
     }
 }

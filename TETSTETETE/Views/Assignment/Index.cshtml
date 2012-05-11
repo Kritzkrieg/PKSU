@@ -1,11 +1,11 @@
-﻿@model ELearning.Models.StaticAssignment
+﻿@model ELearning.Models.GivenAssignment
 
 @{
     ViewBag.Title = "Index";
 }
 
 <div id="bluehead"><h2>Opgaver</h2></div>
-<h4>Udregn stykket: 1+2*2/(7-4)</h4>
+<h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
 
  <div id="box">
         <div id="lb"><div id="rb">
@@ -23,39 +23,39 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <div class="editor-field">udregnes i rækkefølgen: + * / - 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1) 
                                     @Html.RadioButtonFor(model => model.TheoryAnswer, 1)</div>
                                      
-                                    <div class="editor-field">udregnes i rækkefølgen: * / + - 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2) 
                                     @Html.RadioButtonFor(model => model.TheoryAnswer, 2)</div>
                                     
-                                    <div class="editor-field">udregnes i rækkefølgen: - * / + 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3) 
                                     @Html.RadioButtonFor(model => model.TheoryAnswer, 3)</div> 
                                     
-                                    <div class="editor-field">udregnes i rækkefølgen: / * - + 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)
                                     @Html.RadioButtonFor(model => model.TheoryAnswer, 4)</div>
                                 </td>
                                 <td align="right">
-                                    <div class="editor-field">4/3+1 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)
                                     @Html.RadioButtonFor(model => model.Answer, 1)</div>
                                      
-                                    <div class="editor-field">-24/7+1
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)
                                     @Html.RadioButtonFor(model => model.Answer, 2)</div>
                                     
-                                    <div class="editor-field">6/7-4 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)
                                     @Html.RadioButtonFor(model => model.Answer, 3)</div> 
                                     
-                                    <div class="editor-field">11/7-4  
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)
                                     @Html.RadioButtonFor(model => model.Answer, 4)</div>
                                 </td>
                                 <td align="right">
-                                    <div class="editor-field">-22/7 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 1)</div>
-                                    <div class="editor-field">7/3 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 2)</div>
-                                    <div class="editor-field">-17/7 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 3)</div>
-                                    <div class="editor-field">4 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 4)</div>
                                 </td>
                             </tr>
@@ -69,4 +69,3 @@
         </div></div></div></div>
         </div></div></div></div>
     </div>
-
