@@ -36,6 +36,10 @@ namespace ELearning
 
         protected void Application_Start()
         {
+            //Next 4 lines are for model/database clashes
+            System.Data.Entity.Database.SetInitializer(new MyInitializer());
+            AssignmentConnection db = new AssignmentConnection();
+            db.Database.Initialize(true);
             //Database.SetInitializer<StudentAssignmentConnection>(new DropCreateDatabaseIfModelChanges<StudentAssignmentConnection>());
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
