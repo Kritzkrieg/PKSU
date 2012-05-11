@@ -26,7 +26,7 @@
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                @{   if (Model.TheoryAnswer.Equals(1))
+                                @{   if (Model.TruetOption.Equals(1))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption1)</span> 
@@ -42,7 +42,7 @@
                                                </div></td>
                                           }
 
-                                     else if (Model.TheoryAnswer.Equals(2))
+                                     else if (Model.TruetOption.Equals(2))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span> 
@@ -58,7 +58,7 @@
                                                </div></td>
                                           }
 
-                                     else if (Model.TheoryAnswer.Equals(3))
+                                     else if (Model.TruetOption.Equals(3))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
@@ -74,7 +74,7 @@
                                               </div></td>
                                           }
 
-                                     else if (Model.TheoryAnswer.Equals(4))
+                                     else if (Model.TruetOption.Equals(4))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
@@ -91,7 +91,7 @@
                                           }
                                           }
      
-                                     @{   if (Model.Answer.Equals(1))
+                                     @{   if (Model.TrueOption.Equals(1))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option1)</span>  
@@ -107,7 +107,7 @@
                                                </div></td>
                                           }
 
-                                          else if (Model.Answer.Equals(2))
+                                          else if (Model.TrueOption.Equals(2))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>
@@ -123,7 +123,7 @@
                                                </div></td>
                                           }
 
-                                          else if (Model.Answer.Equals(3))
+                                          else if (Model.TrueOption.Equals(3))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span> 
@@ -139,7 +139,7 @@
                                               </div></td>
                                           }
 
-                                          else if (Model.Answer.Equals(4))
+                                          else if (Model.TrueOption.Equals(4))
                                           {
                                               <td align="right">
                                                 <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>  
@@ -158,7 +158,7 @@
                                 
                                 
                                     @{
-                                        if (Model.FinalAnswer.Equals(1))
+                                        if (Model.TruefOption.Equals(1))
                                           {
                                             <td align="right">
                                               <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption1)</span></div>
@@ -168,7 +168,7 @@
                                             </td>
                                           }
 
-                                        else if (Model.FinalAnswer.Equals(2))
+                                        else if (Model.TruefOption.Equals(2))
                                           {
                                             <td align="right">
                                               <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
@@ -178,7 +178,7 @@
                                             </td>
                                           }
 
-                                        else if (Model.FinalAnswer.Equals(3))
+                                        else if (Model.TruefOption.Equals(3))
                                           {
                                             <td align="right">
                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
@@ -188,7 +188,7 @@
                                             </td>
                                           }
 
-                                        else if (Model.FinalAnswer.Equals(4))
+                                        else if (Model.TruefOption.Equals(4))
                                           {
                                             <td align="right">
                                               <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>

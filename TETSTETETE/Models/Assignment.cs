@@ -67,12 +67,43 @@ namespace ELearning.Models
 
         public int TruefOption { get; set; }
 
+        public static Assignment GetAssignment()
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT a.ID, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN studentassignment AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1");
+                using (var r = cmd.ExecuteReader())
+                {
+                    r.Read();
+                    var RandomAssignment = new Assignment();
+                    RandomAssignment.ID = r.GetInt32(0);
+                    RandomAssignment.Text = r.GetString(1);
+                    RandomAssignment.Option1 = r.GetString(2);
+                    RandomAssignment.Option2 = r.GetString(3);
+                    RandomAssignment.Option3 = r.GetString(4);
+                    RandomAssignment.Option4 = r.GetString(5);
+                    RandomAssignment.TrueOption = r.GetInt32(6);
+                    RandomAssignment.fOption1 = r.GetString(7);
+                    RandomAssignment.fOption2 = r.GetString(8);
+                    RandomAssignment.fOption3 = r.GetString(9);
+                    RandomAssignment.fOption4 = r.GetString(10);
+                    RandomAssignment.TruefOption = r.GetInt32(11);
+                    RandomAssignment.tOption1 = r.GetString(12);
+                    RandomAssignment.tOption2 = r.GetString(13);
+                    RandomAssignment.tOption3 = r.GetString(14);
+                    RandomAssignment.tOption4 = r.GetString(15);
+                    RandomAssignment.TruetOption = r.GetInt32(16);
+                    return RandomAssignment;
+                }
+            }
+        }
+
         public void SolveAssignment()
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                //var bob = new MySqlCommand("select * from assignments WHERE id != (SELECT id FROM studentassignment) order by rand() limit 1");
                 var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
                 cmd.Parameters.AddWithValue("@UserName", "Henning");
                 cmd.Parameters.AddWithValue("@ID", 2);
