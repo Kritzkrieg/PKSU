@@ -33,7 +33,7 @@ namespace ELearning.Models
         [Display(Name = "Teori 4")]
         public string tOption4 { get; set; }
 
-        public int truetOption { get; set; }
+        public int TruetOption { get; set; }
 
         /*----------Mellemregning----------*/
 
@@ -65,7 +65,7 @@ namespace ELearning.Models
         [Display(Name = "Svar 4")]
         public string fOption4 { get; set; }
 
-        public int truefOption { get; set; }
+        public int TruefOption { get; set; }
 
         public void SolveAssignment()
         {
