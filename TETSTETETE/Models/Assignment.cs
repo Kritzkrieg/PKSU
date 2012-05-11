@@ -94,9 +94,10 @@ namespace ELearning.Models
         public DbSet<Assignment> Assignments { get; set; }
     }
 
-    public class MyInitializer : DropCreateDatabaseIfModelChanges<AssignmentConnection>
-    {
-    }
+    //Next class is for Database/Model clashes
+    //public class MyInitializer : DropCreateDatabaseIfModelChanges<AssignmentConnection>
+    //{
+    //}
 
     public class GivenAssignment
     {
