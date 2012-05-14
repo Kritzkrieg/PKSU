@@ -67,13 +67,14 @@ namespace ELearning.Models
 
         public int TruefOption { get; set; }
 
-        public static Assignment GetAssignment()
+        public static Assignment GetAssignment(String Username)
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
-            {
+            {   
                 con.Open();
-                var cmd = new MySqlCommand("SELECT a.ID, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN studentassignment AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1");
-                using (var r = cmd.ExecuteReader())
+                var cmd = new MySqlCommand("SELECT a.ID, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN (SELECT * FROM studentassignment WHERE UserName = @UserName) AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1");
+                cmd.Parameters.AddWithValue("@UserName", Username);
+                using (var r = cmd.ExecuteReader()) 
                 {
                     r.Read();
                     var RandomAssignment = new Assignment();
