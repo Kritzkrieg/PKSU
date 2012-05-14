@@ -73,8 +73,8 @@ namespace ELearning.Controllers
                     int i = 0;
                     while (r.Read())
                     {
-                        ViewBag.TopTen[i] = (r.GetString(0));
-                        ViewBag.TopTen[i+1] = (r.GetString(1));
+                        ViewBag.TopTen[i] = r.GetString(0);
+                        ViewBag.TopTen[i+1] = r.GetString(1);
                         i = i + 2;
                     }
                 }
