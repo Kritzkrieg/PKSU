@@ -46,7 +46,7 @@ namespace ELearning.Controllers
 
 
             //Get most active day
-            ViewBag.MActive = "0000000000";
+            ViewBag.MActive = "           ";
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
@@ -61,6 +61,23 @@ namespace ELearning.Controllers
                 }
             }
             
+            //Get top 10
+            string[] tTen = new string[20];
+            ViewBag.TopTen = tTen;
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT `UserName`, COUNT(`ID`) FROM studentassignment GROUP BY 1 ORDER BY 2 DESC LIMIT 0,10;", con);
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        ViewBag.TopTen.Add(r.GetString(0));
+                        ViewBag.TopTen.Add(r.GetString(1));
+                    }
+                }
+            }
+
             return View(sau);
         }
 

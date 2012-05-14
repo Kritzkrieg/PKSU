@@ -53,7 +53,7 @@
                         <td width=250><b>Antal forsøgte opgaver:</b> @Model.studentassignment.Count</td>
                     </tr>
                     <tr> 
-                        <td width=250><b>Dag med flest forsøgte opgaver:</b> @ViewBag.MActive.Substring(0, 10) </td>
+                        <td width=350><b>Dag med flest forsøgte opgaver:</b> @ViewBag.MActive.Substring(0, 10) </td>  
                         <td width=250><b>Antal løste delopgaver:</b> @ViewBag.SolvedAssignmentParts</td>
                         <td width=250><b>Antal fuldt løste opgaver:</b> @ViewBag.SolvedAssignments </td>
                     </tr>
@@ -70,44 +70,44 @@
             <legend>Highscore</legend>
             <table class="bottomBorder">
                 <tr>
-                    <td width=100>1 Bob</td>
-                    <td width=100 align=right>9001</td>
+                    <td width=100>1 @ViewBag.TopTen[0]</td>
+                    <td width=100 align=right>@ViewBag.TopTen[1]</td>
                 </tr>
                 <tr>
-                    <td width=100>2 Grethe</td>
-                    <td  width=100 align=right>8600</td>
+                    <td width=100>2 @ViewBag.TopTen[2]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[3]</td>
                 </tr>
                 <tr>
-                    <td width=100>3 Hans</td>
-                    <td  width=100 align=right>5310</td>
+                    <td width=100>3 @ViewBag.TopTen[4]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[5]</td>
                 </tr>
                 <tr>
-                    <td width=100>4 Bartimæus</td>
-                    <td  width=100 align=right>5177</td>
+                    <td width=100>4 @ViewBag.TopTen[6]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[7]</td>
                 </tr>
                 <tr>
-                    <td width=100>5 Lisa</td>
-                    <td  width=100 align=right>3951</td>
+                    <td width=100>5 @ViewBag.TopTen[8]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[9]</td>
                 </tr>
                 <tr>
-                    <td width=100>6 Ballmer</td>
-                    <td  width=100 align=right>3486</td>
+                    <td width=100>6 @ViewBag.TopTen[10]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[11]</td>
                 </tr>
                 <tr>
-                    <td width=100>7 Dorthe</td>
-                    <td  width=100 align=right>2117</td>
+                    <td width=100>7 @ViewBag.TopTen[12]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[13]</td>
                 </tr>
                 <tr>
-                    <td width=100>8 Ib</td>
-                    <td  width=100 align=right>1337</td>
+                    <td width=100>8 @ViewBag.TopTen[14]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[15]</td>
                 </tr>
                 <tr>
-                    <td width=100>9 Bo</td>
-                    <td  width=100 align=right>1010</td>
+                    <td width=100>9 @ViewBag.TopTen[16]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[17]</td>
                 </tr>
                 <tr>
-                    <td width=100>10 Yvette</td>
-                    <td  width=100 align=right>988</td>
+                    <td width=100>10 @ViewBag.TopTen[18]</td>
+                    <td  width=100 align=right>@ViewBag.TopTen[19]</td>
                 </tr>
             </table>
         </fieldset>
