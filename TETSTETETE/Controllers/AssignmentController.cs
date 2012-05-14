@@ -16,20 +16,23 @@ namespace ELearning.Controllers
         private StudentAssignmentConnection db = new StudentAssignmentConnection();
         //
         // GET: /Assignment/
-        [HttpPost]
-        public ActionResult Index(ELearning.Models.Assignment mdl)
-        {
-
-            mdl.SolveAssignment();
-            return RedirectToAction("Result", "Assignment", mdl);
-        }
 
         public ActionResult Index()
         {
-            return View();
+            GivenAssignment gas = new GivenAssignment();
+            gas.gAssignment = Assignment.GetAssignment();
+            return View(gas);
         }
 
-        public ActionResult Result(ELearning.Models.Assignment mdl)
+        [HttpPost]
+        public ActionResult Index(ELearning.Models.GivenAssignment mdl)
+        {
+
+            mdl.gAssignment.SolveAssignment();
+            return RedirectToAction("Result", "Assignment", mdl);
+        }
+
+        public ActionResult Result(ELearning.Models.GivenAssignment mdl)
         {
             return View(mdl);
         }

@@ -126,9 +126,7 @@ namespace ELearning.Models
     }
 
     //Next class is for Database/Model clashes
-    //public class MyInitializer : DropCreateDatabaseIfModelChanges<AssignmentConnection>
-    //{
-    //}
+    //public class MyInitializer : DropCreateDatabaseIfModelChanges<AssignmentConnection> { }
 
     public class GivenAssignment
     {
