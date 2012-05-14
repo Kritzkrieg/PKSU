@@ -68,7 +68,8 @@
                                 @Html.ValidationMessageFor(model => model.tOption4)
                                 @Html.RadioButtonFor(model => model.TruetOption, 4)
                             </div>
-                            <div class="editor-field" style="display:none;">
+                            <div class="editor-field" align="right">
+                                Fjern denne delopgave 
                                 @Html.RadioButtonFor(model => model.TruetOption, 5, new { Checked = "checked" })
                             </div>
                         </div>
@@ -112,8 +113,8 @@
                                 @Html.ValidationMessageFor(model => model.Option4)
                                 @Html.RadioButtonFor(model => model.TrueOption, 4)
                             </div>
-
-                            <div class="editor-field" style="display:none;">
+                            <div class="editor-field" align="right">
+                                Fjern denne delopgave 
                                 @Html.RadioButtonFor(model => model.TrueOption, 5, new { Checked = "checked" })
                             </div>
                         </div>

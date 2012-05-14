@@ -26,178 +26,218 @@
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                @{   if (Model.TruetOption.Equals(1))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption1)</span> 
-                                                </div>
+                                @{
+                                    if (Model.TruetOption.Equals(1))
+                                    {
+                                        <td align="right">
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption1)</span> 
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span> 
-                                               </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span> 
+                                        </div></td>
+                                    }
 
-                                     else if (Model.TruetOption.Equals(2))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span> 
-                                                </div>
+                                    else if (Model.TruetOption.Equals(2))
+                                    {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span> 
+                                        </div>
                                      
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption2)</span>
-                                                </div>
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span> 
-                                               </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span> 
+                                        </div></td>
+                                    }
 
-                                     else if (Model.TruetOption.Equals(3))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
-                                                </div>
+                                    else if (Model.TruetOption.Equals(3))
+                                    {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption3) </span>
-                                                </div> 
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption3) </span>
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span>
-                                              </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption4)</span>
+                                        </div></td>
+                                    }
 
-                                     else if (Model.TruetOption.Equals(4))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
-                                                </div>
+                                    else if (Model.TruetOption.Equals(4))
+                                    {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption1)</span>
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.tOption3)</span>
+                                        </div> 
                                     
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption4) </span>
-                                              </div></td>
-                                          }
-                                          }
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.tOption4) </span>
+                                        </div></td>
+                                    }
+                                    else
+                                    {
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                    }
+                                 }
      
-                                     @{   if (Model.TrueOption.Equals(1))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option1)</span>  
-                                                </div>
+                                 @{
+                                     if (Model.TrueOption.Equals(1))
+                                     {
+                                        <td align="right">
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option1)</span>  
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span>
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span> 
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span> 
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span> 
-                                               </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span> 
+                                        </div></td>
+                                     }
 
-                                          else if (Model.TrueOption.Equals(2))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>
-                                                </div>
+                                     else if (Model.TrueOption.Equals(2))
+                                     {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>
+                                        </div>
                                      
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option2)</span>
-                                                </div>
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span> 
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span> 
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span> 
-                                               </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span> 
+                                        </div></td>
+                                     }
 
-                                          else if (Model.TrueOption.Equals(3))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span> 
-                                                </div>
+                                     else if (Model.TrueOption.Equals(3))
+                                     {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span> 
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span> 
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span> 
+                                        </div>
                                     
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option3) </span>
-                                                </div> 
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option3) </span>
+                                        </div> 
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span>
-                                              </div></td>
-                                          }
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option4)</span>
+                                        </div></td>
+                                     }
 
-                                          else if (Model.TrueOption.Equals(4))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>  
-                                                </div>
+                                     else if (Model.TrueOption.Equals(4))
+                                     {
+                                        <td align="right">
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option1)</span>  
+                                        </div>
                                      
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span>
-                                                </div>
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option2)</span>
+                                        </div>
                                     
-                                                <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span>
-                                                </div> 
+                                        <div><span style="color:#FF0000">@Html.DisplayFor(model => model.Option3)</span>
+                                        </div> 
                                     
-                                                <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option4)</span>
-                                              </div></td>
-                                          }
-                                          }
+                                        <div><span style="color:#00FF00">@Html.DisplayFor(model => model.Option4)</span>
+                                        </div></td>
+                                     }
+                                     else
+                                     {
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                        <td align="right">
+                                            <div></div><div></div>
+                                            <div></div><div></div>
+                                        </td>
+                                     }
+                                 }
                                 
                                 
-                                    @{
-                                        if (Model.TruefOption.Equals(1))
-                                          {
-                                            <td align="right">
-                                              <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption1)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
-                                            </td>
-                                          }
+                                 @{
+                                     if (Model.TruefOption.Equals(1))
+                                     {
+                                        <td align="right">
+                                            <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption1)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
+                                        </td>
+                                     }
 
-                                        else if (Model.TruefOption.Equals(2))
-                                          {
-                                            <td align="right">
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
-                                              <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption2)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
-                                            </td>
-                                          }
+                                     if (Model.TruefOption.Equals(2))
+                                     {
+                                        <td align="right">
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
+                                            <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption2)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
+                                        </td>
+                                     }
 
-                                        else if (Model.TruefOption.Equals(3))
-                                          {
-                                            <td align="right">
-                                             <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
-                                             <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
-                                             <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption3)</span></div>
-                                             <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
-                                            </td>
-                                          }
+                                     if (Model.TruefOption.Equals(3))
+                                     {
+                                        <td align="right">
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
+                                            <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption3)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption4)</span></div>
+                                        </td>
+                                     }
 
-                                        else if (Model.TruefOption.Equals(4))
-                                          {
-                                            <td align="right">
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
-                                              <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
-                                              <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption4)</span></div>
-                                            </td>
-                                          }
-                                    }                               
+                                     else if (Model.TruefOption.Equals(4))
+                                     {
+                                        <td align="right">
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption1)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption2)</span></div>
+                                            <div><span style="color:#FF0000">@Html.DisplayFor(model => model.fOption3)</span></div>
+                                            <div><span style="color:#00FF00">@Html.DisplayFor(model => model.fOption4)</span></div>
+                                        </td>
+                                     }
+                                  }                               
                             </tr>
                         </table>
                     </center>
@@ -209,6 +249,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Rediger", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Rediger", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Tilbage", "Index")
 </p>
