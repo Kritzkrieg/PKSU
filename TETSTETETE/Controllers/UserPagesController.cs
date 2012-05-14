@@ -70,10 +70,12 @@ namespace ELearning.Controllers
                 var cmd = new MySqlCommand("SELECT `UserName`, COUNT(`ID`) FROM studentassignment GROUP BY 1 ORDER BY 2 DESC LIMIT 0,10;", con);
                 using (var r = cmd.ExecuteReader())
                 {
+                    int i = 0;
                     while (r.Read())
                     {
-                        ViewBag.TopTen.Add(r.GetString(0));
-                        ViewBag.TopTen.Add(r.GetString(1));
+                        ViewBag.TopTen[i] = (r.GetString(0));
+                        ViewBag.TopTen[i+1] = (r.GetString(1));
+                        i = i + 2;
                     }
                 }
             }

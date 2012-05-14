@@ -24,7 +24,7 @@
             @user.UserName
         </td>
         <td>
-           @Html.ActionLink("Brugerside", "UserProfile",  new { UserName = user.UserName }) | @Html.ActionLink("Rediger adgangskode", "ChangePassword", new { UserName = user.UserName })     
+           @Html.ActionLink("Brugerside", "UserProfile",  new { UserName = user.UserName }) | @Html.ActionLink("Rediger adgangskode", "ChangePassword", new { UserName = user.UserName }) | @Html.ActionLink("Slet bruger", "DeleteUser", new { UserName = user.UserName })   
         </td>    
             @if (user.IsOnline)
             {
