@@ -23,6 +23,8 @@ namespace ELearning.Models
         public bool Solved2 { get; set; }
         public bool Solved3 { get; set; }
 
+       
+
         public static List<StudentAssignment> GetStudentsAssignments(string name)
         {
             List<StudentAssignment> Sas = new List<StudentAssignment>();
@@ -60,7 +62,6 @@ namespace ELearning.Models
         public MembershipUser user { get; set; }
  
     }
-
         public class StudentAssignmentConnection : DbContext
         {
             public DbSet<StudentAssignment> StudentAssignments { get; set; }

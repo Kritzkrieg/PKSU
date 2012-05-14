@@ -107,7 +107,7 @@ namespace ELearning.Models
                 var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
                 cmd.Parameters.AddWithValue("@UserName", "Henning");
                 cmd.Parameters.AddWithValue("@ID", 2);
-                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString().Substring(0, 10));
                 cmd.Parameters.AddWithValue("@OptionTaken1", 2);
                 cmd.Parameters.AddWithValue("@OptionTaken2", 3);
                 cmd.Parameters.AddWithValue("@OptionTaken3", 2);

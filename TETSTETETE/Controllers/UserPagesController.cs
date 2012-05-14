@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ELearning.Models;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELearning.Controllers
 {
@@ -34,6 +35,7 @@ namespace ELearning.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+
             if (!User.Identity.Name.Equals(UserName)) 
             {
                 if (!User.IsInRole("admin"))
@@ -42,6 +44,23 @@ namespace ELearning.Controllers
                 }
             }
 
+
+            //Get most active day
+            ViewBag.MActive = "0000000000";
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT DateTime, count(*) as occurrences, ID, OptionTaken1, OptionTaken2, OptionTaken3, Solved1, Solved2, Solved3 FROM studentassignment WHERE UserName= ? GROUP BY DateTime ORDER BY occurrences desc, DateTime LIMIT 1", con);
+                cmd.Parameters.AddWithValue("?", UserName);
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        ViewBag.MActive = r.GetString(0);
+                    }
+                }
+            }
+            
             return View(sau);
         }
 

@@ -27,6 +27,7 @@
             ViewBag.SolvedAssignments++;   
         }
         
+        
         //Find day with most attempted assignments
         
      }
@@ -47,7 +48,7 @@
                         <td width=250><b>Antal forsøgte opgaver:</b> @Model.studentassignment.Count</td>
                     </tr
                     <tr> 
-                        <td width=250><b>Dag med flest forsøgte opgaver:</b> </td>
+                        <td width=250><b>Dag med flest forsøgte opgaver: @ViewBag.MActive.Substring(0, 10)</b> </td>
                        
                           
                          

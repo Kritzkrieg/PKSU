@@ -17,7 +17,7 @@ namespace ELearning.Controllers
         //
         // GET: /Assignment/
         [HttpPost]
-        public ActionResult Index(ELearning.Models.StaticAssignment mdl)
+        public ActionResult Index(ELearning.Models.Assignment mdl)
         {
 
             mdl.SolveAssignment();
@@ -29,7 +29,7 @@ namespace ELearning.Controllers
             return View();
         }
 
-        public ActionResult Result(ELearning.Models.StaticAssignment mdl)
+        public ActionResult Result(ELearning.Models.Assignment mdl)
         {
             return View(mdl);
         }
