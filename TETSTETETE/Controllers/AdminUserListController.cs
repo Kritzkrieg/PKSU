@@ -13,7 +13,6 @@ namespace ELearning.Controllers
         //
         // GET: /UserList/
 
-        private AssignmentConnection db = new AssignmentConnection();
         
         
         public ActionResult Index()

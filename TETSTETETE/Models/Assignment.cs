@@ -72,8 +72,8 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {   
                 con.Open();
-                var cmd = new MySqlCommand("SELECT a.ID, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN (SELECT * FROM studentassignment WHERE UserName = @UserName) AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1");
-                cmd.Parameters.AddWithValue("@UserName", Username);
+                var cmd = new MySqlCommand("SELECT a.ID, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN (SELECT * FROM studentassignment WHERE UserName = ?) AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1", con);
+                cmd.Parameters.AddWithValue("?", Username);
                 using (var r = cmd.ExecuteReader()) 
                 {
                     r.Read();
@@ -100,6 +100,143 @@ namespace ELearning.Models
             }
         }
 
+        public static void DeleteAssignment(int id)
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("DELETE from assignments WHERE id = ?", con);
+                cmd.Parameters.AddWithValue("?", id);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public static void EditAssignment(Assignment assignment)
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("UPDATE assignments SET Text=@Text, Option1=@Option1, Option3=@Option3, Option4=@Option4, trueOption=@trueOption, fOption1=@fOption1, fOption2=@fOption2, fOption3=@fOption3, fOption4=@fOption4, truefOption=@truefOption, tOption1=@tOption1, tOption2=@tOption2, tOption3=@tOption3, tOption4=@tOption4, truetOption=@trueOption WHERE ID=@ID", con);
+                cmd.Parameters.AddWithValue("@ID", assignment.ID);
+                cmd.Parameters.AddWithValue("@Text", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option1", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option2", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option3", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option4", assignment.ID);
+                cmd.Parameters.AddWithValue("@trueOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption1", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption2", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption3", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption4", assignment.ID);
+                cmd.Parameters.AddWithValue("@truefOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption1", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption2", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption3", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption4", assignment.ID);
+                cmd.Parameters.AddWithValue("@truetOption", assignment.ID);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void AddAssignment(Assignment assignment)
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("INSERT INTO assignments VALUES (@ID, @Text, @Option1, @Option2, @Option3, @Option4, @trueOption, @fOption1, @fOption2, @fOption3, @fOption4, @truefOption, @tOption1, @tOption2, @tOption3, @tOption4, @truetOption)", con);
+                cmd.Parameters.AddWithValue("@ID", assignment.ID);
+                cmd.Parameters.AddWithValue("@Text", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option1", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option2", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option3", assignment.ID);
+                cmd.Parameters.AddWithValue("@Option4", assignment.ID);
+                cmd.Parameters.AddWithValue("@trueOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption1", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption2", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption3", assignment.ID);
+                cmd.Parameters.AddWithValue("@fOption4", assignment.ID);
+                cmd.Parameters.AddWithValue("@truefOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption1", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption2", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption3", assignment.ID);
+                cmd.Parameters.AddWithValue("@tOption4", assignment.ID);
+                cmd.Parameters.AddWithValue("@truetOption", assignment.ID);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+        public static Assignment GetSpecificAssignment(int id)
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT ID, Text, Option1, Option2, Option3, Option4, trueOption, fOption1, fOption2, fOption3, fOption4, truefOption, tOption1, tOption2, tOption3, tOption4, truetOption FROM assignments WHERE ID = ?", con);
+                cmd.Parameters.AddWithValue("?", id);
+                using (var r = cmd.ExecuteReader())
+                {
+                    r.Read();
+                    var RandomAssignment = new Assignment();
+                    RandomAssignment.ID = r.GetInt32(0);
+                    RandomAssignment.Text = r.GetString(1);
+                    RandomAssignment.Option1 = r.GetString(2);
+                    RandomAssignment.Option2 = r.GetString(3);
+                    RandomAssignment.Option3 = r.GetString(4);
+                    RandomAssignment.Option4 = r.GetString(5);
+                    RandomAssignment.TrueOption = r.GetInt32(6);
+                    RandomAssignment.fOption1 = r.GetString(7);
+                    RandomAssignment.fOption2 = r.GetString(8);
+                    RandomAssignment.fOption3 = r.GetString(9);
+                    RandomAssignment.fOption4 = r.GetString(10);
+                    RandomAssignment.TruefOption = r.GetInt32(11);
+                    RandomAssignment.tOption1 = r.GetString(12);
+                    RandomAssignment.tOption2 = r.GetString(13);
+                    RandomAssignment.tOption3 = r.GetString(14);
+                    RandomAssignment.tOption4 = r.GetString(15);
+                    return RandomAssignment;
+                }
+            }
+
+
+        }
+
+
+        public static List<Assignment> GetAllAssignments()
+        {
+            List<Assignment> assignmentList = new List<Assignment>();
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {   
+                con.Open();
+                var cmd = new MySqlCommand("SELECT ID, Text, Option1, Option2, Option3, Option4, trueOption, fOption1, fOption2, fOption3, fOption4, truefOption, tOption1, tOption2, tOption3, tOption4, truetOption FROM assignments", con);
+                using (var r = cmd.ExecuteReader()) 
+                {
+                    while (r.Read())
+                    {
+                        var RandomAssignment = new Assignment();
+                        RandomAssignment.ID = r.GetInt32(0);
+                        RandomAssignment.Text = r.GetString(1);
+                        RandomAssignment.Option1 = r.GetString(2);
+                        RandomAssignment.Option2 = r.GetString(3);
+                        RandomAssignment.Option3 = r.GetString(4);
+                        RandomAssignment.Option4 = r.GetString(5);
+                        RandomAssignment.TrueOption = r.GetInt32(6);
+                        RandomAssignment.fOption1 = r.GetString(7);
+                        RandomAssignment.fOption2 = r.GetString(8);
+                        RandomAssignment.fOption3 = r.GetString(9);
+                        RandomAssignment.fOption4 = r.GetString(10);
+                        RandomAssignment.TruefOption = r.GetInt32(11);
+                        RandomAssignment.tOption1 = r.GetString(12);
+                        RandomAssignment.tOption2 = r.GetString(13);
+                        RandomAssignment.tOption3 = r.GetString(14);
+                        RandomAssignment.tOption4 = r.GetString(15);
+                        RandomAssignment.TruetOption = r.GetInt32(16);
+                        assignmentList.Add(RandomAssignment);
+                    }
+                    return assignmentList;
+                }
+            }
+        }
+
         public void SolveAssignment()
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
@@ -121,13 +258,6 @@ namespace ELearning.Models
 
     }
 
-    public class AssignmentConnection : DbContext
-    {
-        public DbSet<Assignment> Assignments { get; set; }
-    }
-
-    //Next class is for Database/Model clashes
-    //public class MyInitializer : DropCreateDatabaseIfModelChanges<AssignmentConnection> { }
 
     public class GivenAssignment
     {

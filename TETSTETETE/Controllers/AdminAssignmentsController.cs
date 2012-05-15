@@ -11,7 +11,6 @@ namespace ELearning.Controllers
 { 
     public class AdminAssignmentsController : Controller
     {
-        private AssignmentConnection db = new AssignmentConnection();
 
         //
         // GET: /Assignments/
@@ -21,7 +20,8 @@ namespace ELearning.Controllers
         {
             if (User.IsInRole("admin"))
             {
-                return View(db.Assignments.ToList());
+                var allAssignments = Assignment.GetAllAssignments();
+                return View(allAssignments);
             }
             return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
         }
@@ -33,7 +33,7 @@ namespace ELearning.Controllers
         {
             if (User.IsInRole("admin"))
             {
-                Assignment assignment = db.Assignments.Find(id);
+                Assignment assignment = Assignment.GetSpecificAssignment(id);
                 return View(assignment);
             }
             return null;
@@ -63,8 +63,7 @@ namespace ELearning.Controllers
             }
             if (ModelState.IsValid)
             {
-                db.Assignments.Add(assignment);
-                db.SaveChanges();
+                Assignment.AddAssignment(assignment);
                 return RedirectToAction("Index");  
             }
 
@@ -80,7 +79,7 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
-            Assignment assignment = db.Assignments.Find(id);
+            Assignment assignment = Assignment.GetSpecificAssignment(id);
             if (assignment == null)
             {
                 return HttpNotFound();
@@ -99,8 +98,7 @@ namespace ELearning.Controllers
             }
             if (ModelState.IsValid)
             {
-                db.Entry(assignment).State = EntityState.Modified;
-                db.SaveChanges();
+                Assignment.EditAssignment(assignment);
                 return RedirectToAction("Index");
             }
             return View(assignment);
@@ -117,7 +115,7 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
-            Assignment assignment = db.Assignments.Find(id);
+            Assignment assignment = Assignment.GetSpecificAssignment(id);
             return View(assignment);
         }
 
@@ -127,16 +125,8 @@ namespace ELearning.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Assignment assignment = db.Assignments.Find(id);
-            db.Assignments.Remove(assignment);
-            db.SaveChanges();
+            Assignment.DeleteAssignment(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }
