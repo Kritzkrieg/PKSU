@@ -69,46 +69,18 @@
         <fieldset>
             <legend>Highscore</legend>
             <table class="bottomBorder">
-                <tr>
-                    <td width=100>1 @ViewBag.TopTen[0]</td>
-                    <td width=100 align=right>@ViewBag.TopTen[1]</td>
-                </tr>
-                <tr>
-                    <td width=100>2 @ViewBag.TopTen[2]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[3]</td>
-                </tr>
-                <tr>
-                    <td width=100>3 @ViewBag.TopTen[4]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[5]</td>
-                </tr>
-                <tr>
-                    <td width=100>4 @ViewBag.TopTen[6]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[7]</td>
-                </tr>
-                <tr>
-                    <td width=100>5 @ViewBag.TopTen[8]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[9]</td>
-                </tr>
-                <tr>
-                    <td width=100>6 @ViewBag.TopTen[10]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[11]</td>
-                </tr>
-                <tr>
-                    <td width=100>7 @ViewBag.TopTen[12]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[13]</td>
-                </tr>
-                <tr>
-                    <td width=100>8 @ViewBag.TopTen[14]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[15]</td>
-                </tr>
-                <tr>
-                    <td width=100>9 @ViewBag.TopTen[16]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[17]</td>
-                </tr>
-                <tr>
-                    <td width=100>10 @ViewBag.TopTen[18]</td>
-                    <td  width=100 align=right>@ViewBag.TopTen[19]</td>
-                </tr>
+                @{
+                    int j = 1;
+                    for (int i = 0; @ViewBag.TopTen[i] != null; i++)
+                    {
+                        <tr>
+                            <td width=100>@j @ViewBag.TopTen[i]</td>
+                            <td width=100 align=right>@ViewBag.TopTen[i+1]</td>
+                        </tr>
+                        i++;
+                        j++;
+                    }  
+                 }
             </table>
         </fieldset>
     </div>
