@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ELearning.Models;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELearning.Controllers
 {
@@ -123,6 +125,22 @@ namespace ELearning.Controllers
             if (User.IsInRole("admin"))
             {
                 Membership.DeleteUser(UserName, true);
+
+                using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+                {
+                    con.Open();
+                    var cmd = new MySqlCommand("DELETE FROM studentassignment WHERE UserName = @UserName", con);
+                    cmd.Parameters.AddWithValue("@UserName", UserName);
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+                {
+                    con.Open();
+                    var cmd = new MySqlCommand("DELETE FROM userpoints WHERE UserName = @UserName", con);
+                    cmd.Parameters.AddWithValue("@UserName", UserName);
+                    cmd.ExecuteNonQuery();
+                }
 
                 return RedirectToAction("Index", "AdminUserList");
             }
