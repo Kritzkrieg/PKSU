@@ -67,7 +67,7 @@ namespace ELearning.Controllers
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT `UserName`, COUNT(`ID`) FROM studentassignment GROUP BY 1 ORDER BY 2 DESC LIMIT 0,10;", con);
+                var cmd = new MySqlCommand("SELECT `UserName`, `Points` FROM userpoints GROUP BY 1 ORDER BY 2 DESC LIMIT 0,10;", con);
                 using (var r = cmd.ExecuteReader())
                 {
                     int i = 0;

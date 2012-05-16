@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using ELearning.Models;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELearning.Controllers
 {
@@ -85,6 +87,15 @@ namespace ELearning.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+                    {
+                        con.Open();
+                        var cmd = new MySqlCommand("INSERT INTO userpoints VALUES (@UserName, @Points)", con);
+                        cmd.Parameters.AddWithValue("@UserName", model.UserName);
+                        cmd.Parameters.AddWithValue("@Points", 0);
+                        cmd.ExecuteNonQuery();
+                    }
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     Roles.AddUserToRole(user.UserName, "Student"); 
                     return RedirectToAction("Index", "Home");
@@ -95,7 +106,7 @@ namespace ELearning.Controllers
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }
