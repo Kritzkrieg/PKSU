@@ -209,7 +209,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("INSERT INTO assignments VALUES (@ID, @Text, @Option1, @Option2, @Option3, @Option4, @trueOption, @fOption1, @fOption2, @fOption3, @fOption4, @truefOption, @tOption1, @tOption2, @tOption3, @tOption4, @truetOption)", con);
+                var cmd = new MySqlCommand("INSERT INTO assignments VALUES (null, @Text, @Option1, @Option2, @Option3, @Option4, @trueOption, @fOption1, @fOption2, @fOption3, @fOption4, @truefOption, @tOption1, @tOption2, @tOption3, @tOption4, @truetOption)", con);
                 cmd.Parameters.AddWithValue("@ID", assignment.ID);
                 cmd.Parameters.AddWithValue("@Text", assignment.Text);
                 cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
