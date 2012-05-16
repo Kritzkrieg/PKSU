@@ -183,22 +183,22 @@ namespace ELearning.Models
                 con.Open();
                 var cmd = new MySqlCommand("UPDATE assignments SET Text=@Text, Option1=@Option1, Option3=@Option3, Option4=@Option4, trueOption=@trueOption, fOption1=@fOption1, fOption2=@fOption2, fOption3=@fOption3, fOption4=@fOption4, truefOption=@truefOption, tOption1=@tOption1, tOption2=@tOption2, tOption3=@tOption3, tOption4=@tOption4, truetOption=@trueOption WHERE ID=@ID", con);
                 cmd.Parameters.AddWithValue("@ID", assignment.ID);
-                cmd.Parameters.AddWithValue("@Text", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option1", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option2", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option3", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option4", assignment.ID);
-                cmd.Parameters.AddWithValue("@trueOption", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption1", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption2", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption3", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption4", assignment.ID);
-                cmd.Parameters.AddWithValue("@truefOption", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption1", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption2", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption3", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption4", assignment.ID);
-                cmd.Parameters.AddWithValue("@truetOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@Text", assignment.Text);
+                cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
+                cmd.Parameters.AddWithValue("@Option2", assignment.Option2);
+                cmd.Parameters.AddWithValue("@Option3", assignment.Option3);
+                cmd.Parameters.AddWithValue("@Option4", assignment.Option4);
+                cmd.Parameters.AddWithValue("@trueOption", assignment.TrueOption);
+                cmd.Parameters.AddWithValue("@fOption1", assignment.fOption1);
+                cmd.Parameters.AddWithValue("@fOption2", assignment.fOption2);
+                cmd.Parameters.AddWithValue("@fOption3", assignment.fOption3);
+                cmd.Parameters.AddWithValue("@fOption4", assignment.fOption4);
+                cmd.Parameters.AddWithValue("@truefOption", assignment.TruefOption);
+                cmd.Parameters.AddWithValue("@tOption1", assignment.tOption1);
+                cmd.Parameters.AddWithValue("@tOption2", assignment.tOption2);
+                cmd.Parameters.AddWithValue("@tOption3", assignment.tOption3);
+                cmd.Parameters.AddWithValue("@tOption4", assignment.tOption4);
+                cmd.Parameters.AddWithValue("@truetOption", assignment.TruetOption);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -324,7 +324,7 @@ namespace ELearning.Models
                 var cmd = new MySqlCommand("INSERT INTO studentassignment VALUES (@username, @ID, @DateTime, @OptionTaken1, @OptionTaken2, @OptionTaken3, @Solved1, @Solved2, @Solved3, null)", con);
                 cmd.Parameters.AddWithValue("@UserName", UserName);
                 cmd.Parameters.AddWithValue("@ID", gAssignment.ID);
-                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString().Substring(0, 10));
+                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString());
                 cmd.Parameters.AddWithValue("@OptionTaken1", TheoryAnswer);
                 cmd.Parameters.AddWithValue("@OptionTaken2", Answer);
                 cmd.Parameters.AddWithValue("@OptionTaken3", FinalAnswer);
