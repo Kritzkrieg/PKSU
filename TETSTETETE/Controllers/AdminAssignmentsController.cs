@@ -48,6 +48,7 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
+            ViewBag.subjects = Assignment.GetSubjects();
             return View();
         } 
 
@@ -66,7 +67,7 @@ namespace ELearning.Controllers
                 Assignment.AddAssignment(assignment);
                 return RedirectToAction("Index");  
             }
-
+            ViewBag.subjects = Assignment.GetSubjects();
             return View(assignment);
         }
         

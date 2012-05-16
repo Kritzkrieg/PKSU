@@ -21,9 +21,19 @@
     <fieldset>
         <legend>Opgave</legend>
 
+        <select name="subject">
+            @{
+                foreach (var item in ViewBag.subjects)
+                {
+                    <option value="@item">@item</option>
+                }
+            }
+        </select>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Text)
         </div>
+
         <div class="textarea-field">
             @Html.TextAreaFor(model => model.Text, new { @cols = 60, @rows = 10 })
             @Html.ValidationMessageFor(model => model.Text)
