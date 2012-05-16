@@ -151,22 +151,22 @@ namespace ELearning.Models
                 con.Open();
                 var cmd = new MySqlCommand("INSERT INTO assignments VALUES (@ID, @Text, @Option1, @Option2, @Option3, @Option4, @trueOption, @fOption1, @fOption2, @fOption3, @fOption4, @truefOption, @tOption1, @tOption2, @tOption3, @tOption4, @truetOption)", con);
                 cmd.Parameters.AddWithValue("@ID", assignment.ID);
-                cmd.Parameters.AddWithValue("@Text", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option1", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option2", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option3", assignment.ID);
-                cmd.Parameters.AddWithValue("@Option4", assignment.ID);
-                cmd.Parameters.AddWithValue("@trueOption", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption1", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption2", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption3", assignment.ID);
-                cmd.Parameters.AddWithValue("@fOption4", assignment.ID);
-                cmd.Parameters.AddWithValue("@truefOption", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption1", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption2", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption3", assignment.ID);
-                cmd.Parameters.AddWithValue("@tOption4", assignment.ID);
-                cmd.Parameters.AddWithValue("@truetOption", assignment.ID);
+                cmd.Parameters.AddWithValue("@Text", assignment.Text);
+                cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
+                cmd.Parameters.AddWithValue("@Option2", assignment.Option2);
+                cmd.Parameters.AddWithValue("@Option3", assignment.Option3);
+                cmd.Parameters.AddWithValue("@Option4", assignment.Option4);
+                cmd.Parameters.AddWithValue("@trueOption", assignment.TrueOption);
+                cmd.Parameters.AddWithValue("@fOption1", assignment.fOption1);
+                cmd.Parameters.AddWithValue("@fOption2", assignment.fOption2);
+                cmd.Parameters.AddWithValue("@fOption3", assignment.fOption3);
+                cmd.Parameters.AddWithValue("@fOption4", assignment.fOption4);
+                cmd.Parameters.AddWithValue("@truefOption", assignment.TruefOption);
+                cmd.Parameters.AddWithValue("@tOption1", assignment.tOption1);
+                cmd.Parameters.AddWithValue("@tOption2", assignment.tOption2);
+                cmd.Parameters.AddWithValue("@tOption3", assignment.tOption3);
+                cmd.Parameters.AddWithValue("@tOption4", assignment.tOption4);
+                cmd.Parameters.AddWithValue("@truetOption", assignment.TruetOption);
                 cmd.ExecuteNonQuery();
             }
 
