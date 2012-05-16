@@ -258,6 +258,7 @@ namespace ELearning.Models
                     SpecificAssignment.tOption2 = r.GetString(13);
                     SpecificAssignment.tOption3 = r.GetString(14);
                     SpecificAssignment.tOption4 = r.GetString(15);
+                    SpecificAssignment.TruetOption = r.GetInt32(16);
                     return SpecificAssignment;
                 }
             }
