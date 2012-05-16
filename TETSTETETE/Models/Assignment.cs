@@ -67,6 +67,64 @@ namespace ELearning.Models
 
         public int TruefOption { get; set; }
 
+        public static Assignment checkAssignment(Assignment assignment)
+        {
+            if (assignment.Text == null)
+            {
+                assignment.Text = "";
+            }
+            if (assignment.Option1 == null)
+            {
+                assignment.Option1 = "";
+            }
+            if (assignment.Option2 == null)
+            {
+                assignment.Option2 = "";
+            }
+            if (assignment.Option3 == null)
+            {
+                assignment.Option3 = "";
+            }
+            if (assignment.Option4 == null)
+            {
+                assignment.Option4 = "";
+            }
+            if (assignment.fOption1 == null)
+            {
+                assignment.fOption1 = "";
+            }
+            if (assignment.fOption2 == null)
+            {
+                assignment.fOption2 = "";
+            }
+            if (assignment.fOption3 == null)
+            {
+                assignment.fOption3 = "";
+            }
+            if (assignment.fOption4 == null)
+            {
+                assignment.fOption4 = "";
+            }
+            if (assignment.tOption1 == null)
+            {
+                assignment.tOption1 = "";
+            }
+            if (assignment.tOption2 == null)
+            {
+                assignment.tOption2 = "";
+            }
+            if (assignment.tOption3 == null)
+            {
+                assignment.tOption3 = "";
+            }
+            if (assignment.tOption4 == null)
+            {
+                assignment.tOption4 = "";
+            }
+            return assignment;
+
+        }
+
         public static Assignment GetAssignment(string UserName)
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
@@ -119,6 +177,7 @@ namespace ELearning.Models
 
         public static void EditAssignment(Assignment assignment)
         {
+            assignment = Assignment.checkAssignment(assignment);
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
@@ -146,6 +205,7 @@ namespace ELearning.Models
 
         public static void AddAssignment(Assignment assignment)
         {
+            assignment = Assignment.checkAssignment(assignment);
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
