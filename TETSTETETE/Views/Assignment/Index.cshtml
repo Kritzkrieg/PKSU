@@ -7,6 +7,7 @@
 <div id="bluehead"><h2>Opgaver</h2></div>
 <h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
 
+
  <div id="box">
         <div id="lb"><div id="rb">
         <div id="bb"><div id="blc"><div id="brc">
@@ -57,6 +58,7 @@
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 3)</div>
                                     <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 4)</div>
+                                    @Html.Hidden("assignmentID", Model.gAssignment.ID);
                                 </td>
                             </tr>
                         </table>
