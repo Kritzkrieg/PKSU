@@ -110,5 +110,32 @@ namespace ELearning.Controllers
             return RedirectToAction("UserProfile", "UserPages", new { UserName = UserName });
         }
 
+        //
+        // GET: /Account/DeleteUser
+        public ActionResult DeleteUser(string UserName)
+        {
+            ViewBag.UserName = UserName;
+            return View();
+        }
+        
+        public ActionResult DeleteUserSuccess(string UserName)
+        {
+            if (User.IsInRole("admin"))
+            {
+                Membership.DeleteUser(UserName, true);
+
+                return RedirectToAction("Index", "AdminUserList");
+            }
+            return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+        }
+
+        public ActionResult DeleteUserFailure()
+        {
+            if (User.IsInRole("admin"))
+            {
+                return RedirectToAction("Index", "AdminUserList");
+            }
+            return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+        }
     }
 }

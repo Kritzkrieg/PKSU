@@ -1,6 +1,4 @@
-﻿@model ELearning.Models.ChangePasswordModel
-           
-@{
+﻿@{
     ViewBag.Title = "Slet bruger";
 }
 
@@ -10,20 +8,5 @@
     Er du sikker på du vil slette brugeren:  <b> @ViewBag.UserName </b> ?
 </p>
 
-@{
-    /*public void YesButton_OnClick(object sender, EventArgs args)
-    {
-      Membership.DeleteUser(@ViewBag.UserName, true);
-
-      FormsAuthentication.SignOut();
-      FormsAuthentication.RedirectToLoginPage();
-    }
-
-    public void CancelButton_OnClick(object sender, EventArgs args)
-    {
-      Response.Redirect("index.cshtml");
-    }*/
-}
-
-<input type="button" id="YesButton" value="Ja" onclick="YesButton_OnClick" runat="server" />
-<input type="button" id="CancelButton" value="Annuller" onclick="CancelButton_OnClick" runat="server" />
+@Html.ActionLink("Slet bruger", "DeleteUserSuccess",  new { UserName = ViewBag.UserName })
+@Html.ActionLink("Fortryd sletning", "DeleteUserFailure")
