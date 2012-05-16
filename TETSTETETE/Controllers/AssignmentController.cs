@@ -19,15 +19,20 @@ namespace ELearning.Controllers
 
         public ActionResult Index()
         {
+            ModelState.Clear();
             GivenAssignment gas = new GivenAssignment();
             gas.gAssignment = Assignment.GetAssignment(User.Identity.Name);
+            
             return View(gas);
         }
 
         [HttpPost]
         public ActionResult Index(ELearning.Models.GivenAssignment mdl)
         {
-            mdl.gAssignment.SolveAssignment();
+            
+            Assignment ass = Assignment.GetSpecificAssignment(mdl.assignmentID);
+            mdl.gAssignment = ass;
+            mdl.SolveAssignment(User.Identity.Name);
             return RedirectToAction("Result", "Assignment", mdl);
         }
 
