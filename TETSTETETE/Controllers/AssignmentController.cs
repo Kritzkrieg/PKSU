@@ -62,6 +62,7 @@ namespace ELearning.Controllers
 
         public ActionResult Result(ELearning.Models.GivenAssignment mdl)
         {
+            ViewBag.subjects = Assignment.GetSubjects();
             return View(mdl);
         }
 

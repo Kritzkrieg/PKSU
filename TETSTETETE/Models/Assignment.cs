@@ -181,7 +181,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("UPDATE assignments SET Text=@Text, Option1=@Option1, Option3=@Option3, Option4=@Option4, trueOption=@trueOption, fOption1=@fOption1, fOption2=@fOption2, fOption3=@fOption3, fOption4=@fOption4, truefOption=@truefOption, tOption1=@tOption1, tOption2=@tOption2, tOption3=@tOption3, tOption4=@tOption4, truetOption=@trueOption WHERE ID=@ID", con);
+                var cmd = new MySqlCommand("UPDATE assignments SET Text=@Text, Option1=@Option1, Option2=@Option2 Option3=@Option3, Option4=@Option4, trueOption=@trueOption, fOption1=@fOption1, fOption2=@fOption2, fOption3=@fOption3, fOption4=@fOption4, truefOption=@truefOption, tOption1=@tOption1, tOption2=@tOption2, tOption3=@tOption3, tOption4=@tOption4, truetOption=@truetOption WHERE ID=@ID", con);
                 cmd.Parameters.AddWithValue("@ID", assignment.ID);
                 cmd.Parameters.AddWithValue("@Text", assignment.Text);
                 cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
@@ -303,7 +303,24 @@ namespace ELearning.Models
             }
         }
 
-       
+        public static List<string> GetSubjects()
+        {
+
+            List<string> subjects = new List<string>();
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT DISTINCT(subject) FROM assignments", con);
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        subjects.Add(r.GetString(0));
+                    }
+                }
+            }
+            return subjects;
+        }
 
     }
 
