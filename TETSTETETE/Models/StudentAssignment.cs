@@ -32,7 +32,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT ID, DateTime, OptionTaken1, OptionTaken2, OptionTaken3, Solved1, Solved2, Solved3 FROM StudentAssignment WHERE UserName = ?", con);
+                var cmd = new MySqlCommand("SELECT ID, DateTime, OptionTaken1, OptionTaken2, OptionTaken3, Solved1, Solved2, Solved3 FROM studentassignment WHERE UserName = ?", con);
                 cmd.Parameters.AddWithValue("?", name);
                 using (var r = cmd.ExecuteReader())
                 {
