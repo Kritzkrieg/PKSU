@@ -4,199 +4,542 @@
 }
 
 <h2>Result</h2>
-<h4>Udregn stykket: 1+2*2/(7-4)</h4>      
- 
+<h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
+
+
  <div id="box">
         <div id="lb"><div id="rb">
         <div id="bb"><div id="blc"><div id="brc">
         <div id="tb"><div id="tlc"><div id="trc">
-            <div id="content">   
+            <div id="content">
+                @using (Html.BeginForm())
+                {
                     <center>
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
-                                <th width="250">Opgavetekst</th>
-                                <th width="300">Mellemregning</th>
-                                <th width="150">Resultat</th>
+                            @{ if (Model.gAssignment.TruetOption.Equals(5))
+                               { <th width="300"></th> }
+                               else
+                               { <th width="300">Teoriopgave</th> }
+                               if (Model.gAssignment.TrueOption.Equals(5))
+                               { <th width="300"></th> }
+                               else
+                               { <th width="300">Mellemregning</th> }
+                              }
+                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                @{   if (Model.TheoryAnswer.Equals(1))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: + * / -</span> 
-                                                </div>
-                                     
-                                                <div>udregnes i rækkefølgen: * / + -
-                                                </div>
-                                    
-                                                <div>udregnes i rækkefølgen: - * / + 
-                                                </div> 
-                                    
-                                                <div>udregnes i rækkefølgen: / * - +  
-                                               </div></td>
-                                          }
+                            @{ if (Model.gAssignment.TruetOption.Equals(1))
+                               {
+                                   if (Model.TheoryAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</span></div>
+                                </td>
+                                   }
 
-                                     else if (Model.TheoryAnswer.Equals(2))
-                                          {
-                                              <td align="right">
-                                                <div>udregnes i rækkefølgen: + * / - 
-                                                </div>
-                                     
-                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: * / + -</span>
-                                                </div>
-                                    
-                                                <div>udregnes i rækkefølgen: - * / + 
-                                                </div> 
-                                    
-                                                <div>udregnes i rækkefølgen: / * - +  
-                                               </div></td>
-                                          }
+                               }
 
-                                     else if (Model.TheoryAnswer.Equals(3))
-                                          {
-                                              <td align="right">
-                                                <div>udregnes i rækkefølgen: + * / - 
-                                                </div>
-                                     
-                                                <div>udregnes i rækkefølgen: * / + -
-                                                </div>
-                                    
-                                                <div><span style="color:#00FF00">udregnes i rækkefølgen: - * / +  </span>
-                                                </div> 
-                                    
-                                                <div>udregnes i rækkefølgen: / * - +  
-                                              </div></td>
-                                          }
+                               else if (Model.gAssignment.TruetOption.Equals(2))
+                               {
+                                   if (Model.TheoryAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</span></div>
+                                </td>
+                                   }
 
-                                     else if (Model.TheoryAnswer.Equals(4))
-                                          {
-                                              <td align="right">
-                                                <div>udregnes i rækkefølgen: + * / - 
-                                                </div>
-                                     
-                                                <div>udregnes i rækkefølgen: * / + -
-                                                </div>
-                                    
-                                                <div>udregnes i rækkefølgen: - * / +  
-                                                </div> 
-                                    
-                                                <div><span style="color:#FF0000">udregnes i rækkefølgen: / * - +  </span>
-                                              </div></td>
-                                          }
-                                          }
-     
-                                     @{   if (Model.Answer.Equals(1))
-                                          {
-                                              <td align="right">
-                                                <div><span style="color:#00FF00">4/3+1</span>  
-                                                </div>
-                                     
-                                                <div>-24/7+1
-                                                </div>
-                                    
-                                                <div>6/7-4 
-                                                </div> 
-                                    
-                                                <div>11/7-4 
-                                               </div></td>
-                                          }
-                                          
-                                          else if (Model.Answer.Equals(2))
-                                          {
-                                              <td align="right">
-                                                <div>4/3+1
-                                                </div>
-                                     
-                                                <div><span style="color:#FF0000">-24/7+1</span>
-                                                </div>
-                                    
-                                                <div>6/7-4 
-                                                </div> 
-                                    
-                                                <div>11/7-4 
-                                               </div></td>
-                                          }
-                                          
-                                          else if (Model.Answer.Equals(3))
-                                          {
-                                              <td align="right">
-                                                <div>4/3+1 
-                                                </div>
-                                     
-                                                <div>-24/7+1 
-                                                </div>
-                                    
-                                                <div><span style="color:#FF0000">6/7-4 </span>
-                                                </div> 
-                                    
-                                                <div>11/7-4 
-                                              </div></td>
-                                          }
+                               }
 
-                                          else if (Model.Answer.Equals(4))
-                                          {
-                                              <td align="right">
-                                                <div>4/3+1  
-                                                </div>
-                                     
-                                                <div>-24/7+1
-                                                </div>
-                                    
-                                                <div>6/7-4
-                                                </div> 
-                                    
-                                                <div><span style="color:#FF0000">11/7-4 </span>
-                                              </div></td>
-                                          }
-                                          }
+
+                               else if (Model.gAssignment.TruetOption.Equals(3))
+                               {
+                                   if (Model.TheoryAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+
+                               else if (Model.gAssignment.TruetOption.Equals(4))
+                               {
+                                   if (Model.TheoryAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.TheoryAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3)</div> 
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.tOption4)</span></div>
+                                </td>
+                                   }
+
+                               }   
+                                      
+                                   
+                               if (Model.gAssignment.TrueOption.Equals(1))
+                               {
+                                   if (Model.Answer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.Option1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+                               else if (Model.gAssignment.TrueOption.Equals(2))
+                               {
+                                   if (Model.Answer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.Option2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+
+                               else if (Model.gAssignment.TrueOption.Equals(3))
+                               {
+                                   if (Model.Answer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.Option3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+
+                               else if (Model.gAssignment.TrueOption.Equals(4))
+                               {
+                                   if (Model.Answer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.Option3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)</div>
+                                </td>
+                                   }
+                                   else if (Model.Answer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)</div> 
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.Option4)</span></div>
+                                </td>
+                                   }
+
+                               }      
+                                   
+                                      
                                 
+                               if (Model.gAssignment.TruefOption.Equals(1))
+                               {
+                                   if (Model.FinalAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+                               else if (Model.gAssignment.TruefOption.Equals(2))
+                               {
+                                   if (Model.FinalAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+
+                               else if (Model.gAssignment.TruefOption.Equals(3))
+                               {
+                                   if (Model.FinalAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</span></div>
+                                </td>
+                                   }
+
+                               }
+
+
+                               else if (Model.gAssignment.TruefOption.Equals(4))
+                               {
+                                   if (Model.FinalAnswer.Equals(1))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(2))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</span></div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(3))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field"><span style="color:#FF0000">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</span></div> 
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</div>
+                                </td>
+                                   }
+                                   else if (Model.FinalAnswer.Equals(4))
+                                   {
+                                   <td align="right">
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)</div>
+                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)</div> 
+                                    <div class="editor-field"><span style="color:#00FF00">@Html.DisplayTextFor(model => model.gAssignment.fOption4)</span></div>
+                                </td>
+                                   }
+
+                               }  
+                                   
+                                   }
+                               
                                 
-                                    @{
-                                          if (Model.FinalAnswer.Equals(1))
-                                          {
-                                            <td align="right">
-                                              <div><span style="color:#FF0000">-22/7</span></div>
-                                              <div>7/3</div>
-                                              <div>-17/7</div>
-                                              <div>4</div>
-                                            </td>
-                                          }
-                                          
-                                          else if (Model.FinalAnswer.Equals(2))
-                                          {
-                                            <td align="right">
-                                              <div>-22/7</div>
-                                              <div><span style="color:#00FF00">7/3</span></div>
-                                              <div>-17/7</div>
-                                              <div>4</div>
-                                            </td>
-                                          }
-                                          
-                                          else if (Model.FinalAnswer.Equals(3))
-                                          {
-                                            <td align="right">
-                                             <div>-22/7</div>
-                                             <div>7/3</div>
-                                             <div><span style="color:#FF0000">-17/7</span></div>
-                                             <div>4</div>
-                                            </td>
-                                          }
-                                          
-                                          else if (Model.FinalAnswer.Equals(4))
-                                          {
-                                            <td align="right">
-                                              <div>-22/7</div>
-                                              <div>7/3</div>
-                                              <div>-17/7</div>
-                                              <div><span style="color:#FF0000">4</span></div>
-                                            </td>
-                                          }
-                                    }                               
+                                    @Html.Hidden("assignmentID", Model.gAssignment.ID);
+                                
                             </tr>
                         </table>
                     </center>
+                }
             </div>
         </div></div></div></div>
         </div></div></div></div>
     </div>
-       
-       
