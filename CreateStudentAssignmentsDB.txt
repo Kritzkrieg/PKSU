@@ -9,4 +9,4 @@ CREATE TABLE `studentassignment` (
   `Solved2` tinyint(1) NOT NULL,
   `Solved3` tinyint(1) NOT NULL,
   `PKID` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`PKID`)
+  PRIMARY KEY (`PKID`))
