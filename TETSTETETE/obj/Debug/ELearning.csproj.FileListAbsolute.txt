@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Kim\PKSU\TETSTETETE\bin\ELearning.dll
 C:\Users\Kim\PKSU\TETSTETETE\bin\ELearning.pdb
 C:\Users\Kim\PKSU\TETSTETETE\bin\EntityFramework.dll
@@ -5,3 +6,12 @@ C:\Users\Kim\PKSU\TETSTETETE\bin\EntityFramework.xml
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ELearning.dll
 C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ELearning.pdb
+=======
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\ELearning.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\ELearning.pdb
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\EntityFramework.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\bin\EntityFramework.xml
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\ELearning.dll
+C:\Users\Hoeg\PKSU\TETSTETETE\obj\Debug\ELearning.pdb
+>>>>>>> 021d86ec8c4713c6a0a5938b69d3128c78a259ca
