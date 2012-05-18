@@ -21,15 +21,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+        @item.Text
             @{
-                if (Html.DisplayFor(modelItem => item.Text).ToString().Length > 100)
+                if (@item.Text.Length > 100)
                 {
-                    Html.DisplayFor(modelItem => item.Text).ToString().Substring(0, 100);
+                    @item.Text.Substring(0, 100)
                     <p>...</p>
                 }
                 else
                 {
-                    Html.DisplayFor(modelItem => item.Text);
+                    @item.Text
                 }
             }
         </td>
