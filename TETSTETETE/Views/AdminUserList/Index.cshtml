@@ -6,7 +6,7 @@
 
 <h2>UserList</h2>
 <table class="standard">
- <tr>
+    <tr>
         <th>
             Brugernavn
         </th>
@@ -17,8 +17,7 @@
 {
 
     if (!Roles.GetUsersInRole("Admin").Contains(user.UserName))
-    {          
-     
+    {
       <tr>
         <td>
             @user.UserName
@@ -35,7 +34,7 @@
             {
                 <td><span style="color:red">Offline</span></td>
             }                   
-        </tr> 
+      </tr> 
     }
 }
 </table>

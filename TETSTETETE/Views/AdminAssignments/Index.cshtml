@@ -6,7 +6,9 @@
 
 <h2>Opgaver</h2>
 <p>
-    @Html.ActionLink("Opret ny", "Create")
+    @Html.ActionLink("Opret ny opgave", "Create")
+     - 
+    @Html.ActionLink("Opret nyt emne", "CreateSubject")
 </p>
 <table class="standard">
     <tr>
@@ -19,9 +21,20 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Text)
+            @{
+                if (Html.DisplayFor(modelItem => item.Text).ToString().Length <= 100)
+                {
+                    Html.DisplayFor(modelItem => item.Text).ToString().Substring(0, 100);
+                    <p>...</p>
+                }
+                else
+                {
+                    Html.DisplayFor(modelItem => item.Text);
+                }
+            }
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.subject) |
             @Html.ActionLink("Rediger", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Detaljer", "Details", new { id=item.ID }) |
             @Html.ActionLink("Slet", "Delete", new { id=item.ID })

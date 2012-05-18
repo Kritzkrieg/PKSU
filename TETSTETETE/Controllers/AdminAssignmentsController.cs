@@ -129,5 +129,18 @@ namespace ELearning.Controllers
             Assignment.DeleteAssignment(id);
             return RedirectToAction("Index");
         }
+
+        //
+        // POST: /Assignments/CreateSubject
+
+        [HttpPost]
+        public ActionResult CreateSubject()
+        {
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
+            }
+            return View();
+        }
     }
 }

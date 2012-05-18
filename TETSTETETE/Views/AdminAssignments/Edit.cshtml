@@ -20,6 +20,9 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Opgave</legend>
+        Emne: 
+        @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.subjects, "Id", "Name"))
+        @Html.ValidationMessageFor(model => model.SubjectId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Text)
@@ -258,7 +261,7 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="Opret" />
+        <input type="submit" value="Rediger" />
     </fieldset>
 }
 

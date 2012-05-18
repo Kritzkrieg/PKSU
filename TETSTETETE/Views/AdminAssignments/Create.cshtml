@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
 }
-<h2>Opret ny</h2>
+<h2>Opret ny opgave</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -20,15 +20,9 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Opgave</legend>
-
-        <select name="subject">
-            @{
-                foreach (var item in ViewBag.subjects)
-                {
-                    <option value="@item">@item</option>
-                }
-            }
-        </select>
+        Emne: 
+        @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.subjects, "Id", "Name"))
+        @Html.ValidationMessageFor(model => model.SubjectId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Text)
