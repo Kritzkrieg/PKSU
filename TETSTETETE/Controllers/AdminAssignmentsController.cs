@@ -6,15 +6,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ELearning.Models;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELearning.Controllers
 { 
     public class AdminAssignmentsController : Controller
     {
-
         //
         // GET: /Assignments/
-
 
         public ActionResult Index()
         {
@@ -80,6 +80,7 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
+            ViewBag.subjects = Assignment.GetSubjects();
             Assignment assignment = Assignment.GetSpecificAssignment(id);
             if (assignment == null)
             {
@@ -97,6 +98,7 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
+            ViewBag.subjects = Assignment.GetSubjects();
             if (ModelState.IsValid)
             {
                 Assignment.EditAssignment(assignment);
@@ -133,14 +135,26 @@ namespace ELearning.Controllers
         //
         // POST: /Assignments/CreateSubject
 
-        [HttpPost]
         public ActionResult CreateSubject()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateSubject(Assignment assign)
         {
             if (!User.IsInRole("admin"))
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
-            return View();
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("INSERT INTO subjects VALUES(null, @subject)", con);
+                cmd.Parameters.AddWithValue("@subject", assign.subject);
+                cmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index", "AdminAssignments");
         }
     }
 }

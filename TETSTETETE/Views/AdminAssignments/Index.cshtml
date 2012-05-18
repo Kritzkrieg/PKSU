@@ -22,7 +22,7 @@
     <tr>
         <td>
             @{
-                if (Html.DisplayFor(modelItem => item.Text).ToString().Length <= 100)
+                if (Html.DisplayFor(modelItem => item.Text).ToString().Length > 100)
                 {
                     Html.DisplayFor(modelItem => item.Text).ToString().Substring(0, 100);
                     <p>...</p>

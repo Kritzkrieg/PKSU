@@ -15,8 +15,6 @@ namespace ELearning.Controllers
         //
         // GET: /UserList/
 
-        
-        
         public ActionResult Index()
         {
             if (!User.IsInRole("admin"))

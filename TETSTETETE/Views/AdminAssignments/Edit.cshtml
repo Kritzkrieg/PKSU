@@ -21,7 +21,7 @@
     <fieldset>
         <legend>Opgave</legend>
         Emne: 
-        @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.subjects, "Id", "Name"))
+        @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.subjects, "subject"))
         @Html.ValidationMessageFor(model => model.SubjectId)
 
         <div class="editor-label">

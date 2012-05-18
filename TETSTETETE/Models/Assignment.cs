@@ -22,9 +22,9 @@ namespace ELearning.Models
         [Display(Name = "Emne")]
         public string subject { get; set; }
 
-        int subjectId;
+        string subjectId;
 
-        public int SubjectId
+        public string SubjectId
         {
             get { return subjectId; }
             set { subjectId = value; }
@@ -83,6 +83,10 @@ namespace ELearning.Models
             if (assignment.Text == null)
             {
                 assignment.Text = "";
+            }
+            if (assignment.subject == null)
+            {
+                assignment.subject = "";
             }
             if (assignment.Option1 == null)
             {
@@ -325,12 +329,15 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT DISTINCT(subject) FROM assignments", con);
+                var cmd = new MySqlCommand("SELECT DISTINCT(subject) FROM subjects", con);
                 using (var r = cmd.ExecuteReader())
                 {
                     while (r.Read())
                     {
-                        subjects.Add(r.GetString(0));
+                        if (!r.GetString(0).Equals("0"))
+                        {
+                            subjects.Add(r.GetString(0));
+                        }
                     }
                 }
             }
@@ -342,7 +349,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT subject FROM assignment WHERE ID=@ID", con);
+                var cmd = new MySqlCommand("SELECT subject FROM assignments WHERE ID=@ID", con);
                 var r = cmd.ExecuteReader();
                 if (r.Read())
                 {

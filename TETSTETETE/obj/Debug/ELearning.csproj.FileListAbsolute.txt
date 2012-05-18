@@ -1,0 +1,7 @@
+C:\Users\Kim\PKSU\TETSTETETE\bin\ELearning.dll
+C:\Users\Kim\PKSU\TETSTETETE\bin\ELearning.pdb
+C:\Users\Kim\PKSU\TETSTETETE\bin\EntityFramework.dll
+C:\Users\Kim\PKSU\TETSTETETE\bin\EntityFramework.xml
+C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ELearning.dll
+C:\Users\Kim\PKSU\TETSTETETE\obj\Debug\ELearning.pdb
