@@ -68,6 +68,11 @@ namespace ELearning.Controllers
 
         public ActionResult Register()
         {
+            if (!Roles.RoleExists("student")) 
+            {
+                Roles.CreateRole("student");
+                Roles.CreateRole("admin");
+            }
             return View();
         }
 
@@ -97,7 +102,14 @@ namespace ELearning.Controllers
                     }
 
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    Roles.AddUserToRole(user.UserName, "Student"); 
+                    if (Membership.GetAllUsers().Count == 1)
+                    {
+                        Roles.AddUserToRole(user.UserName, "admin");
+                    }
+                    else 
+                    {
+                        Roles.AddUserToRole(user.UserName, "Student");
+                    }
                     return RedirectToAction("Index", "Home");
 
                 }
