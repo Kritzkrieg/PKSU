@@ -24,7 +24,8 @@ namespace ELearning.Models
             get { return subjectId; }
             set { subjectId = value; }
         }
-
+        
+        [Required]
         [Display(Name = "Opgaveformulering")]
         public string Text { get; set; }
 
@@ -71,15 +72,19 @@ namespace ELearning.Models
         [Display(Name = "Facitopgave formulering")]
         public string fText { get; set; }
 
+        [Required]
         [Display(Name = "Svar 1")]
         public string fOption1 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 2")]
         public string fOption2 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 3")]
         public string fOption3 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 4")]
         public string fOption4 { get; set; }
 
