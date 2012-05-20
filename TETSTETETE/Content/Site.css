@@ -433,3 +433,13 @@ div#title {
 .tri-state {
     width: 6em;
 }
+
+#sub-left {
+   float: left;
+}
+#sub-right {
+   float: right;
+}
+.clear-both {
+   clear: both;
+}
