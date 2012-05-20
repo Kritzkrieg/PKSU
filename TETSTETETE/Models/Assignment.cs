@@ -144,6 +144,7 @@ namespace ELearning.Models
                         RandomAssignment.tOption2    = r.GetString(17);
                         RandomAssignment.tOption3    = r.GetString(18);
                         RandomAssignment.tOption4    = r.GetString(19);
+                        RandomAssignment.TruetOption = r.GetInt32(20);
                         return RandomAssignment;
                     }
                     Assignment assign = new Assignment();
