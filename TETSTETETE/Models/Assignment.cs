@@ -324,12 +324,13 @@ namespace ELearning.Models
             return subjects;
         }
 
-        public static string GetSubject(Assignment assign)
+        public static string GetSubject(int ID)
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
                 var cmd = new MySqlCommand("SELECT subject FROM assignments WHERE ID=@ID", con);
+                cmd.Parameters.AddWithValue("@ID", ID);
                 var r = cmd.ExecuteReader();
                 if (r.Read())
                 {
