@@ -18,26 +18,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @{
-                if (Html.DisplayFor(modelItem => item.Text).ToString().Length > 100)
+                if (@item.Text.Length > 100)
                 {
-                    Html.DisplayFor(modelItem => item.Text).ToString().Substring(0, 100);
-                    <p>...</p>
+                    @(item.Text.Substring(0, 100) + "...")
                 }
                 else
                 {
-                    Html.DisplayFor(modelItem => item.Text);
+                    @item.Text
                 }
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.subject) |
-            @Html.ActionLink("Rediger", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Slet", "Delete", new { id=item.ID })
+            @Html.DisplayFor(modelItem => item.SubjectId) |
+            @Html.ActionLink("Rediger", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Slet", "Delete", new { id = item.ID })
         </td>
     </tr>
 }
