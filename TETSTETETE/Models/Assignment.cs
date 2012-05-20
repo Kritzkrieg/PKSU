@@ -16,17 +16,17 @@ namespace ELearning.Models
 
         public int ID { get; set; }
 
-        [Display(Name = "Opgaveformulering")]
-        public string Text { get; set; }
-
         [Display(Name = "Emne")]
         string subjectId;
-        
+
         public string SubjectId
         {
             get { return subjectId; }
             set { subjectId = value; }
         }
+
+        [Display(Name = "Opgaveformulering")]
+        public string Text { get; set; }
 
         /*----------Teori----------*/
 
@@ -87,76 +87,24 @@ namespace ELearning.Models
 
         public static Assignment checkAssignment(Assignment assignment)
         {
-            if (assignment.Text == null)
-            {
-                assignment.Text = "";
-            }
-            if (assignment.SubjectId == null)
-            {
-                assignment.SubjectId = "";
-            }
-            if (assignment.mText == null)
-            {
-                assignment.mText = "";
-            }
-            if (assignment.Option1 == null)
-            {
-                assignment.Option1 = "";
-            }
-            if (assignment.Option2 == null)
-            {
-                assignment.Option2 = "";
-            }
-            if (assignment.Option3 == null)
-            {
-                assignment.Option3 = "";
-            }
-            if (assignment.Option4 == null)
-            {
-                assignment.Option4 = "";
-            }
-            if (assignment.fText == null)
-            {
-                assignment.fText = "";
-            }
-            if (assignment.fOption1 == null)
-            {
-                assignment.fOption1 = "";
-            }
-            if (assignment.fOption2 == null)
-            {
-                assignment.fOption2 = "";
-            }
-            if (assignment.fOption3 == null)
-            {
-                assignment.fOption3 = "";
-            }
-            if (assignment.fOption4 == null)
-            {
-                assignment.fOption4 = "";
-            }
-            if (assignment.tText == null)
-            {
-                assignment.tText = "";
-            }
-            if (assignment.tOption1 == null)
-            {
-                assignment.tOption1 = "";
-            }
-            if (assignment.tOption2 == null)
-            {
-                assignment.tOption2 = "";
-            }
-            if (assignment.tOption3 == null)
-            {
-                assignment.tOption3 = "";
-            }
-            if (assignment.tOption4 == null)
-            {
-                assignment.tOption4 = "";
-            }
+            if (assignment.Text      == null){ assignment.Text      = ""; }
+            if (assignment.SubjectId == null){ assignment.SubjectId = ""; }
+            if (assignment.mText     == null){ assignment.mText     = ""; }
+            if (assignment.Option1   == null){ assignment.Option1   = ""; }
+            if (assignment.Option2   == null){ assignment.Option2   = ""; }
+            if (assignment.Option3   == null){ assignment.Option3   = ""; }
+            if (assignment.Option4   == null){ assignment.Option4   = ""; }
+            if (assignment.fText     == null){ assignment.fText     = ""; }
+            if (assignment.fOption1  == null){ assignment.fOption1  = ""; }
+            if (assignment.fOption2  == null){ assignment.fOption2  = ""; }
+            if (assignment.fOption3  == null){ assignment.fOption3  = ""; }
+            if (assignment.fOption4  == null){ assignment.fOption4  = ""; }
+            if (assignment.tText     == null){ assignment.tText     = ""; }
+            if (assignment.tOption1  == null){ assignment.tOption1  = ""; }
+            if (assignment.tOption2  == null){ assignment.tOption2  = ""; }
+            if (assignment.tOption3  == null){ assignment.tOption3  = ""; }
+            if (assignment.tOption4  == null){ assignment.tOption4  = ""; }
             return assignment;
-
         }
 
         public static Assignment GetAssignment(string UserName)
@@ -171,23 +119,23 @@ namespace ELearning.Models
                     if (r.Read())
                     {
                         var RandomAssignment = new Assignment();
-                        RandomAssignment.ID = r.GetInt32(0);
-                        RandomAssignment.SubjectId = r.GetString(1);
-                        RandomAssignment.Text = r.GetString(2);
-                        RandomAssignment.Option1 = r.GetString(3);
-                        RandomAssignment.Option2 = r.GetString(4);
-                        RandomAssignment.Option3 = r.GetString(5);
-                        RandomAssignment.Option4 = r.GetString(6);
-                        RandomAssignment.TrueOption = r.GetInt32(7);
-                        RandomAssignment.fOption1 = r.GetString(8);
-                        RandomAssignment.fOption2 = r.GetString(9);
-                        RandomAssignment.fOption3 = r.GetString(10);
-                        RandomAssignment.fOption4 = r.GetString(11);
+                        RandomAssignment.ID          = r.GetInt32(0);
+                        RandomAssignment.SubjectId   = r.GetString(1);
+                        RandomAssignment.Text        = r.GetString(2);
+                        RandomAssignment.Option1     = r.GetString(3);
+                        RandomAssignment.Option2     = r.GetString(4);
+                        RandomAssignment.Option3     = r.GetString(5);
+                        RandomAssignment.Option4     = r.GetString(6);
+                        RandomAssignment.TrueOption  = r.GetInt32(7);
+                        RandomAssignment.fOption1    = r.GetString(8);
+                        RandomAssignment.fOption2    = r.GetString(9);
+                        RandomAssignment.fOption3    = r.GetString(10);
+                        RandomAssignment.fOption4    = r.GetString(11);
                         RandomAssignment.TruefOption = r.GetInt32(12);
-                        RandomAssignment.tOption1 = r.GetString(13);
-                        RandomAssignment.tOption2 = r.GetString(14);
-                        RandomAssignment.tOption3 = r.GetString(15);
-                        RandomAssignment.tOption4 = r.GetString(16);
+                        RandomAssignment.tOption1    = r.GetString(13);
+                        RandomAssignment.tOption2    = r.GetString(14);
+                        RandomAssignment.tOption3    = r.GetString(15);
+                        RandomAssignment.tOption4    = r.GetString(16);
                         return RandomAssignment;
                     }
                     Assignment assign = new Assignment();
@@ -217,26 +165,26 @@ namespace ELearning.Models
             {
                 con.Open();
                 var cmd = new MySqlCommand("UPDATE assignments SET subject=@subject, Text=@Text, mText=@mText, Option1=@Option1, Option2=@Option2, Option3=@Option3, Option4=@Option4, trueOption=@trueOption, fText=@fText, fOption1=@fOption1, fOption2=@fOption2, fOption3=@fOption3, fOption4=@fOption4, truefOption=@truefOption, tText=@tText, tOption1=@tOption1, tOption2=@tOption2, tOption3=@tOption3, tOption4=@tOption4, truetOption=@truetOption WHERE ID=@ID", con);
-                cmd.Parameters.AddWithValue("@ID", assignment.ID);
-                cmd.Parameters.AddWithValue("@subject", assignment.SubjectId);
-                cmd.Parameters.AddWithValue("@Text", assignment.Text);
-                cmd.Parameters.AddWithValue("@mText", assignment.mText);
-                cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
-                cmd.Parameters.AddWithValue("@Option2", assignment.Option2);
-                cmd.Parameters.AddWithValue("@Option3", assignment.Option3);
-                cmd.Parameters.AddWithValue("@Option4", assignment.Option4);
-                cmd.Parameters.AddWithValue("@trueOption", assignment.TrueOption);
-                cmd.Parameters.AddWithValue("@fText", assignment.fText);
-                cmd.Parameters.AddWithValue("@fOption1", assignment.fOption1);
-                cmd.Parameters.AddWithValue("@fOption2", assignment.fOption2);
-                cmd.Parameters.AddWithValue("@fOption3", assignment.fOption3);
-                cmd.Parameters.AddWithValue("@fOption4", assignment.fOption4);
+                cmd.Parameters.AddWithValue("@ID",          assignment.ID);
+                cmd.Parameters.AddWithValue("@subject",     assignment.SubjectId);
+                cmd.Parameters.AddWithValue("@Text",        assignment.Text);
+                cmd.Parameters.AddWithValue("@mText",       assignment.mText);
+                cmd.Parameters.AddWithValue("@Option1",     assignment.Option1);
+                cmd.Parameters.AddWithValue("@Option2",     assignment.Option2);
+                cmd.Parameters.AddWithValue("@Option3",     assignment.Option3);
+                cmd.Parameters.AddWithValue("@Option4",     assignment.Option4);
+                cmd.Parameters.AddWithValue("@trueOption",  assignment.TrueOption);
+                cmd.Parameters.AddWithValue("@fText",       assignment.fText);
+                cmd.Parameters.AddWithValue("@fOption1",    assignment.fOption1);
+                cmd.Parameters.AddWithValue("@fOption2",    assignment.fOption2);
+                cmd.Parameters.AddWithValue("@fOption3",    assignment.fOption3);
+                cmd.Parameters.AddWithValue("@fOption4",    assignment.fOption4);
                 cmd.Parameters.AddWithValue("@truefOption", assignment.TruefOption);
-                cmd.Parameters.AddWithValue("@tText", assignment.tText);
-                cmd.Parameters.AddWithValue("@tOption1", assignment.tOption1);
-                cmd.Parameters.AddWithValue("@tOption2", assignment.tOption2);
-                cmd.Parameters.AddWithValue("@tOption3", assignment.tOption3);
-                cmd.Parameters.AddWithValue("@tOption4", assignment.tOption4);
+                cmd.Parameters.AddWithValue("@tText",       assignment.tText);
+                cmd.Parameters.AddWithValue("@tOption1",    assignment.tOption1);
+                cmd.Parameters.AddWithValue("@tOption2",    assignment.tOption2);
+                cmd.Parameters.AddWithValue("@tOption3",    assignment.tOption3);
+                cmd.Parameters.AddWithValue("@tOption4",    assignment.tOption4);
                 cmd.Parameters.AddWithValue("@truetOption", assignment.TruetOption);
                 cmd.ExecuteNonQuery();
             }
@@ -249,26 +197,26 @@ namespace ELearning.Models
             {
                 con.Open();
                 var cmd = new MySqlCommand("INSERT INTO assignments VALUES (null, @subject, @Text, @mText, @Option1, @Option2, @Option3, @Option4, @trueOption, @fText, @fOption1, @fOption2, @fOption3, @fOption4, @truefOption, @tText, @tOption1, @tOption2, @tOption3, @tOption4, @truetOption)", con);
-                cmd.Parameters.AddWithValue("@ID", assignment.ID);
-                cmd.Parameters.AddWithValue("@subject", assignment.SubjectId);
-                cmd.Parameters.AddWithValue("@Text", assignment.Text);
-                cmd.Parameters.AddWithValue("@mText", assignment.mText);
-                cmd.Parameters.AddWithValue("@Option1", assignment.Option1);
-                cmd.Parameters.AddWithValue("@Option2", assignment.Option2);
-                cmd.Parameters.AddWithValue("@Option3", assignment.Option3);
-                cmd.Parameters.AddWithValue("@Option4", assignment.Option4);
-                cmd.Parameters.AddWithValue("@trueOption", assignment.TrueOption);
-                cmd.Parameters.AddWithValue("@fText", assignment.fText);
-                cmd.Parameters.AddWithValue("@fOption1", assignment.fOption1);
-                cmd.Parameters.AddWithValue("@fOption2", assignment.fOption2);
-                cmd.Parameters.AddWithValue("@fOption3", assignment.fOption3);
-                cmd.Parameters.AddWithValue("@fOption4", assignment.fOption4);
+                cmd.Parameters.AddWithValue("@ID",          assignment.ID);
+                cmd.Parameters.AddWithValue("@subject",     assignment.SubjectId);
+                cmd.Parameters.AddWithValue("@Text",        assignment.Text);
+                cmd.Parameters.AddWithValue("@mText",       assignment.mText);
+                cmd.Parameters.AddWithValue("@Option1",     assignment.Option1);
+                cmd.Parameters.AddWithValue("@Option2",     assignment.Option2);
+                cmd.Parameters.AddWithValue("@Option3",     assignment.Option3);
+                cmd.Parameters.AddWithValue("@Option4",     assignment.Option4);
+                cmd.Parameters.AddWithValue("@trueOption",  assignment.TrueOption);
+                cmd.Parameters.AddWithValue("@fText",       assignment.fText);
+                cmd.Parameters.AddWithValue("@fOption1",    assignment.fOption1);
+                cmd.Parameters.AddWithValue("@fOption2",    assignment.fOption2);
+                cmd.Parameters.AddWithValue("@fOption3",    assignment.fOption3);
+                cmd.Parameters.AddWithValue("@fOption4",    assignment.fOption4);
                 cmd.Parameters.AddWithValue("@truefOption", assignment.TruefOption);
-                cmd.Parameters.AddWithValue("@tText", assignment.tText);
-                cmd.Parameters.AddWithValue("@tOption1", assignment.tOption1);
-                cmd.Parameters.AddWithValue("@tOption2", assignment.tOption2);
-                cmd.Parameters.AddWithValue("@tOption3", assignment.tOption3);
-                cmd.Parameters.AddWithValue("@tOption4", assignment.tOption4);
+                cmd.Parameters.AddWithValue("@tText",       assignment.tText);
+                cmd.Parameters.AddWithValue("@tOption1",    assignment.tOption1);
+                cmd.Parameters.AddWithValue("@tOption2",    assignment.tOption2);
+                cmd.Parameters.AddWithValue("@tOption3",    assignment.tOption3);
+                cmd.Parameters.AddWithValue("@tOption4",    assignment.tOption4);
                 cmd.Parameters.AddWithValue("@truetOption", assignment.TruetOption);
                 cmd.ExecuteNonQuery();
             }
@@ -285,26 +233,26 @@ namespace ELearning.Models
                 {
                     r.Read();
                     var SpecificAssignment = new Assignment();
-                    SpecificAssignment.ID = r.GetInt32(0);
-                    SpecificAssignment.SubjectId = r.GetString(1);
-                    SpecificAssignment.Text = r.GetString(2);
-                    SpecificAssignment.mText = r.GetString(3);
-                    SpecificAssignment.Option1 = r.GetString(4);
-                    SpecificAssignment.Option2 = r.GetString(5);
-                    SpecificAssignment.Option3 = r.GetString(6);
-                    SpecificAssignment.Option4 = r.GetString(7);
-                    SpecificAssignment.TrueOption = r.GetInt32(8);
-                    SpecificAssignment.fText = r.GetString(9);
-                    SpecificAssignment.fOption1 = r.GetString(10);
-                    SpecificAssignment.fOption2 = r.GetString(11);
-                    SpecificAssignment.fOption3 = r.GetString(12);
-                    SpecificAssignment.fOption4 = r.GetString(13);
+                    SpecificAssignment.ID          = r.GetInt32(0);
+                    SpecificAssignment.SubjectId   = r.GetString(1);
+                    SpecificAssignment.Text        = r.GetString(2);
+                    SpecificAssignment.mText       = r.GetString(3);
+                    SpecificAssignment.Option1     = r.GetString(4);
+                    SpecificAssignment.Option2     = r.GetString(5);
+                    SpecificAssignment.Option3     = r.GetString(6);
+                    SpecificAssignment.Option4     = r.GetString(7);
+                    SpecificAssignment.TrueOption  = r.GetInt32(8);
+                    SpecificAssignment.fText       = r.GetString(9);
+                    SpecificAssignment.fOption1    = r.GetString(10);
+                    SpecificAssignment.fOption2    = r.GetString(11);
+                    SpecificAssignment.fOption3    = r.GetString(12);
+                    SpecificAssignment.fOption4    = r.GetString(13);
                     SpecificAssignment.TruefOption = r.GetInt32(14);
-                    SpecificAssignment.tText = r.GetString(15);
-                    SpecificAssignment.tOption1 = r.GetString(16);
-                    SpecificAssignment.tOption2 = r.GetString(17);
-                    SpecificAssignment.tOption3 = r.GetString(18);
-                    SpecificAssignment.tOption4 = r.GetString(19);
+                    SpecificAssignment.tText       = r.GetString(15);
+                    SpecificAssignment.tOption1    = r.GetString(16);
+                    SpecificAssignment.tOption2    = r.GetString(17);
+                    SpecificAssignment.tOption3    = r.GetString(18);
+                    SpecificAssignment.tOption4    = r.GetString(19);
                     SpecificAssignment.TruetOption = r.GetInt32(20);
                     return SpecificAssignment;
                 }
@@ -325,25 +273,25 @@ namespace ELearning.Models
                     {
                         var RandomAssignment = new Assignment();
                         RandomAssignment.ID = r.GetInt32(0);
-                        RandomAssignment.SubjectId = r.GetString(1);
-                        RandomAssignment.Text = r.GetString(2);
-                        RandomAssignment.mText = r.GetString(3);
-                        RandomAssignment.Option1 = r.GetString(4);
-                        RandomAssignment.Option2 = r.GetString(5);
-                        RandomAssignment.Option3 = r.GetString(6);
-                        RandomAssignment.Option4 = r.GetString(7);
-                        RandomAssignment.TrueOption = r.GetInt32(8);
-                        RandomAssignment.fText = r.GetString(9);
-                        RandomAssignment.fOption1 = r.GetString(10);
-                        RandomAssignment.fOption2 = r.GetString(11);
-                        RandomAssignment.fOption3 = r.GetString(12);
-                        RandomAssignment.fOption4 = r.GetString(13);
+                        RandomAssignment.SubjectId   = r.GetString(1);
+                        RandomAssignment.Text        = r.GetString(2);
+                        RandomAssignment.mText       = r.GetString(3);
+                        RandomAssignment.Option1     = r.GetString(4);
+                        RandomAssignment.Option2     = r.GetString(5);
+                        RandomAssignment.Option3     = r.GetString(6);
+                        RandomAssignment.Option4     = r.GetString(7);
+                        RandomAssignment.TrueOption  = r.GetInt32(8);
+                        RandomAssignment.fText       = r.GetString(9);
+                        RandomAssignment.fOption1    = r.GetString(10);
+                        RandomAssignment.fOption2    = r.GetString(11);
+                        RandomAssignment.fOption3    = r.GetString(12);
+                        RandomAssignment.fOption4    = r.GetString(13);
                         RandomAssignment.TruefOption = r.GetInt32(14);
-                        RandomAssignment.tText = r.GetString(15);
-                        RandomAssignment.tOption1 = r.GetString(16);
-                        RandomAssignment.tOption2 = r.GetString(17);
-                        RandomAssignment.tOption3 = r.GetString(18);
-                        RandomAssignment.tOption4 = r.GetString(19);
+                        RandomAssignment.tText       = r.GetString(15);
+                        RandomAssignment.tOption1    = r.GetString(16);
+                        RandomAssignment.tOption2    = r.GetString(17);
+                        RandomAssignment.tOption3    = r.GetString(18);
+                        RandomAssignment.tOption4    = r.GetString(19);
                         RandomAssignment.TruetOption = r.GetInt32(20);
                         assignmentList.Add(RandomAssignment);
                     }

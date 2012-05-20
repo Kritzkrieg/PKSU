@@ -23,41 +23,55 @@
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
+                                <td>@Html.DisplayTextFor(model => model.gAssignment.tText)</td>
+                                <td>@Html.DisplayTextFor(model => model.gAssignment.mText)</td>
+                                <td>@Html.DisplayTextFor(model => model.gAssignment.fText)</td>
+                            </tr>
+                            <tr>
                                 <td align="right">
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption1) 
-                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 1)</div>
-                                     
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption2) 
-                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 2)</div>
-                                    
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption3) 
-                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 3)</div> 
-                                    
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.tOption4)
-                                    @Html.RadioButtonFor(model => model.TheoryAnswer, 4)</div>
+                                    <div class="editor-field">
+                                        <label for="Answer1">@Html.DisplayFor(model => model.gAssignment.tOption1)</label>
+                                        <input id="Answer1" name="TheoryAnswer" type="radio" value="1" />
+                                    </div>
+                                    <div class="editor-field">
+                                        <label for="Answer2">@Html.DisplayFor(model => model.gAssignment.tOption2)</label>
+                                        <input id="Answer2" name="TheoryAnswer" type="radio" value="2" />
+                                    </div>
+                                    <div class="editor-field">
+                                        <label for="Answer3">@Html.DisplayFor(model => model.gAssignment.tOption3)</label>
+                                        <input id="Answer3" name="TheoryAnswer" type="radio" value="3" />
+                                    </div>
+                                    <div class="editor-field">
+                                        <label for="Answer4">@Html.DisplayFor(model => model.gAssignment.tOption4)</label>
+                                        <input id="Answer4" name="TheoryAnswer" type="radio" value="4" />
+                                    </div>
                                 </td>
                                 <td align="right">
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option1)
+                                    <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option1)
                                     @Html.RadioButtonFor(model => model.Answer, 1)</div>
                                      
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option2)
+                                    <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option2)
                                     @Html.RadioButtonFor(model => model.Answer, 2)</div>
                                     
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option3)
+                                    <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option3)
                                     @Html.RadioButtonFor(model => model.Answer, 3)</div> 
                                     
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.Option4)
+                                    <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option4)
                                     @Html.RadioButtonFor(model => model.Answer, 4)</div>
                                 </td>
                                 <td align="right">
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption1)
+                                    <div class="editor-field">@Html.LabelFor(model => model.FinalAnswer, Model.gAssignment.fOption1)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 1)</div>
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption2)
+
+                                    <div class="editor-field">@Html.LabelFor(model => model.FinalAnswer, Model.gAssignment.fOption2)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 2)</div>
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption3)
+
+                                    <div class="editor-field">@Html.LabelFor(model => model.FinalAnswer, Model.gAssignment.fOption3)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 3)</div>
-                                    <div class="editor-field">@Html.DisplayTextFor(model => model.gAssignment.fOption4)
+
+                                    <div class="editor-field">@Html.LabelFor(model => model.FinalAnswer, Model.gAssignment.fOption4)
                                     @Html.RadioButtonFor(model => model.FinalAnswer, 4)</div>
+
                                     @Html.Hidden("assignmentID", Model.gAssignment.ID)
                                 </td>
                             </tr>
