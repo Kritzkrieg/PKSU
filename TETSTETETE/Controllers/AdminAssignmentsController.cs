@@ -151,7 +151,7 @@ namespace ELearning.Controllers
             {
                 con.Open();
                 var cmd = new MySqlCommand("INSERT INTO subjects VALUES(null, @subject)", con);
-                cmd.Parameters.AddWithValue("@subject", assign.subject);
+                cmd.Parameters.AddWithValue("@subject", assign.SubjectId);
                 cmd.ExecuteNonQuery();
             }
             return RedirectToAction("Index", "AdminAssignments");

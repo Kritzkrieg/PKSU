@@ -35,11 +35,42 @@
         <table class="invis" cellspacing="30px">
             <tr>
                 <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.tText)
+                    </div>
+
+                    <div class="textarea-field">
+                        @Html.TextAreaFor(model => model.tText, new { @cols = 30, @rows = 6 })
+                        @Html.ValidationMessageFor(model => model.tText)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.mText)
+                    </div>
+
+                    <div class="textarea-field">
+                        @Html.TextAreaFor(model => model.mText, new { @cols = 30, @rows = 6 })
+                        @Html.ValidationMessageFor(model => model.mText)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.fText)
+                    </div>
+
+                    <div class="textarea-field">
+                        @Html.TextAreaFor(model => model.fText, new { @cols = 30, @rows = 6 })
+                        @Html.ValidationMessageFor(model => model.fText)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <fieldset>
                     <legend>Teoriopgave</legend>
                         <input type="checkbox" name="switchBox" onclick="showHideText(this,'tValg')" />
-                        <div id="tValg" style="display:none;">
-                    
+                        <div id="tValg" style="display:none;">            
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.tOption1)
                             </div>
