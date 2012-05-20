@@ -84,10 +84,11 @@
             </table>
         </fieldset>
     </div>
-    
-    <h2>Dine senest løste opgaver</h2>
 
-   <table class="standard">
+    
+    <div style="float:left;">
+     <h2>Dine senest løste opgaver</h2>
+    <table class="standard">
     <tr>
         <th>
             Dato
@@ -108,7 +109,31 @@
        </tr>
     }
     </table>
-    <br /><br /><br />
-    <br /><br /><br />
-    <br /><br /><br />
-    <br /><br /><br />
+    </div>
+    
+  <div style="float:left; margin-left:40px;">
+    Nedenfor ses en liste over alle registrerede emner.<br />
+    Klik på et emne for at se dine løste opgaver indenfor emnet
+
+    <table class="standard">
+    <tr>
+        <th>
+            Emne
+        </th>
+        <th>
+            Løste Opgaver
+        </th>
+    </tr>
+    @foreach (var item in Assignment.GetSubjects())
+    {
+        <tr>
+            <td>
+            @item
+            </td>
+        </tr>
+    }
+    </table>
+      
+  </div>
+  <div style="display: block; clear: both;"></div>
+ 
