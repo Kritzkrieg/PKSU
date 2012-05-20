@@ -4,9 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<div id="bluehead"><h2>Opgaver</h2></div>
+<h2><div style="color:#5c87b2">@Html.DisplayFor(model => model.gAssignment.SubjectId)</div></h2>
 <h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
-
 
  <div id="box">
         <div id="lb"><div id="rb">
@@ -23,9 +22,9 @@
                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                                <td>@Html.DisplayTextFor(model => model.gAssignment.tText)</td>
-                                <td>@Html.DisplayTextFor(model => model.gAssignment.mText)</td>
-                                <td>@Html.DisplayTextFor(model => model.gAssignment.fText)</td>
+                                <td><div style="color:#5c87b2">@Model.gAssignment.tText</div></td>
+                                <td><div style="color:#5c87b2">@Model.gAssignment.mText</div></td>
+                                <td><div style="color:#5c87b2">@Model.gAssignment.fText</div></td>
                             </tr>
                             <tr>
                                 <td align="right">

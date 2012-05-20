@@ -7,13 +7,9 @@
 <h2>Detaljer</h2>
 
 <fieldset>
-    <legend>Opgave</legend>
-
+    <legend><div style="color:#5c87b2">@Html.DisplayFor(model => model.SubjectId)</div></legend>
     <div class="display-field">
-        
-        <h4>@Html.DisplayFor(model => model.Text)</h4>      
- 
- <h5>Emne: @Html.DisplayFor(model => model.SubjectId)</h5>
+    <h4>@Html.DisplayFor(model => model.Text)</h4>
 
  <div id="box">
         <div id="lb"><div id="rb">
@@ -23,9 +19,14 @@
                     <center>
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
-                                <th width="250">Teoriopgave<br /> <br />@Html.DisplayFor(model => model.tText)</th>
-                                <th width="300">Mellemregning<br /> <br />@Html.DisplayFor(model => model.mText)</th>
-                                <th width="150">Resultat<br /> <br />@Html.DisplayFor(model => model.fText)</th>
+                                <th width="250">Teoriopgave</th>
+                                <th width="300">Mellemregning</th>
+                                <th width="150">Resultat</th>
+                            </tr>
+                            <tr>
+                                <td><div style="color:#5c87b2">@Model.tText</div></td>
+                                <td><div style="color:#5c87b2">@Model.mText</div></td>
+                                <td><div style="color:#5c87b2">@Model.fText</div></td>
                             </tr>
                             <tr>
                                 @{

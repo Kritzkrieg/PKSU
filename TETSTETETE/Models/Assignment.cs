@@ -24,7 +24,8 @@ namespace ELearning.Models
             get { return subjectId; }
             set { subjectId = value; }
         }
-
+        
+        [Required]
         [Display(Name = "Opgaveformulering")]
         public string Text { get; set; }
 
@@ -71,15 +72,19 @@ namespace ELearning.Models
         [Display(Name = "Facitopgave formulering")]
         public string fText { get; set; }
 
+        [Required]
         [Display(Name = "Svar 1")]
         public string fOption1 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 2")]
         public string fOption2 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 3")]
         public string fOption3 { get; set; }
 
+        [Required]
         [Display(Name = "Svar 4")]
         public string fOption4 { get; set; }
 
@@ -112,7 +117,7 @@ namespace ELearning.Models
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT a.ID, subject, Text, Option1, Option2, Option3, Option4, TrueOption, fOption1, fOption2, fOption3, fOption4, TruefOption, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN (SELECT * FROM studentassignment WHERE UserName = ?) AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1", con);
+                var cmd = new MySqlCommand("SELECT a.ID, subject, Text, mText, Option1, Option2, Option3, Option4, TrueOption, fText, fOption1, fOption2, fOption3, fOption4, TruefOption, tText, tOption1, tOption2, tOption3, tOption4, TruetOption FROM assignments AS a LEFT OUTER JOIN (SELECT * FROM studentassignment WHERE UserName = ?) AS o ON a.id = o.id WHERE o.id IS null ORDER BY rand() limit 1", con);
                 cmd.Parameters.AddWithValue("?", UserName);
                 using (var r = cmd.ExecuteReader())
                 {
@@ -122,20 +127,23 @@ namespace ELearning.Models
                         RandomAssignment.ID          = r.GetInt32(0);
                         RandomAssignment.SubjectId   = r.GetString(1);
                         RandomAssignment.Text        = r.GetString(2);
-                        RandomAssignment.Option1     = r.GetString(3);
-                        RandomAssignment.Option2     = r.GetString(4);
-                        RandomAssignment.Option3     = r.GetString(5);
-                        RandomAssignment.Option4     = r.GetString(6);
-                        RandomAssignment.TrueOption  = r.GetInt32(7);
-                        RandomAssignment.fOption1    = r.GetString(8);
-                        RandomAssignment.fOption2    = r.GetString(9);
-                        RandomAssignment.fOption3    = r.GetString(10);
-                        RandomAssignment.fOption4    = r.GetString(11);
-                        RandomAssignment.TruefOption = r.GetInt32(12);
-                        RandomAssignment.tOption1    = r.GetString(13);
-                        RandomAssignment.tOption2    = r.GetString(14);
-                        RandomAssignment.tOption3    = r.GetString(15);
-                        RandomAssignment.tOption4    = r.GetString(16);
+                        RandomAssignment.mText       = r.GetString(3);
+                        RandomAssignment.Option1     = r.GetString(4);
+                        RandomAssignment.Option2     = r.GetString(5);
+                        RandomAssignment.Option3     = r.GetString(6);
+                        RandomAssignment.Option4     = r.GetString(7);
+                        RandomAssignment.TrueOption  = r.GetInt32(8);
+                        RandomAssignment.fText       = r.GetString(9);
+                        RandomAssignment.fOption1    = r.GetString(10);
+                        RandomAssignment.fOption2    = r.GetString(11);
+                        RandomAssignment.fOption3    = r.GetString(12);
+                        RandomAssignment.fOption4    = r.GetString(13);
+                        RandomAssignment.TruefOption = r.GetInt32(14);
+                        RandomAssignment.tText       = r.GetString(15);
+                        RandomAssignment.tOption1    = r.GetString(16);
+                        RandomAssignment.tOption2    = r.GetString(17);
+                        RandomAssignment.tOption3    = r.GetString(18);
+                        RandomAssignment.tOption4    = r.GetString(19);
                         return RandomAssignment;
                     }
                     Assignment assign = new Assignment();
