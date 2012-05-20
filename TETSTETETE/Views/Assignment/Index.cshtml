@@ -17,9 +17,16 @@
                     <center>
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
-                                <th width="300">Teoriopgave</th>
-                                <th width="300">Mellemregning</th>
-                                <th width="150">Resultat</th>
+                                @{ if (Model.gAssignment.TruetOption.Equals(5))
+                                   { <th width="300"></th> }
+                                   else
+                                   { <th width="300">Teoriopgave</th> <p>@Model.gAssignment.TruetOption</p> }
+                                   if (Model.gAssignment.TrueOption.Equals(5))
+                                   { <th width="300"></th> }
+                                   else
+                                   { <th width="300">Mellemregning</th> }
+                              }
+                                 <th width="150">Resultat</th>
                             </tr>
                             <tr>
                                 <td><div style="color:#5c87b2">@Model.gAssignment.tText</div></td>
@@ -28,6 +35,9 @@
                             </tr>
                             <tr>
                                 <td align="right">
+                                @{ if (Model.gAssignment.TruetOption.Equals(5)) { }
+                                   else
+                                   {
                                     <div class="editor-field">
                                         <label for="Answer1">@Html.DisplayFor(model => model.gAssignment.tOption1)</label>
                                         <input id="Answer1" name="TheoryAnswer" type="radio" value="1" />
@@ -43,9 +53,13 @@
                                     <div class="editor-field">
                                         <label for="Answer4">@Html.DisplayFor(model => model.gAssignment.tOption4)</label>
                                         <input id="Answer4" name="TheoryAnswer" type="radio" value="4" />
-                                    </div>
+                                    </div>}
+                }
                                 </td>
                                 <td align="right">
+                                @{ if (Model.gAssignment.TrueOption.Equals(5)) { }
+                                   else
+                                   {
                                     <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option1)
                                     @Html.RadioButtonFor(model => model.Answer, 1)</div>
                                      
@@ -56,7 +70,8 @@
                                     @Html.RadioButtonFor(model => model.Answer, 3)</div> 
                                     
                                     <div class="editor-field">@Html.LabelFor(model => model.Answer, Model.gAssignment.Option4)
-                                    @Html.RadioButtonFor(model => model.Answer, 4)</div>
+                                    @Html.RadioButtonFor(model => model.Answer, 4)</div>}
+                }
                                 </td>
                                 <td align="right">
                                     <div class="editor-field">@Html.LabelFor(model => model.FinalAnswer, Model.gAssignment.fOption1)
