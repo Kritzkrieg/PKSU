@@ -21,7 +21,12 @@ namespace ELearning.Controllers
         {
             return View();
         }
-       
+
+        public ActionResult HistoryResult(int ID, int Opt1, int Opt2, int Opt3)
+        {
+            return RedirectToAction("HistoryResult", "Assignment", new { ID = ID, Opt1 = Opt1, Opt2 = Opt2, Opt3 = Opt3 });
+        }
+
         public ActionResult UserProfile(string UserName = "0")
         {
             StudentAssignmentUser sau = new StudentAssignmentUser();
@@ -50,7 +55,7 @@ namespace ELearning.Controllers
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 con.Open();
-                var cmd = new MySqlCommand("SELECT DateTime, count(*) as occurrences, ID, OptionTaken1, OptionTaken2, OptionTaken3, Solved1, Solved2, Solved3 FROM studentassignment WHERE UserName= ? GROUP BY DateTime ORDER BY occurrences desc, DateTime LIMIT 1", con);
+                var cmd = new MySqlCommand("SELECT SUBSTRING(DateTime, 1, 10) as 'DateTime', count(*) as occurrences, ID, OptionTaken1, OptionTaken2, OptionTaken3, Solved1, Solved2, Solved3 FROM studentassignment WHERE UserName= ? GROUP BY DateTime ORDER BY occurrences desc, DateTime LIMIT 1", con);
                 cmd.Parameters.AddWithValue("?", UserName);
                 using (var r = cmd.ExecuteReader())
                 {

@@ -97,7 +97,7 @@
     {
         <tr>
             <td>
-                @item.DateTime
+                @Html.ActionLink(item.DateTime, "HistoryResult", new { ID = item.ID, Opt1 = item.OptionTaken1, Opt2 = item.OptionTaken2, Opt3 = item.OptionTaken3 })
             </td>
        </tr>
     }

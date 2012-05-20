@@ -37,26 +37,14 @@ namespace ELearning.Controllers
         }
 
         //Get a specific assignment and the user's choices based on time of completetion
-        public ActionResult HistoryResult(Assignment assignment, string username, string datetime)
+        public ActionResult HistoryResult(int ID, int Opt1, int Opt2, int Opt3)
         {
             GivenAssignment mdl = new GivenAssignment();
+            Assignment assignment = Assignment.GetSpecificAssignment(ID);
             mdl.gAssignment = assignment;
-            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
-            {
-                con.Open();
-                var cmd = new MySqlCommand("SELECT OptionTaken1, OptionTaken2, OptionTaken3 FROM studentassignment WHERE UserName = @UserName AND ID = @ID AND DateTime = @DateTime", con);
-                cmd.Parameters.AddWithValue("@UserName", username);
-                cmd.Parameters.AddWithValue("@ID", assignment.ID);
-                cmd.Parameters.AddWithValue("@DateTime", datetime);
-                using (var r = cmd.ExecuteReader())
-                {
-                    r.Read();
-                    mdl.TheoryAnswer = r.GetInt32(0);
-                    mdl.Answer = r.GetInt32(1);
-                    mdl.FinalAnswer = r.GetInt32(2);
-                    
-                }
-            }
+            mdl.TheoryAnswer = Opt1;
+            mdl.Answer = Opt2;
+            mdl.FinalAnswer = Opt3;
                 return RedirectToAction("Result", mdl);
         }
 
