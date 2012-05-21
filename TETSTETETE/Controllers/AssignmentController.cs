@@ -29,11 +29,12 @@ namespace ELearning.Controllers
         [HttpPost]
         public ActionResult Index(ELearning.Models.GivenAssignment mdl)
         {
-            
+            GivenAssignment gass = mdl;
             Assignment ass = Assignment.GetSpecificAssignment(mdl.assignmentID);
-            mdl.gAssignment = ass;
-            mdl.SolveAssignment(User.Identity.Name);
-            return RedirectToAction("Result", "Assignment", mdl);
+            gass.gAssignment = ass;
+            //gass.SolveAssignment(User.Identity.Name);
+            ViewBag.lolz = mdl.assignmentID;
+            return RedirectToAction("Result", "Assignment", gass);
         }
 
         //Get a specific assignment and the user's choices based on time of completetion

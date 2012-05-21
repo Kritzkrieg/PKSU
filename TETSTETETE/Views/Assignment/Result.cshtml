@@ -1,12 +1,15 @@
 ﻿@model ELearning.Models.GivenAssignment
+@using ELearning.Models
 @{
     ViewBag.Title = "result";
+    Assignment assignment = Assignment.GetSpecificAssignment(Model.assignmentID);
 }
 
+
 <h2>Result</h2>
-<h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
 
 
+ 
  <div id="box">
         <div id="lb"><div id="rb">
         <div id="bb"><div id="blc"><div id="brc">
@@ -17,11 +20,11 @@
                     <center>
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
-                            @{ if (Model.gAssignment.TruetOption.Equals(5))
+                            @{ if (assignment.TruetOption.Equals(5))
                                { <th width="300"></th> }
                                else
                                { <th width="300">Teoriopgave</th> }
-                               if (Model.gAssignment.TrueOption.Equals(5))
+                               if (assignment.TrueOption.Equals(5))
                                { <th width="300"></th> }
                                else
                                { <th width="300">Mellemregning</th> }
@@ -29,7 +32,7 @@
                                  <th width="150">Resultat</th>
                             </tr>
                             <tr>
-                            @{ if (Model.gAssignment.TruetOption.Equals(1))
+                            @{ if (assignment.TruetOption.Equals(1))
                                {
                                    if (Model.TheoryAnswer.Equals(1))
                                    {
@@ -70,7 +73,7 @@
 
                                }
 
-                               else if (Model.gAssignment.TruetOption.Equals(2))
+                               else if (assignment.TruetOption.Equals(2))
                                {
                                    if (Model.TheoryAnswer.Equals(1))
                                    {
@@ -112,7 +115,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TruetOption.Equals(3))
+                               else if (assignment.TruetOption.Equals(3))
                                {
                                    if (Model.TheoryAnswer.Equals(1))
                                    {
@@ -154,7 +157,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TruetOption.Equals(4))
+                               else if (assignment.TruetOption.Equals(4))
                                {
                                    if (Model.TheoryAnswer.Equals(1))
                                    {
@@ -196,7 +199,7 @@
                                }   
                                       
                                    
-                               if (Model.gAssignment.TrueOption.Equals(1))
+                               if (assignment.TrueOption.Equals(1))
                                {
                                    if (Model.Answer.Equals(1))
                                    {
@@ -237,7 +240,7 @@
 
                                }
 
-                               else if (Model.gAssignment.TrueOption.Equals(2))
+                               else if (assignment.TrueOption.Equals(2))
                                {
                                    if (Model.Answer.Equals(1))
                                    {
@@ -279,7 +282,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TrueOption.Equals(3))
+                               else if (assignment.TrueOption.Equals(3))
                                {
                                    if (Model.Answer.Equals(1))
                                    {
@@ -321,7 +324,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TrueOption.Equals(4))
+                               else if (assignment.TrueOption.Equals(4))
                                {
                                    if (Model.Answer.Equals(1))
                                    {
@@ -364,7 +367,7 @@
                                    
                                       
                                 
-                               if (Model.gAssignment.TruefOption.Equals(1))
+                               if (assignment.TruefOption.Equals(1))
                                {
                                    if (Model.FinalAnswer.Equals(1))
                                    {
@@ -405,7 +408,7 @@
 
                                }
 
-                               else if (Model.gAssignment.TruefOption.Equals(2))
+                               else if (assignment.TruefOption.Equals(2))
                                {
                                    if (Model.FinalAnswer.Equals(1))
                                    {
@@ -447,7 +450,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TruefOption.Equals(3))
+                               else if (assignment.TruefOption.Equals(3))
                                {
                                    if (Model.FinalAnswer.Equals(1))
                                    {
@@ -489,7 +492,7 @@
                                }
 
 
-                               else if (Model.gAssignment.TruefOption.Equals(4))
+                               else if (assignment.TruefOption.Equals(4))
                                {
                                    if (Model.FinalAnswer.Equals(1))
                                    {
@@ -533,7 +536,7 @@
                                    }
                                
                                 
-                                    @Html.Hidden("assignmentID", Model.gAssignment.ID);
+                                    @Html.Hidden("assignmentID", assignment.ID);
                                 
                             </tr>
                         </table>
@@ -546,21 +549,21 @@
     <div style="color:#00FF00">Løst opgave 80 point</div>
     @{ 
         int x = 0;
-        var j = Model.gAssignment.TruetOption;
+        var j = assignment.TruetOption;
         for (int i = 0; i == 2; i++ )
         {
-            if(Model.gAssignment.Equals(j))
+            if(assignment.Equals(j))
             {
                 <div style="color:#00FF00">Løst delopgave korrekt 120 point</div>
                 x++;
             }
             if(i == 0)
             {
-                j = Model.gAssignment.TrueOption;
+                j = assignment.TrueOption;
             }
             else
             {
-                j = Model.gAssignment.TruefOption;
+                j = assignment.TruefOption;
             }
         }
         if (x == 3)
