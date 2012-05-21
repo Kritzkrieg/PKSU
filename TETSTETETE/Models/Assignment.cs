@@ -418,8 +418,12 @@ namespace ELearning.Models
 
                 cmd.ExecuteNonQuery();
 
-                int AddedPoints = 80 + (120*i);
-                if (i == 3) { AddedPoints = AddedPoints + 80; }
+                int count = 1;
+                if (gAssignment.TruetOption.Equals(5)) { count++; }
+                if (gAssignment.TrueOption.Equals(5)) { count++; } /* ................skal også gøres i result..................... */
+
+                int AddedPoints = 80 + (120 * i);
+                if (i == count) { AddedPoints = AddedPoints + 80; }
 
                 var cmd2 = new MySqlCommand("UPDATE userpoints SET Points=Points+@AddedPoints WHERE UserName=@UserName2", con);
                 cmd.Parameters.AddWithValue("@AddedPoints", AddedPoints);
