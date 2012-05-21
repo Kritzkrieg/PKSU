@@ -4,95 +4,106 @@
     ViewBag.Title = "result";
 }
 
-
 <h2>Result</h2>
 
 
- 
- <div id="box">
-        <div id="lb"><div id="rb">
-        <div id="bb"><div id="blc"><div id="brc">
-        <div id="tb"><div id="tlc"><div id="trc">
-            <div id="content">
-                @using (Html.BeginForm())
-                {
-                    <center>
-                        <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
-                            <tr>
-                            <!-- Opstiller overskrifter -->
-                            @if (ViewBag.ShowTheory == 1) 
-                            {
-                              <th width="300">Teoriopgave</th>  
-                            }
-                            @if (ViewBag.ShowMiddle == 1)
-                            {
-                                <th width="300">Mellemregning</th>   
-                            }
-                            @if (ViewBag.ShowFinal == 1)
-                            {
-                                <th width="300">Resultat</th>   
-                            }
-                            </tr>
-                            <tr>
-                          
-                            @if (Model.gAssignment.TruetOption != 5)
-                            {
-                                <td align="right">
-                                    <div class="editor-field" @if (Model.gAssignment.TruetOption == 1 && Model.TheoryAnswer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption1</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TruetOption == 2 && Model.TheoryAnswer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption2</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TruetOption == 3 && Model.TheoryAnswer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption3</div> 
-                                    <div class="editor-field" @if (Model.gAssignment.TruetOption == 4 && Model.TheoryAnswer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption4</div>
-                                </td>
-                            }
+<fieldset>
+    <legend><div style="color:#5c87b2">@Html.DisplayFor(model => model.gAssignment.SubjectId)</div></legend>
+    <h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
+
+     <div id="box">
+            <div id="lb"><div id="rb">
+            <div id="bb"><div id="blc"><div id="brc">
+            <div id="tb"><div id="tlc"><div id="trc">
+                <div id="content">
+                    @using (Html.BeginForm())
+                    {
+                        <center>
+                            <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
+                                <tr>
+                                <!-- Opstiller overskrifter -->
+                                @if (ViewBag.ShowTheory == 1) 
+                                {
+                                  <th width="300">Teoriopgave</th>  
+                                }
+                                @if (ViewBag.ShowMiddle == 1)
+                                {
+                                    <th width="300">Mellemregning</th>   
+                                }
+                                @if (ViewBag.ShowFinal == 1)
+                                {
+                                    <th width="300">Resultat</th>   
+                                }
+                                </tr>
+                                <tr>
+                                    <td><div style="color:#5c87b2">@Model.gAssignment.tText</div></td>
+                                    <td><div style="color:#5c87b2">@Model.gAssignment.mText</div></td>
+                                    <td><div style="color:#5c87b2">@Model.gAssignment.fText</div></td>
+                                </tr>
+                                <tr>
+                                @if (Model.gAssignment.TruetOption != 5)
+                                {
+                                    <td align="center">
+                                        <div class="editor-field" @if (Model.gAssignment.TruetOption == 1 && Model.TheoryAnswer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption1</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TruetOption == 2 && Model.TheoryAnswer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption2</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TruetOption == 3 && Model.TheoryAnswer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption3</div> 
+                                        <div class="editor-field" @if (Model.gAssignment.TruetOption == 4 && Model.TheoryAnswer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.TheoryAnswer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.tOption4</div>
+                                    </td>
+                                }
                                 
-                            @if (Model.gAssignment.TrueOption != 5)
-                            {
-                                <td>
-                                    <div class="editor-field" @if (Model.gAssignment.TrueOption == 1 && Model.Answer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option1</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TrueOption == 2 && Model.Answer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option2</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TrueOption == 3 && Model.Answer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option3</div> 
-                                    <div class="editor-field" @if (Model.gAssignment.TrueOption == 4 && Model.Answer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option4</div>
-                                </td>
-                            }
+                                @if (Model.gAssignment.TrueOption != 5)
+                                {
+                                    <td align="center">
+                                        <div class="editor-field" @if (Model.gAssignment.TrueOption == 1 && Model.Answer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option1</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TrueOption == 2 && Model.Answer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option2</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TrueOption == 3 && Model.Answer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option3</div> 
+                                        <div class="editor-field" @if (Model.gAssignment.TrueOption == 4 && Model.Answer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.Answer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.Option4</div>
+                                    </td>
+                                }
                                 
-                            @if (Model.gAssignment.TruefOption != 5)
-                            {
-                                <td @if (Model.gAssignment.TruetOption != 5 && Model.gAssignment.TrueOption != 5) { @Html.Raw("align='right'"); } else { @Html.Raw("align='center'"); }>
-                                    <div class="editor-field" @if (Model.gAssignment.TruefOption == 1 && Model.FinalAnswer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption1</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TruefOption == 2 && Model.FinalAnswer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption2</div>
-                                    <div class="editor-field" @if (Model.gAssignment.TruefOption == 3 && Model.FinalAnswer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption3</div> 
-                                    <div class="editor-field" @if (Model.gAssignment.TruefOption == 4 && Model.FinalAnswer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption4</div>
-                                </td>
-                             }   
-                            </tr>
-                        </table>
-                    </center>
-                }
-            </div>
-        </div></div></div></div>
-        </div></div></div></div>
-    </div>
-    <!--div style="color:#00FF00">Løst opgave 80 point</div>-->
-    @{/* 
-        int x = 0;
-        if (assignment.TruetOption.Equals(Model.TheoryAnswer))
-        {
-            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
-            x++;
+                                @if (Model.gAssignment.TruefOption != 5)
+                                {
+                                    <td align="center">
+                                        <div class="editor-field" @if (Model.gAssignment.TruefOption == 1 && Model.FinalAnswer == 1) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==1 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption1</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TruefOption == 2 && Model.FinalAnswer == 2) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==2 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption2</div>
+                                        <div class="editor-field" @if (Model.gAssignment.TruefOption == 3 && Model.FinalAnswer == 3) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==3 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption3</div> 
+                                        <div class="editor-field" @if (Model.gAssignment.TruefOption == 4 && Model.FinalAnswer == 4) { @Html.Raw("style='color:#00FF00'") } else if (Model.FinalAnswer==4 ) { @Html.Raw("style='color:#FF0000'"); }> @Model.gAssignment.fOption4</div>
+                                    </td>
+                                 }   
+                                </tr>
+                            </table>
+                        </center>
+                    }
+                </div>
+            </div></div></div></div>
+            </div></div></div></div>
+        </div>
+        <div style="color:#00FF00">Løst opgave 80 point</div>
+        @{ 
+            int x = 0;
+            if (Model.gAssignment.TruetOption.Equals(Model.TheoryAnswer))
+            {
+                <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+                x++;
+            }
+            if (Model.gAssignment.TrueOption.Equals(Model.Answer))
+            {
+                <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+                x++;
+            }
+            if (Model.gAssignment.TruefOption.Equals(Model.FinalAnswer))
+            {
+                <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+                x++;
+            }
+
+            int count = 1;
+            if (Model.gAssignment.TruetOption.Equals(5)) { count++; }
+            if (Model.gAssignment.TrueOption.Equals(5)) { count++; } 
+            if (x == count)
+            {
+                <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div>
+            }    
         }
-        if (assignment.TrueOption.Equals(Model.Answer))
-        {
-            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
-            x++;
-        }
-        if (assignment.TruefOption.Equals(Model.FinalAnswer))
-        {
-            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
-            x++;
-        }
-        if (x == 3)
-        {
-            <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div>
-        }    
-    */}                                                    
+</fieldset>                                                    
     
