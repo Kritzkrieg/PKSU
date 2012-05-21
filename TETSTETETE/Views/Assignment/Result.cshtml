@@ -28,7 +28,7 @@
                                { <th width="300"></th> }
                                else
                                { <th width="300">Mellemregning</th> }
-                              }
+                             }
                                  <th width="150">Resultat</th>
                             </tr>
                             <tr>
@@ -536,7 +536,7 @@
                                    }
                                
                                 
-                                    @Html.Hidden("assignmentID", assignment.ID);
+                                    @Html.Hidden("assignmentID", assignment.ID)
                                 
                             </tr>
                         </table>
@@ -549,24 +549,24 @@
     <div style="color:#00FF00">Løst opgave 80 point</div>
     @{ 
         int x = 0;
-        var j = assignment.TruetOption;
-        for (int i = 0; i == 2; i++ )
+        if(assignment.TruetOption.Equals(Model.TheoryAnswer))
         {
-            if(assignment.Equals(j))
-            {
-                <div style="color:#00FF00">Løst delopgave korrekt 120 point</div>
-                x++;
-            }
-            if(i == 0)
-            {
-                j = assignment.TrueOption;
-            }
-            else
-            {
-                j = assignment.TruefOption;
-            }
+            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+            x++;
         }
+        if(assignment.TrueOption.Equals(Model.Answer))
+        {
+            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+            x++;
+        }
+        if(assignment.TruefOption.Equals(Model.FinalAnswer))
+        {
+            <div style="color:#00FF00">Løst delopgave korrekt 120</div>
+            x++;
+        }                                                       
         if (x == 3)
-        { <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div> }    
+        {
+            <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div>
+        }    
     }                                                    
     
