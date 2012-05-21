@@ -260,30 +260,32 @@ namespace ELearning.Models
                 cmd.Parameters.AddWithValue("?", id);
                 using (var r = cmd.ExecuteReader())
                 {
-                    r.Read();
-                    var SpecificAssignment = new Assignment();
-                    SpecificAssignment.ID          = r.GetInt32(0);
-                    SpecificAssignment.SubjectId   = r.GetString(1);
-                    SpecificAssignment.Text        = r.GetString(2);
-                    SpecificAssignment.mText       = r.GetString(3);
-                    SpecificAssignment.Option1     = r.GetString(4);
-                    SpecificAssignment.Option2     = r.GetString(5);
-                    SpecificAssignment.Option3     = r.GetString(6);
-                    SpecificAssignment.Option4     = r.GetString(7);
-                    SpecificAssignment.TrueOption  = r.GetInt32(8);
-                    SpecificAssignment.fText       = r.GetString(9);
-                    SpecificAssignment.fOption1    = r.GetString(10);
-                    SpecificAssignment.fOption2    = r.GetString(11);
-                    SpecificAssignment.fOption3    = r.GetString(12);
-                    SpecificAssignment.fOption4    = r.GetString(13);
-                    SpecificAssignment.TruefOption = r.GetInt32(14);
-                    SpecificAssignment.tText       = r.GetString(15);
-                    SpecificAssignment.tOption1    = r.GetString(16);
-                    SpecificAssignment.tOption2    = r.GetString(17);
-                    SpecificAssignment.tOption3    = r.GetString(18);
-                    SpecificAssignment.tOption4    = r.GetString(19);
-                    SpecificAssignment.TruetOption = r.GetInt32(20);
-                    return SpecificAssignment;
+                        var SpecificAssignment = new Assignment();
+                    if (r.Read())
+                    {
+                        SpecificAssignment.ID          = r.GetInt32(0);
+                        SpecificAssignment.SubjectId   = r.GetString(1);
+                        SpecificAssignment.Text        = r.GetString(2);
+                        SpecificAssignment.mText       = r.GetString(3);
+                        SpecificAssignment.Option1     = r.GetString(4);
+                        SpecificAssignment.Option2     = r.GetString(5);
+                        SpecificAssignment.Option3     = r.GetString(6);
+                        SpecificAssignment.Option4     = r.GetString(7);
+                        SpecificAssignment.TrueOption  = r.GetInt32(8);
+                        SpecificAssignment.fText       = r.GetString(9);
+                        SpecificAssignment.fOption1    = r.GetString(10);
+                        SpecificAssignment.fOption2    = r.GetString(11);
+                        SpecificAssignment.fOption3    = r.GetString(12);
+                        SpecificAssignment.fOption4    = r.GetString(13);
+                        SpecificAssignment.TruefOption = r.GetInt32(14);
+                        SpecificAssignment.tText       = r.GetString(15);
+                        SpecificAssignment.tOption1    = r.GetString(16);
+                        SpecificAssignment.tOption2    = r.GetString(17);
+                        SpecificAssignment.tOption3    = r.GetString(18);
+                        SpecificAssignment.tOption4    = r.GetString(19);
+                        SpecificAssignment.TruetOption = r.GetInt32(20);
+                    }
+                        return SpecificAssignment;
                 }
             }
         }
@@ -416,8 +418,12 @@ namespace ELearning.Models
 
                 cmd.ExecuteNonQuery();
 
-                int AddedPoints = 80 + (120*i);
-                if (i == 3) { AddedPoints = AddedPoints + 80; }
+                int count = 1;
+                if (gAssignment.TruetOption.Equals(5)) { count++; }
+                if (gAssignment.TrueOption.Equals(5)) { count++; } /* ................skal også gøres i result..................... */
+
+                int AddedPoints = 80 + (120 * i);
+                if (i == count) { AddedPoints = AddedPoints + 80; }
 
                 var cmd2 = new MySqlCommand("UPDATE userpoints SET Points=Points+@AddedPoints WHERE UserName=@UserName2", con);
                 cmd.Parameters.AddWithValue("@AddedPoints", AddedPoints);
