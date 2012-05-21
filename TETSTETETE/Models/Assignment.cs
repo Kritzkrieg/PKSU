@@ -416,7 +416,7 @@ namespace ELearning.Models
 
                 int count = 1;
                 if (gAssignment.TruetOption.Equals(5)) { count++; }
-                if (gAssignment.TrueOption.Equals(5)) { count++; } /* ................skal også gøres i result..................... */
+                if (gAssignment.TrueOption.Equals(5)) { count++; }
 
                 int AddedPoints = 80 + (120 * i);
                 if (i == count) { AddedPoints = AddedPoints + 80; }
