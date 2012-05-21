@@ -112,6 +112,26 @@ namespace ELearning.Models
             return assignment;
         }
 
+        public static int NumberOfAssignmentsSubject(string UserName, string Subject)
+        {
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT COUNT(UserName), subject FROM studentassignment LEFT OUTER JOIN assignments ON studentassignment.ID = assignments.ID WHERE Username = @UserName AND subject = @Subject", con);
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                cmd.Parameters.AddWithValue("@Subject", Subject);
+                using (var r = cmd.ExecuteReader())
+                {
+                    if (r.Read())
+                    {
+                        int number = r.GetInt32(0);
+                        return number;
+                    }
+                }
+            }
+            return 1;
+        }
+
         public static Assignment GetAssignment(string UserName)
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
