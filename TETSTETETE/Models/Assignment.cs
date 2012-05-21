@@ -388,23 +388,40 @@ namespace ELearning.Models
                 cmd.Parameters.AddWithValue("@OptionTaken1", TheoryAnswer);
                 cmd.Parameters.AddWithValue("@OptionTaken2", Answer);
                 cmd.Parameters.AddWithValue("@OptionTaken3", FinalAnswer);
-                 bool theorybool = false;
-                if (TheoryAnswer == gAssignment.TruetOption) {
+
+                int i = 0;
+                bool theorybool = false;
+                if (TheoryAnswer == gAssignment.TruetOption)
+                {
+                    i++;
                     theorybool = true;
                 }
                 cmd.Parameters.AddWithValue("@Solved1", theorybool);
+
                 bool answerbool = false;
                 if (Answer == gAssignment.TrueOption)
                 {
+                    i++;
                     answerbool = true;
                 }
                 cmd.Parameters.AddWithValue("@Solved2", answerbool);
+
                 bool finalbool = false;
                 if (FinalAnswer == gAssignment.TruefOption)
                 {
+                    i++;
                     finalbool = true;
                 }
                 cmd.Parameters.AddWithValue("@Solved3", finalbool);
+
+                cmd.ExecuteNonQuery();
+
+                int AddedPoints = 80 + (120*i);
+                if (i == 3) { AddedPoints = AddedPoints + 80; }
+
+                var cmd2 = new MySqlCommand("UPDATE userpoints SET Points=Points+@AddedPoints WHERE UserName=@UserName2", con);
+                cmd.Parameters.AddWithValue("@AddedPoints", AddedPoints);
+                cmd.Parameters.AddWithValue("@UserName2", UserName);
                 cmd.ExecuteNonQuery();
             }
         }

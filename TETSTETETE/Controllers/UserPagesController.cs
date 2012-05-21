@@ -85,6 +85,22 @@ namespace ELearning.Controllers
                 }
             }
 
+            int points = 0;
+            ViewBag.Points = points;
+            using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                con.Open();
+                var cmd = new MySqlCommand("SELECT `Points` FROM userpoints WHERE `UserName` = @UserName", con);
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                using (var r = cmd.ExecuteReader())
+                {
+                    if (r.Read())
+                    {
+                        ViewBag.Points = r.GetInt32(0);
+                    }
+                }
+            }
+
             return View(sau);
         }
 

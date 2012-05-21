@@ -39,15 +39,15 @@ namespace ELearning.Models
                     while (r.Read())
                     {
                         var StudentsAssignments = new StudentAssignment();
-                        StudentsAssignments.UserName = name;
-                        StudentsAssignments.ID = r.GetInt32(0);
-                        StudentsAssignments.DateTime = r.GetString(1);
+                        StudentsAssignments.UserName     = name;
+                        StudentsAssignments.ID           = r.GetInt32(0);
+                        StudentsAssignments.DateTime     = r.GetString(1);
                         StudentsAssignments.OptionTaken1 = r.GetInt32(2);
                         StudentsAssignments.OptionTaken2 = r.GetInt32(3);
                         StudentsAssignments.OptionTaken3 = r.GetInt32(4);
-                        StudentsAssignments.Solved1 = r.GetBoolean(5);
-                        StudentsAssignments.Solved2 = r.GetBoolean(6);
-                        StudentsAssignments.Solved3 = r.GetBoolean(7);
+                        StudentsAssignments.Solved1      = r.GetBoolean(5);
+                        StudentsAssignments.Solved2      = r.GetBoolean(6);
+                        StudentsAssignments.Solved3      = r.GetBoolean(7);
                         Sas.Add(StudentsAssignments);
                     }
                     return Sas;
