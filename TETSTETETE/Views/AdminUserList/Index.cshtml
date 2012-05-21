@@ -1,4 +1,4 @@
-﻿@model System.Web.Security.MembershipUserCollection
+﻿@model IEnumerable<MembershipUser>
 
 @{
     ViewBag.Title = "Brugerliste";
@@ -10,6 +10,8 @@
         <th>
             Brugernavn
         </th>
+        <th></th>
+        <th></th>
         <th></th>
         <th>Status</th>
     </tr>
@@ -23,7 +25,13 @@
             @user.UserName
         </td>
         <td>
-           @Html.ActionLink("Brugerside", "UserProfile",  new { UserName = user.UserName }) | @Html.ActionLink("Rediger adgangskode", "ChangePassword", new { UserName = user.UserName }) | @Html.ActionLink("Slet bruger", "DeleteUser", new { UserName = user.UserName })   
+           @Html.ActionLink("Brugerside", "UserProfile",  new { UserName = user.UserName })
+        </td>
+        <td>
+           @Html.ActionLink("Rediger adgangskode", "ChangePassword", new { UserName = user.UserName })
+        </td>
+        <td>
+           @Html.ActionLink("Slet bruger", "DeleteUser", new { UserName = user.UserName })   
         </td>    
             @if (user.IsOnline)
             {

@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2><div style="color:#5c87b2">@Html.DisplayFor(model => model.gAssignment.SubjectId)</div></h2>
-<h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
+<fieldset>
+    <legend><div style="color:#5c87b2">@Html.DisplayFor(model => model.gAssignment.SubjectId)</div></legend>
+    <h4>@Html.DisplayTextFor(model => model.gAssignment.Text)</h4>
 
- <div id="box">
+    <div id="box">
         <div id="lb"><div id="rb">
         <div id="bb"><div id="blc"><div id="brc">
         <div id="tb"><div id="tlc"><div id="trc">
@@ -18,15 +19,15 @@
                         <table border="0" cellspacing="4" cellpadding="40" rules="cols" frame="void">
                             <tr>
                                 @{ if (Model.gAssignment.TruetOption.Equals(5))
-                                   { <th width="300"></th> }
-                                   else
-                                   { <th width="300">Teoriopgave</th> }
-                                   if (Model.gAssignment.TrueOption.Equals(5))
-                                   { <th width="300"></th> }
-                                   else
-                                   { <th width="300">Mellemregning</th> }
-                                 }
-                                 <th width="150">Resultat</th>
+                                    { <th width="300"></th> }
+                                    else
+                                    { <th width="300">Teoriopgave</th> }
+                                    if (Model.gAssignment.TrueOption.Equals(5))
+                                    { <th width="300"></th> }
+                                    else
+                                    { <th width="300">Mellemregning</th> }
+                                    }
+                                    <th width="150">Resultat</th>
                             </tr>
                             <tr>
                                 <td><div style="color:#5c87b2">@Model.gAssignment.tText</div></td>
@@ -36,111 +37,112 @@
                             <tr>
                                 <td align="right">
                                 @{ if (Model.gAssignment.TruetOption.Equals(5)) { }
-                                   else
-                                   {
-                                       if (Model.gAssignment.tOption1.Length > 0)
-                                       {
+                                    else
+                                    {
+                                        if (Model.gAssignment.tOption1.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="tAnswer1">@Html.DisplayFor(model => model.gAssignment.tOption1)</label>
                                             <input id="tAnswer1" name="TheoryAnswer" type="radio" value="1" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.tOption2.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.tOption2.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="tAnswer2">@Html.DisplayFor(model => model.gAssignment.tOption2)</label>
                                             <input id="tAnswer2" name="TheoryAnswer" type="radio" value="2" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.tOption3.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.tOption3.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="tAnswer3">@Html.DisplayFor(model => model.gAssignment.tOption3)</label>
                                             <input id="tAnswer3" name="TheoryAnswer" type="radio" value="3" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.tOption4.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.tOption4.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="tAnswer4">@Html.DisplayFor(model => model.gAssignment.tOption4)</label>
                                             <input id="tAnswer4" name="TheoryAnswer" type="radio" value="4" />
                                         </div>
-                                       }
+                                        }
                                     }
                                 }
                                 </td>
                                 <td align="right">
                                 @{ if (Model.gAssignment.TrueOption.Equals(5)) { }
-                                   else
-                                   {
-                                       if (Model.gAssignment.Option1.Length > 0)
-                                       {
+                                    else
+                                    {
+                                        if (Model.gAssignment.Option1.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="mAnswer1">@Html.DisplayFor(model => model.gAssignment.Option1)</label>
                                             <input id="mAnswer1" name="Answer" type="radio" value="1" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.Option2.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.Option2.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="mAnswer2">@Html.DisplayFor(model => model.gAssignment.Option2)</label>
                                             <input id="mAnswer2" name="Answer" type="radio" value="2" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.Option3.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.Option3.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="mAnswer3">@Html.DisplayFor(model => model.gAssignment.Option3)</label>
                                             <input id="mAnswer3" name="Answer" type="radio" value="3" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.Option4.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.Option4.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="mAnswer4">@Html.DisplayFor(model => model.gAssignment.Option4)</label>
                                             <input id="mAnswer4" name="Answer" type="radio" value="4" />
                                         </div>
-                                       }
+                                        }
                                     }
                                 }
                                 </td>
                                 <td align="right">
                                 @{ if (Model.gAssignment.TruefOption.Equals(5)) { }
-                                   else
-                                   {
-                                       if (Model.gAssignment.fOption1.Length > 0)
-                                       {
+                                    else
+                                    {
+                                        if (Model.gAssignment.fOption1.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="fAnswer1">@Html.DisplayFor(model => model.gAssignment.fOption1)</label>
                                             <input id="fAnswer1" name="FinalAnswer" type="radio" value="1" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.fOption2.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.fOption2.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="fAnswer2">@Html.DisplayFor(model => model.gAssignment.fOption2)</label>
                                             <input id="fAnswer2" name="FinalAnswer" type="radio" value="2" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.fOption3.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.fOption3.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="fAnswer3">@Html.DisplayFor(model => model.gAssignment.fOption3)</label>
                                             <input id="fAnswer3" name="FinalAnswer" type="radio" value="3" />
                                         </div>
-                                       }
-                                       if (Model.gAssignment.fOption4.Length > 0)
-                                       {
+                                        }
+                                        if (Model.gAssignment.fOption4.Length > 0)
+                                        {
                                         <div class="editor-field">
                                             <label for="fAnswer4">@Html.DisplayFor(model => model.gAssignment.fOption4)</label>
                                             <input id="fAnswer4" name="FinalAnswer" type="radio" value="4" />
                                         </div>
-                                       }
+                                        }
                                     }
                                 }
                                 </td>
                             </tr>
                         </table>
+                        @Html.Hidden("assignmentID", Model.gAssignment.ID)
                     </center>
                     <center>
                         <button type="submit" value="submit">Submit</button>
@@ -150,3 +152,4 @@
         </div></div></div></div>
         </div></div></div></div>
     </div>
+</fieldset>

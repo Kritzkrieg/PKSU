@@ -21,8 +21,10 @@ namespace ELearning.Controllers
             {
                 return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
             }
-            var users = Membership.GetAllUsers();
-            return View(users);
+
+            MembershipUserCollection users = Membership.GetAllUsers();
+            IEnumerable<MembershipUser> sortedUsers = users.Cast<MembershipUser>().ToList().OrderByDescending(x => x.IsOnline).ThenBy(x => x.UserName);
+            return View(sortedUsers);
         }
 
         //

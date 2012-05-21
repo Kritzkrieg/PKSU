@@ -20,8 +20,9 @@ namespace ELearning.Controllers
         {
             if (User.IsInRole("admin"))
             {
-                var allAssignments = Assignment.GetAllAssignments();
-                return View(allAssignments);
+                List<Assignment> allAssignments = Assignment.GetAllAssignments();
+                IEnumerable<Assignment> sortedAssignments = allAssignments.Cast<Assignment>().ToList().OrderBy(x => x.SubjectId).ThenBy(x => x.Text);
+                return View(sortedAssignments);
             }
             return RedirectToAction("UserProfile", "UserPages", new { UserName = User.Identity.Name });
         }
