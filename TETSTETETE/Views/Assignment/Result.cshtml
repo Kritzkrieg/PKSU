@@ -543,3 +543,27 @@
         </div></div></div></div>
         </div></div></div></div>
     </div>
+    <div style="color:#00FF00">Løst opgave 80 point</div>
+    @{ 
+        int x = 0;
+        var j = Model.gAssignment.TruetOption;
+        for (int i = 0; i == 2; i++ )
+        {
+            if(Model.gAssignment.Equals(j))
+            {
+                <div style="color:#00FF00">Løst delopgave korrekt 120 point</div>
+                x++;
+            }
+            if(i == 0)
+            {
+                j = Model.gAssignment.TrueOption;
+            }
+            else
+            {
+                j = Model.gAssignment.TruefOption;
+            }
+        }
+        if (x == 3)
+        { <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div> }    
+    }                                                    
+    
