@@ -32,7 +32,7 @@ namespace ELearning.Controllers
             GivenAssignment gass = mdl;
             Assignment ass = Assignment.GetSpecificAssignment(mdl.assignmentID);
             gass.gAssignment = ass;
-            //gass.SolveAssignment(User.Identity.Name);
+            gass.SolveAssignment(User.Identity.Name);
 
             return RedirectToAction("Result", "Assignment", gass);
         }
@@ -44,7 +44,7 @@ namespace ELearning.Controllers
             mdl.TheoryAnswer = Opt1;
             mdl.Answer = Opt2;
             mdl.FinalAnswer = Opt3;
-                return RedirectToAction("Result", mdl);
+            return RedirectToAction("Result", mdl);
         }
 
         public ActionResult Result(ELearning.Models.GivenAssignment mdl)

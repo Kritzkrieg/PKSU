@@ -24,15 +24,15 @@
                                 <!-- Opstiller overskrifter -->
                                 @if (ViewBag.ShowTheory == 1) 
                                 {
-                                  <th width="300">Teoriopgave</th>  
+                                  <th width="300">Delopgave 1</th>  
                                 }
                                 @if (ViewBag.ShowMiddle == 1)
                                 {
-                                    <th width="300">Mellemregning</th>   
+                                    <th width="300">Delopgave 2</th>   
                                 }
                                 @if (ViewBag.ShowFinal == 1)
                                 {
-                                    <th width="300">Resultat</th>   
+                                    <th width="300">Delopgave 3</th>   
                                 }
                                 </tr>
                                 <tr>
@@ -98,8 +98,8 @@
             }
 
             int count = 1;
-            if (Model.gAssignment.TruetOption.Equals(5)) { count++; }
-            if (Model.gAssignment.TrueOption.Equals(5)) { count++; } 
+            if (!Model.gAssignment.TruetOption.Equals(5)) { count++; }
+            if (!Model.gAssignment.TrueOption.Equals(5)) { count++; } 
             if (x == count)
             {
                 <div style="color:#00FF00">Løst hele opgaven korrekt 80 point</div>

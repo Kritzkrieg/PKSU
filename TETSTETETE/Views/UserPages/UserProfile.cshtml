@@ -69,22 +69,18 @@
         <fieldset>
             <legend>Highscore</legend>
             <table class="bottomBorder">
-                @{
-                    int j = 1;
-                    for (int i = 0; @ViewBag.TopTen[i] != null; i++)
+                @{ 
+                    for (int i = 0; i <= 19; i = i + 2)
                     {
                         <tr>
-                            <td width=100>@j @ViewBag.TopTen[i]</td>
+                            <td width=100>@((i+2)/2) @ViewBag.TopTen[i]</td>
                             <td width=100 align=right>@ViewBag.TopTen[i+1]</td>
                         </tr>
-                        i++;
-                        j++;
-                    }  
+                    }
                  }
             </table>
         </fieldset>
     </div>
-
     
     <div style="float:left;">
      <h2>Dine senest løste opgaver</h2>
@@ -139,4 +135,4 @@
       
   </div>
   <div style="display: block; clear: both;"></div>
- 
+  <br /><br /><br /><br />

@@ -25,13 +25,13 @@ namespace ELearning.Models
             set { subjectId = value; }
         }
         
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Opgaveformuleringsfeltet er påkrævet")]
         [Display(Name = "Opgaveformulering")]
         public string Text { get; set; }
 
         /*----------Teori----------*/
 
-        [Display(Name = "Teoriopgave formulering")]
+        [Display(Name = "Delopgave 1 formulering")]
         public string tText { get; set; }
 
         [Display(Name = "Teori 1")]
@@ -50,7 +50,7 @@ namespace ELearning.Models
 
         /*----------Mellemregning----------*/
 
-        [Display(Name = "Mellemregningsopgave formulering")]
+        [Display(Name = "Delopgave 2 formulering")]
         public string mText { get; set; }
 
         [Display(Name = "Mellemregning 1")]
@@ -69,7 +69,7 @@ namespace ELearning.Models
 
         /*----------Facit----------*/
 
-        [Display(Name = "Facitopgave formulering")]
+        [Display(Name = "Delopgave 3 formulering")]
         public string fText { get; set; }
 
         [Display(Name = "Svar 1")]
@@ -387,6 +387,7 @@ namespace ELearning.Models
                 cmd.Parameters.AddWithValue("@OptionTaken2", Answer);
                 cmd.Parameters.AddWithValue("@OptionTaken3", FinalAnswer);
 
+                var cmd2 = new MySqlCommand("UPDATE userpoints SET Points=Points+@AddedPoints WHERE UserName=@UserName2", con);
                 int i = 0;
                 bool theorybool = false;
                 if (TheoryAnswer == gAssignment.TruetOption)
@@ -411,20 +412,18 @@ namespace ELearning.Models
                     finalbool = true;
                 }
                 cmd.Parameters.AddWithValue("@Solved3", finalbool);
-
                 cmd.ExecuteNonQuery();
 
                 int count = 1;
-                if (gAssignment.TruetOption.Equals(5)) { count++; }
+                if (!gAssignment.TruetOption.Equals(5)) { count++; }
                 if (gAssignment.TrueOption.Equals(5)) { count++; }
 
                 int AddedPoints = 80 + (120 * i);
                 if (i == count) { AddedPoints = AddedPoints + 80; }
 
-                var cmd2 = new MySqlCommand("UPDATE userpoints SET Points=Points+@AddedPoints WHERE UserName=@UserName2", con);
-                cmd.Parameters.AddWithValue("@AddedPoints", AddedPoints);
-                cmd.Parameters.AddWithValue("@UserName2", UserName);
-                cmd.ExecuteNonQuery();
+                cmd2.Parameters.AddWithValue("@AddedPoints", AddedPoints);
+                cmd2.Parameters.AddWithValue("@UserName2", UserName);
+                cmd2.ExecuteNonQuery();
             }
         }
     }

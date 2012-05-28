@@ -68,10 +68,10 @@ namespace ELearning.Controllers
 
         public ActionResult Register()
         {
-            if (!Roles.RoleExists("student")) 
+            if (!Roles.RoleExists("Student")) 
             {
-                Roles.CreateRole("student");
-                Roles.CreateRole("admin");
+                Roles.CreateRole("Student");
+                Roles.CreateRole("Admin");
             }
             return View();
         }
