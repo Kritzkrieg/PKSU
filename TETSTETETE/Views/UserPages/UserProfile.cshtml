@@ -72,13 +72,12 @@
                 @{ 
                     for (int i = 0; i <= 19; i = i + 2)
                     {
-                        <tr>
-                            <td width=100>@((i+2)/2) @ViewBag.TopTen[i]</td>
-                            <td width=100 align=right>@ViewBag.TopTen[i+1]</td>
-                        </tr>
-                        if (ViewBag.TopTen[i + 2].Equals(null))
+                        if(@ViewBag.TopTen[i] != null)
                         {
-                            break;
+                            <tr>
+                                <td width=100>@((i+2)/2) @ViewBag.TopTen[i]</td>
+                                <td width=100 align=right>@ViewBag.TopTen[i+1]</td>
+                            </tr>
                         }
                     }
                  }

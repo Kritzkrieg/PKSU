@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
-using MySql.Web;
-using MySql.Data.MySqlClient;
 using MySql;
+using MySql.Data.MySqlClient;
+using MySql.Web;
 
 namespace ELearning.Models
 {
@@ -256,7 +256,7 @@ namespace ELearning.Models
                 cmd.Parameters.AddWithValue("?", id);
                 using (var r = cmd.ExecuteReader())
                 {
-                        var SpecificAssignment = new Assignment();
+                    var SpecificAssignment = new Assignment();
                     if (r.Read())
                     {
                         SpecificAssignment.ID          = r.GetInt32(0);
@@ -281,7 +281,7 @@ namespace ELearning.Models
                         SpecificAssignment.tOption4    = r.GetString(19);
                         SpecificAssignment.TruetOption = r.GetInt32(20);
                     }
-                        return SpecificAssignment;
+                    return SpecificAssignment;
                 }
             }
         }
@@ -374,7 +374,7 @@ namespace ELearning.Models
         public int FinalAnswer { get; set; }
         public int assignmentID { get; set; }
 
-         public void SolveAssignment(string UserName)
+        public void SolveAssignment(string UserName)
         {
             using (MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
